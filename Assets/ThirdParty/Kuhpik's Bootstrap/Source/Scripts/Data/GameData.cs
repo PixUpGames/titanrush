@@ -13,5 +13,6 @@ namespace Kuhpik
     public class GameData
     {
         public PlayerComponent playerComponent;
+        public int Coins;
     }
 }
