@@ -25,6 +25,9 @@ public class FailureSystem : GameSystem
     {
         game.playerComponent.NavMesh.isStopped = true;
 
+        Debug.LogWarning("INCREASING LEVEL NUMBER");
+        player.Level++;
+
         Bootstrap.Instance.ChangeGameState(GameStateID.Lose);
     }
 }
