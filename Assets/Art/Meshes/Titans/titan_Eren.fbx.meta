@@ -3,7 +3,22 @@ guid: 5ff12c36d5f0a184090545cee46b6299
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_Eren
+    second: {fileID: 2100000, guid: 37783bcaeed8bd646afbb198d41384d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair_Eren
+    second: {fileID: 2100000, guid: 162191e322213bd41b25a76f8b0c2e5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head_Eren
+    second: {fileID: 2100000, guid: c0c134539c86b614da2f32d30965f0cf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -65,8 +80,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 95
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
