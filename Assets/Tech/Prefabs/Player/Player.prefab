@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4223383999083932396}
   - component: {fileID: 1054150702266811004}
   - component: {fileID: 7331565221521774062}
+  - component: {fileID: 1658977200541096086}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -70,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavMesh: {fileID: 3064550820551151810}
-  OnTriggerEnterComponent: {fileID: 0}
+  OnTriggerEnterComp: {fileID: 1658977200541096086}
 --- !u!65 &1054150702266811004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1658977200541096086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064550820551151809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fbb2fcc219a224fbde7e7a0eea0c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3064550821274314926
 PrefabInstance:
   m_ObjectHideFlags: 0
