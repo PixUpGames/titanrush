@@ -11,6 +11,8 @@
         Pause = 3,
         Result = 10,
         Lose = 11,
+        Fighting = 12,
+        DodgeAndPunch = 13,
         Shop = 20,
         Settings = 30
 

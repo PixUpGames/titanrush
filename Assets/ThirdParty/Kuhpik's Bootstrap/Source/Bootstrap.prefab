@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1871075377}
   - component: {fileID: 1871075378}
   m_Layer: 0
-  m_Name: Collect Coins
+  m_Name: Collectables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e5002d00256374a8d746cfd919706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinTag: Coin
+  collectablesTag: Collectable
   coinIncrease: 51
 --- !u!1 &1938496355
 GameObject:
@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e96a8ec49ee94da0ebf364654d05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugLevel: {fileID: 11400000, guid: bb23cd42f6a2716409830e36675acaa4, type: 2}
 --- !u!1 &8080626202954114308
 GameObject:
   m_ObjectHideFlags: 0

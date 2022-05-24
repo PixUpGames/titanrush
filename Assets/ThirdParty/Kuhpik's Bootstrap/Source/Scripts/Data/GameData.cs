@@ -14,5 +14,7 @@ namespace Kuhpik
     {
         public PlayerComponent playerComponent;
         public int Coins;
+        public float MutationBars;
+        public Level LevelConfig;
     }
 }
