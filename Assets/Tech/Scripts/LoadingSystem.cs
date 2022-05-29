@@ -11,5 +11,6 @@ public class LoadingSystem : GameSystem
     {
         game.playerComponent = FindObjectOfType<PlayerComponent>();
         game.LevelConfig = debugLevel;
+        game.Cameras = FindObjectOfType<CamerasComponent>();
     }
 }

@@ -31,6 +31,8 @@ public class FinishSystem : GameSystem
                     }
             }
 
+            game.Cameras.SetFightCamera();
+
             game.playerComponent.OnTriggerEnterComp.OnEnter -= ChooseFinishState;
         }
     } 

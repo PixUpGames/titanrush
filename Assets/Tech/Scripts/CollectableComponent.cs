@@ -1,10 +1,17 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class CollectableComponent : MonoBehaviour
 {
     [SerializeField] private Collectable collectableType;
+    [SerializeField] private Vector3 rotation;
 
     public Collectable GetCollectable => collectableType;
+
+    private void Awake()
+    {
+        transform.DORotate(rotation, 1f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
+    }
 }
 
 public enum Collectable

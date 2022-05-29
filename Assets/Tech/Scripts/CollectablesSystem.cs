@@ -1,5 +1,7 @@
+using DG.Tweening;
 using Kuhpik;
 using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>

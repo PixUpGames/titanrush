@@ -16,5 +16,6 @@ namespace Kuhpik
         public int Coins;
         public float MutationBars;
         public Level LevelConfig;
+        public CamerasComponent Cameras;
     }
 }
