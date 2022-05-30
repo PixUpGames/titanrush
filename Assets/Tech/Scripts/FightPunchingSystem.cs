@@ -13,7 +13,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
 
     public override void OnStateEnter()
     {
-        game.playerComponent.PlayerAnimator.SetFightIdle(true);
+        game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
     }
 
     public override void OnUpdate()
@@ -32,7 +32,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     }
     private void UpdateUI()
     {
-        screen.UpdateSlider(powerValue, maxPowerValue);
+        screen.UpdatePowerSlider(powerValue, maxPowerValue);
     }
     #region Punch
     private void TryPunch()
@@ -51,9 +51,10 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     {
         punchTimer = Time.time + delayBetweenKicks;
 
-        game.playerComponent.PlayerAnimator.SetKickAnimation();
+        game.PlayerComponent.PlayerAnimator.SetKickAnimation();
 
-        // Do Damage
+        /// Change To changeable value
+        game.enemyBoss.ReceiveDamage(2f);
     }
     #endregion
 }

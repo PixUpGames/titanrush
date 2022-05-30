@@ -12,10 +12,12 @@ namespace Kuhpik
     [Serializable]
     public class GameData
     {
-        public PlayerComponent playerComponent;
+        public PlayerComponent PlayerComponent;
         public int Coins;
         public float MutationBars;
         public Level LevelConfig;
         public CamerasComponent Cameras;
+        public FinishComponent Finish;
+        public EnemyComponent enemyBoss;
     }
 }

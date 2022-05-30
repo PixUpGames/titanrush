@@ -8,6 +8,8 @@ public class EnemyComponent : MonoBehaviour
 
     private int kickHash;
 
+    private float currentHealth;
+
     private void Awake()
     {
         kickHash = Animator.StringToHash(PUNCH);    
@@ -16,5 +18,18 @@ public class EnemyComponent : MonoBehaviour
     public void DoPunch()
     {
         animator.SetTrigger(kickHash);
+    }
+
+    public void SetHealth(float value)
+    {
+        currentHealth = value;
+    }
+    public void ReceiveDamage(float value)
+    {
+        currentHealth -= value;
+    }
+    public float GetHealth()
+    {
+        return currentHealth;
     }
 }

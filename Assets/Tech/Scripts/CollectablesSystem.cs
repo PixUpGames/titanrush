@@ -12,13 +12,13 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
 
     public override void OnStateEnter()
     {
-        game.playerComponent.PlayerCanvas.SetMutationValue(0, game.LevelConfig.MutationBarsToEvolve);
+        game.PlayerComponent.PlayerCanvas.SetMutationValue(0, game.LevelConfig.MutationBarsToEvolve);
 
-        game.playerComponent.OnTriggerEnterComp.OnEnter += OnCollectablesPick;
+        game.PlayerComponent.OnTriggerEnterComp.OnEnter += OnCollectablesPick;
     }
     public override void OnStateExit()
     {
-        game.playerComponent.OnTriggerEnterComp.OnEnter -= OnCollectablesPick;
+        game.PlayerComponent.OnTriggerEnterComp.OnEnter -= OnCollectablesPick;
     }
 
     private void OnCollectablesPick(Transform other, Transform @object)
@@ -44,14 +44,14 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                 case Collectable.POWER_DOWN:
                     {
                         game.MutationBars = Mathf.Max(0, game.MutationBars - 1);
-                        game.playerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+                        game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
 
                         break;
                     }
                 case Collectable.POWER_UP:
                     {
                         game.MutationBars = Mathf.Min(game.LevelConfig.MutationBarsToEvolve, game.MutationBars + 1);
-                        game.playerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+                        game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
 
                         break;
                     }

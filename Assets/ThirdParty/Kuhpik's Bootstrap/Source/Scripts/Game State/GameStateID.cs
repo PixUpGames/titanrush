@@ -13,6 +13,7 @@
         Lose = 11,
         Fighting = 12,
         DodgeAndPunch = 13,
+        PrepareFighting = 14,
         Shop = 20,
         Settings = 30
 

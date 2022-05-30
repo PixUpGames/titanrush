@@ -9,8 +9,9 @@ public class LoadingSystem : GameSystem
     [SerializeField] private Level debugLevel;
     public override void OnInit()
     {
-        game.playerComponent = FindObjectOfType<PlayerComponent>();
+        game.PlayerComponent = FindObjectOfType<PlayerComponent>();
         game.LevelConfig = debugLevel;
         game.Cameras = FindObjectOfType<CamerasComponent>();
+        game.Finish = FindObjectOfType<FinishComponent>();
     }
 }

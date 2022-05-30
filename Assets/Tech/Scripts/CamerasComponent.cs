@@ -5,6 +5,7 @@ public class CamerasComponent : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera playerMainCamera;
     [SerializeField] private CinemachineVirtualCamera fightCamera;
+    [SerializeField] private CinemachineVirtualCamera defeatedEnemyCamera;
     [SerializeField] private CinemachineVirtualCamera[] allCameras;
 
     private void ResetAllCameras()
@@ -26,6 +27,11 @@ public class CamerasComponent : MonoBehaviour
         ResetAllCameras();
 
         fightCamera.m_Priority = 10;
+    }
+    public void SetDefeatedBossCamera()
+    {
+        ResetAllCameras();
 
+        defeatedEnemyCamera.m_Priority = 10;
     }
 }

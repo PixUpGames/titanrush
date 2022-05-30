@@ -21,7 +21,7 @@ public class PlayerMovementSystem : GameSystem
             deltaMos.y = 0;
             var normalizedMosPos = deltaMos;
 
-            game.playerComponent.NavMesh.Move(Time.deltaTime * normalizedMosPos / sensitivityDivider);
+            game.PlayerComponent.NavMesh.Move(Time.deltaTime * normalizedMosPos / sensitivityDivider);
 
             prevMousePos = Input.mousePosition;
         }
@@ -31,6 +31,6 @@ public class PlayerMovementSystem : GameSystem
 
     private void MovePlayerForward()
     {
-        game.playerComponent.NavMesh.Move(Vector3.forward * Time.deltaTime * speed);
+        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.deltaTime * speed);
     }
 }

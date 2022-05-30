@@ -7,11 +7,9 @@ public class BossPunchSystem : GameSystem
 
     private float delayTime; 
 
-    private EnemyComponent enemy;
-
     public override void OnStateEnter()
     {
-        enemy = FindObjectOfType<EnemyComponent>();
+        game.enemyBoss = FindObjectOfType<EnemyComponent>();
     }
 
     public override void OnUpdate()
@@ -23,7 +21,13 @@ public class BossPunchSystem : GameSystem
     }
     private void Punch()
     {
-        enemy.DoPunch();
+        game.enemyBoss.DoPunch();
+        game.PlayerComponent.ReceiveDamage(1f);
+
+        if (game.PlayerComponent.GetHealth() <= 0)
+        {
+            Bootstrap.Instance.ChangeGameState(GameStateID.Lose);
+        }
 
         delayTime = Time.time + Random.Range(randomDelayRange.x, randomDelayRange.y);
     }
