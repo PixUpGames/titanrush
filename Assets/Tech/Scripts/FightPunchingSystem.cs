@@ -55,6 +55,11 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
 
         /// Change To changeable value
         game.enemyBoss.ReceiveDamage(2f);
+
+        if (game.enemyBoss.GetHealth() <= 0)
+        {
+            Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
+        }
     }
     #endregion
 }

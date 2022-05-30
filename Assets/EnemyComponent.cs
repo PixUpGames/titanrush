@@ -10,8 +10,11 @@ public class EnemyComponent : MonoBehaviour
 
     private float currentHealth;
 
+    private Rigidbody[] rigidbodies;
+
     private void Awake()
     {
+        rigidbodies = GetComponentsInChildren<Rigidbody>();
         kickHash = Animator.StringToHash(PUNCH);    
     }
 
@@ -31,5 +34,14 @@ public class EnemyComponent : MonoBehaviour
     public float GetHealth()
     {
         return currentHealth;
+    }
+    public void DisableAnimator()
+    {
+        animator.enabled = false;
+
+        foreach (var rb in rigidbodies)
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }

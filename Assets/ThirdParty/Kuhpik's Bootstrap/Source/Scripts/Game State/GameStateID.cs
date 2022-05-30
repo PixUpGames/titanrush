@@ -14,6 +14,8 @@
         Fighting = 12,
         DodgeAndPunch = 13,
         PrepareFighting = 14,
+        Win = 15,
+        EnemyDefeated = 16,
         Shop = 20,
         Settings = 30
 

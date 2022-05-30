@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Kuhpik;
 using NaughtyAttributes;
+using Supyrb;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,15 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
     private string collectablesTag;
     [SerializeField] private int coinIncrease = 51;
 
+    private Signal mutateSignal;
+
     public override void OnStateEnter()
     {
         game.PlayerComponent.PlayerCanvas.SetMutationValue(0, game.LevelConfig.MutationBarsToEvolve);
 
         game.PlayerComponent.OnTriggerEnterComp.OnEnter += OnCollectablesPick;
+
+        mutateSignal = Signals.Get<MutateSignal>();
     }
     public override void OnStateExit()
     {
@@ -52,6 +57,11 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                     {
                         game.MutationBars = Mathf.Min(game.LevelConfig.MutationBarsToEvolve, game.MutationBars + 1);
                         game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+                        
+                        if(game.MutationBars >= game.LevelConfig.MutationBarsToEvolve)
+                        {
+                            mutateSignal.Dispatch();
+                        } 
 
                         break;
                     }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class CamerasComponent : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera playerMainCamera;
+    [SerializeField] private CinemachineVirtualCamera playerMainCameraFirstEvolve;
     [SerializeField] private CinemachineVirtualCamera fightCamera;
     [SerializeField] private CinemachineVirtualCamera defeatedEnemyCamera;
     [SerializeField] private CinemachineVirtualCamera[] allCameras;
@@ -21,6 +22,12 @@ public class CamerasComponent : MonoBehaviour
         ResetAllCameras();
 
         playerMainCamera.m_Priority = 10;
+    }
+    public void SetMainCameraFirstEvolve()
+    {
+        ResetAllCameras();
+
+        playerMainCameraFirstEvolve.m_Priority = 10;
     }
     public void SetFightCamera()
     {
