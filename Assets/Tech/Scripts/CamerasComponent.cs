@@ -9,6 +9,8 @@ public class CamerasComponent : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera defeatedEnemyCamera;
     [SerializeField] private CinemachineVirtualCamera[] allCameras;
 
+    private const int highestPriority = 20;
+
     private void ResetAllCameras()
     {
         foreach(var camera in allCameras)
@@ -21,24 +23,24 @@ public class CamerasComponent : MonoBehaviour
     {
         ResetAllCameras();
 
-        playerMainCamera.m_Priority = 10;
+        playerMainCamera.m_Priority = highestPriority;
     }
     public void SetMainCameraFirstEvolve()
     {
         ResetAllCameras();
 
-        playerMainCameraFirstEvolve.m_Priority = 10;
+        playerMainCameraFirstEvolve.m_Priority = highestPriority;
     }
     public void SetFightCamera()
     {
         ResetAllCameras();
 
-        fightCamera.m_Priority = 10;
+        fightCamera.m_Priority = highestPriority;
     }
     public void SetDefeatedBossCamera()
     {
         ResetAllCameras();
 
-        defeatedEnemyCamera.m_Priority = 10;
+        defeatedEnemyCamera.m_Priority = highestPriority;
     }
 }

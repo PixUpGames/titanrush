@@ -3,6 +3,9 @@ using UnityEngine;
 public class EnemyComponent : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private OnTriggerEnterComponent onTriggerEnter;
+
+    public OnTriggerEnterComponent OnTriggerEnter => onTriggerEnter;
 
     private const string PUNCH = "Kick";
 

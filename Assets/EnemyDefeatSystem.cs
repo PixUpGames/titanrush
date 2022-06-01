@@ -25,14 +25,14 @@ public class EnemyDefeatSystem : GameSystem
             yield return null;
         }
 
-        yield return new WaitForEndOfFrame();
+        game.enemyBoss.DisableAnimator();
+
+        yield return new WaitForSeconds(1f);
 
         Finish();
     }
     private void Finish()
     {
-        game.enemyBoss.DisableAnimator();
-
         Bootstrap.Instance.ChangeGameState(GameStateID.Win);
     }
 }
