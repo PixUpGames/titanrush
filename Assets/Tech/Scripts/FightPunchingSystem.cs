@@ -6,6 +6,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     [SerializeField] private float powerIncreaseOnClick = 1f;
     [SerializeField] private float maxPowerValue = 5f;
     [SerializeField] private float delayBetweenKicks = .5f;
+    [SerializeField] private float decreaseMultiplier = 4f;
 
     private float powerValue = 0;
 
@@ -24,7 +25,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
         }
         else
         {
-            powerValue = Mathf.Clamp(powerValue - Time.deltaTime, 0, maxPowerValue);
+            powerValue = Mathf.Clamp(powerValue - Time.deltaTime * decreaseMultiplier, 0, maxPowerValue);
         }
 
         UpdateUI();
