@@ -9,6 +9,10 @@ public class PlayerMovementSystem : GameSystem
 
     private Vector3 prevMousePos;
 
+    public override void OnStateEnter()
+    {
+        game.PlayerComponent.StartRunning(true);
+    }
     public override void OnUpdate()
     {
         if (Input.GetMouseButtonDown(0))

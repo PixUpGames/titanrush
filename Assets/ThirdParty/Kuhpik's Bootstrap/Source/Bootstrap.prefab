@@ -46,6 +46,7 @@ MonoBehaviour:
   powerIncreaseOnClick: 1
   maxPowerValue: 5
   delayBetweenKicks: 0.9
+  decreaseMultiplier: 4
 --- !u!1 &345969698
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,8 +77,9 @@ Transform:
   m_Children:
   - {fileID: 621432499}
   - {fileID: 982469785}
+  - {fileID: 6141359751595606946}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &345969700
 MonoBehaviour:
@@ -141,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 10
   speed: 10
+  singleTileWidth: 0.86
+  breakableWall: {fileID: 701573032419582787, guid: 19b725c99265c5046889706ca9e7a021, type: 3}
 --- !u!1 &783193368
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +394,7 @@ Transform:
   m_Children:
   - {fileID: 1279251327829102381}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1212714949
 MonoBehaviour:
@@ -529,7 +533,7 @@ Transform:
   - {fileID: 1074958628}
   - {fileID: 4404595619700761665}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1385984354
 MonoBehaviour:
@@ -544,6 +548,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 12
+  useAdditionalStates: 0
+  additionalStatesInTheBegining: 
+  additionalStatesInTheEnd: 
+  systemNames: []
+--- !u!1 &1626477282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626477283}
+  - component: {fileID: 1626477284}
+  m_Layer: 0
+  m_Name: Tap To Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626477283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626477282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1855031826}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626477284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626477282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a22f5f3b66d9644b53412b932640ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1855031825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855031826}
+  - component: {fileID: 1855031827}
+  m_Layer: 0
+  m_Name: Tap To Start State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1855031826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855031825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1626477283}
+  m_Father: {fileID: 2580908764500475729}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1855031827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855031825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598bfcb31c6bc2469d3ec8722b1cc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 17
   useAdditionalStates: 0
   additionalStatesInTheBegining: 
   additionalStatesInTheEnd: 
@@ -623,7 +719,7 @@ Transform:
   m_Children:
   - {fileID: 1322794409}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1889661535
 MonoBehaviour:
@@ -716,7 +812,7 @@ Transform:
   m_Children:
   - {fileID: 1938496356}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7750276511599863960
 MonoBehaviour:
@@ -770,7 +866,7 @@ Transform:
   - {fileID: 1313653050}
   - {fileID: 895324418}
   m_Father: {fileID: 2580908764500475729}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9045379501968950273
 MonoBehaviour:
@@ -942,6 +1038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 658198315835491355}
+  - {fileID: 1855031826}
   - {fileID: 8757756829672549281}
   - {fileID: 2109116672}
   - {fileID: 1889661534}
@@ -1167,6 +1264,50 @@ MonoBehaviour:
   additionalStatesInTheBegining: 
   additionalStatesInTheEnd: 
   systemNames: []
+--- !u!1 &9117899309410757187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6141359751595606946}
+  - component: {fileID: 7730904714589305080}
+  m_Layer: 0
+  m_Name: Enemy Break Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6141359751595606946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117899309410757187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 345969699}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7730904714589305080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117899309410757187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0a1c5775aa95b4e8f9a5bfe5e37cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallsTag: Breakable Wall
 --- !u!1001 &2388341112463518024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1308,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5522567994414825573, guid: 55e3ee8ae99b534419fe8caa1c79be93, type: 3}
       propertyPath: gameStatesOrder.Array.data[1]
-      value: 2
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5699119966743336438, guid: 55e3ee8ae99b534419fe8caa1c79be93, type: 3}
       propertyPath: m_RootOrder

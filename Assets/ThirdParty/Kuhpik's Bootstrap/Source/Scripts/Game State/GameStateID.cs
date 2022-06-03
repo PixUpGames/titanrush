@@ -16,6 +16,7 @@
         PrepareFighting = 14,
         Win = 15,
         EnemyDefeated = 16,
+        TapToStart = 17,
         Shop = 20,
         Settings = 30
 
