@@ -6,6 +6,7 @@ public class PlayerCanvasComponent : MonoBehaviour
 {
     [SerializeField] private Image mutationBarFill;
     [SerializeField] private TextMeshProUGUI playerStateText;
+    [SerializeField] private Vector2[] MutationsPositions;
 
     private Transform currentCamera;
 
@@ -24,5 +25,12 @@ public class PlayerCanvasComponent : MonoBehaviour
     public void SetPlayerStateText(string stateText)
     {
         playerStateText.text = stateText;
+    }
+    public void SetMutation(int i)
+    {
+        if (MutationsPositions.Length > i)
+        {
+            transform.localPosition = MutationsPositions[i];
+        }
     }
 }

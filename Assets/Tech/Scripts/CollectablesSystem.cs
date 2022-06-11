@@ -11,11 +11,12 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
     private string collectablesTag;
     [SerializeField] private int coinIncrease = 51;
 
-    private Signal mutateSignal;
+    private MutateSignal mutateSignal;
 
     public override void OnStateEnter()
     {
         game.PlayerComponent.PlayerCanvas.SetMutationValue(0, game.LevelConfig.MutationBarsToEvolve);
+        game.PlayerComponent.PlayerCanvas.SetMutation(0);
 
         game.PlayerComponent.OnTriggerEnterComp.OnEnter += OnCollectablesPick;
 

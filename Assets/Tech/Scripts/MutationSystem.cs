@@ -20,6 +20,7 @@ public class MutationSystem : GameSystem
             {
                 case 1:
                     game.Cameras.SetMainCameraFirstEvolve();
+                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
                     break;
             }
 

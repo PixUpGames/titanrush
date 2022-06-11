@@ -7,9 +7,11 @@ public class EnemyComponent : MonoBehaviour
 
     public OnTriggerEnterComponent OnTriggerEnter => onTriggerEnter;
 
-    private const string PUNCH = "Kick";
+    private const string PUNCH = "Punch";
+    private const string START_BATTLE = "StartBattle";
 
     private int kickHash;
+    private int startBattleHash;
 
     private float currentHealth;
 
@@ -18,12 +20,17 @@ public class EnemyComponent : MonoBehaviour
     private void Awake()
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
-        kickHash = Animator.StringToHash(PUNCH);    
+        kickHash = Animator.StringToHash(PUNCH);
+        startBattleHash = Animator.StringToHash(START_BATTLE);    
     }
 
     public void DoPunch()
     {
         animator.SetTrigger(kickHash);
+    }
+    public void StartBattle()
+    {
+        animator.SetTrigger(startBattleHash);
     }
 
     public void SetHealth(float value)
@@ -46,5 +53,10 @@ public class EnemyComponent : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
         }
+    }
+
+    public void StopAnimator()
+    {
+        animator.StopPlayback();
     }
 }

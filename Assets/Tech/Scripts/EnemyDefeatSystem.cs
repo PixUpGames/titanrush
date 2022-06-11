@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyDefeatSystem : GameSystem
 {
+    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float distance = 10f;
     [SerializeField] private float speed = 10f;
+    [SerializeField] private float forceAfterFinish = 40f;
     [SerializeField] private float singleTileWidth = 0.86f;
     [SerializeField] private GameObject breakableWall;
 
@@ -30,6 +32,8 @@ public class EnemyDefeatSystem : GameSystem
     }
     private IEnumerator MoveEnemy()
     {
+        game.enemyBoss.StopAnimator();
+
         while(Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < distance)
         {
             game.enemyBoss.transform.Translate(-Vector3.forward * Time.deltaTime * speed);
@@ -38,6 +42,14 @@ public class EnemyDefeatSystem : GameSystem
         }
 
         game.enemyBoss.DisableAnimator();
+
+        yield return null;
+
+        var ragdoll = Physics.OverlapSphere(game.enemyBoss.transform.position, 3f, enemyLayer);
+        foreach(var bone in ragdoll)
+        {
+            bone.attachedRigidbody.AddForce(Vector3.forward * forceAfterFinish, ForceMode.Impulse);
+        }
 
         yield return new WaitForSeconds(1f);
 

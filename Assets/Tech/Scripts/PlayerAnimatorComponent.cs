@@ -4,7 +4,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    private const string FIGHT_IDLE = "Fight";
+    private const string FIGHT_IDLE = "StartBattle";
     private const string KICK = "Kick";
     private const string RUN = "Run";
 
