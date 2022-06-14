@@ -29,6 +29,7 @@ public class EnemyDefeatSystem : GameSystem
     private void SpawnWalls()
     {
         Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance, Quaternion.identity);
+        Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance / 2, Quaternion.identity);
     }
     private IEnumerator MoveEnemy()
     {
