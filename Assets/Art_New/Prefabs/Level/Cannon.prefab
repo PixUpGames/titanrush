@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1744317796180484284}
   - component: {fileID: 6175076597033279301}
+  - component: {fileID: 8197537675460809172}
+  - component: {fileID: 7663854385698631215}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -85,6 +87,39 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.95903724, y: -0.010569632, z: 0.3606819}
     m_Extent: {x: 0.97019714, y: 1.3346927, z: 1.9579667}
   m_DirtyAABB: 0
+--- !u!95 &8197537675460809172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404805769979410950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bde6e154b5823d41abdb272a2747d78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7663854385698631215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404805769979410950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9d4a8e4a43b074b9f23c8b11c2e859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VFX:
+  - {fileID: 9088102207957285547}
 --- !u!1001 &7074809712939611695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,5 +200,10 @@ PrefabInstance:
 --- !u!4 &8277971915502569155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1211334614829723884, guid: 06579b17bc44c25468af2cf870516b70, type: 3}
+  m_PrefabInstance: {fileID: 7074809712939611695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9088102207957285547 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2031590988971183236, guid: 06579b17bc44c25468af2cf870516b70, type: 3}
   m_PrefabInstance: {fileID: 7074809712939611695}
   m_PrefabAsset: {fileID: 0}
