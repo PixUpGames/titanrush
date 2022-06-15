@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
 {
+    [Header("Final Punch Settings")]
+    [SerializeField] private float slowMotionScale = .2f;
+    
+    [Header("Punch Settings")]
     [SerializeField] private float powerIncreaseOnClick = 1f;
     [SerializeField] private float maxPowerValue = 5f;
     [SerializeField] private float delayBetweenKicks = .5f;
     [SerializeField] private float decreaseMultiplier = 4f;
+    [SerializeField] private float playerDamage = 2f;
 
     private float powerValue = 0;
 
@@ -50,17 +55,21 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     }
     private void Punch()
     {
+        if (game.enemyBoss.GetHealth() - playerDamage <= 0)
+        {
+            Time.timeScale = slowMotionScale;
+            game.PlayerComponent.PlayerAnimator.ClearAllAnimations();
+            game.PlayerComponent.PlayerAnimator.SetFinalKick();
+
+            return;
+        }
+
         punchTimer = Time.time + delayBetweenKicks;
 
-        game.PlayerComponent.PlayerAnimator.SetKickAnimation();
+        game.PlayerComponent.PlayerAnimator.Punch();
 
         /// Change To changeable value
-        game.enemyBoss.ReceiveDamage(2f);
-
-        if (game.enemyBoss.GetHealth() <= 0)
-        {
-            Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
-        }
+        game.enemyBoss.ReceiveDamage(playerDamage);
     }
     #endregion
 }

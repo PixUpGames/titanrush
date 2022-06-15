@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class PlayerComponent: MonoBehaviour
 {
     [SerializeField] private Mutation[] mutationScales;
+    [SerializeField] private GameObject windVFX;
+    [SerializeField] private ParticleSystem evolveVFX;
 
     public NavMeshAgent NavMesh;
     public OnTriggerEnterComponent OnTriggerEnterComp;
@@ -21,7 +23,7 @@ public class PlayerComponent: MonoBehaviour
     {
         currentMutation = 0;
 
-        RotateModel(transform.position - Vector3.forward);
+        RotateModel(transform.position + Vector3.back * 2 + Vector3.left);
 
         SetMutation();
     }
@@ -47,6 +49,8 @@ public class PlayerComponent: MonoBehaviour
 
         currentMutation++;
 
+        evolveVFX.Play();
+
         SetMutation();
         StartRunning(true);
     }
@@ -69,6 +73,10 @@ public class PlayerComponent: MonoBehaviour
     public void RotateModel(Vector3 lookAt)
     {
         mutationScales[currentMutation].model.transform.LookAt(lookAt);
+    }
+    public void DisableWindVFX()
+    {
+        windVFX.SetActive(false);
     }
 }
 

@@ -4,14 +4,19 @@ public class EnemyComponent : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private OnTriggerEnterComponent onTriggerEnter;
+    [SerializeField] private ParticleSystem hitParticle;
 
     public OnTriggerEnterComponent OnTriggerEnter => onTriggerEnter;
 
     private const string PUNCH = "Punch";
     private const string START_BATTLE = "StartBattle";
+    private const string TAKE_DAMAGE = "TakeDamage";
+    private const string FLY = "Fly";
 
     private int kickHash;
     private int startBattleHash;
+    private int takeDamageHash;
+    private int flyHash;
 
     private float currentHealth;
 
@@ -21,7 +26,9 @@ public class EnemyComponent : MonoBehaviour
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         kickHash = Animator.StringToHash(PUNCH);
-        startBattleHash = Animator.StringToHash(START_BATTLE);    
+        startBattleHash = Animator.StringToHash(START_BATTLE);
+        takeDamageHash = Animator.StringToHash(TAKE_DAMAGE);
+        flyHash = Animator.StringToHash(FLY);    
     }
 
     public void DoPunch()
@@ -39,6 +46,8 @@ public class EnemyComponent : MonoBehaviour
     }
     public void ReceiveDamage(float value)
     {
+        hitParticle?.Play();
+        animator.SetTrigger(takeDamageHash);
         currentHealth -= value;
     }
     public float GetHealth()
@@ -49,14 +58,23 @@ public class EnemyComponent : MonoBehaviour
     {
         animator.enabled = false;
 
+        var thisRB = GetComponent<Rigidbody>();
+
         foreach (var rb in rigidbodies)
         {
+            rb.isKinematic = false;
             rb.velocity = Vector3.zero;
         }
+
+        thisRB.isKinematic = true;
     }
 
     public void StopAnimator()
     {
         animator.StopPlayback();
+    }
+    public void FlyAway()
+    {
+        animator.SetBool(flyHash, true);
     }
 }

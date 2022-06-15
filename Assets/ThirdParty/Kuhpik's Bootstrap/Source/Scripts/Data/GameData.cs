@@ -20,5 +20,6 @@ namespace Kuhpik
         public CamerasComponent Cameras;
         public FinishComponent Finish;
         public EnemyComponent enemyBoss;
+        public float playerSpeed;
     }
 }

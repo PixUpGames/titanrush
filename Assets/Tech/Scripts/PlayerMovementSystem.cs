@@ -12,6 +12,7 @@ public class PlayerMovementSystem : GameSystem
     public override void OnStateEnter()
     {
         game.PlayerComponent.StartRunning(true);
+        game.playerSpeed = speed;
     }
     public override void OnUpdate()
     {
@@ -35,6 +36,6 @@ public class PlayerMovementSystem : GameSystem
 
     private void MovePlayerForward()
     {
-        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.deltaTime * speed);
+        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.deltaTime * game.playerSpeed);
     }
 }

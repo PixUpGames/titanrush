@@ -10,7 +10,7 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
     [SerializeField, Tag]
     private string collectablesTag;
     [SerializeField] private int coinIncrease = 51;
-
+    [SerializeField] private GameObject pickUpVFX;
     private MutateSignal mutateSignal;
 
     public override void OnStateEnter()
@@ -58,6 +58,9 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                     {
                         game.MutationBars = Mathf.Min(game.LevelConfig.MutationBarsToEvolve, game.MutationBars + 1);
                         game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+
+                        var go = Instantiate(pickUpVFX, other.position, Quaternion.identity);
+                        Destroy(go, 2f);
                         
                         if(game.MutationBars >= game.LevelConfig.MutationBarsToEvolve)
                         {

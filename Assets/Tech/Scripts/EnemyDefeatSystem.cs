@@ -20,6 +20,7 @@ public class EnemyDefeatSystem : GameSystem
 
         startPos = game.enemyBoss.transform.position;
         game.Cameras.SetDefeatedBossCamera();
+        game.enemyBoss.FlyAway();
 
         SpawnWalls();
 
