@@ -16,6 +16,6 @@ public class GameUIScreen : UIScreen
     }
     public void UpdateLevelCounter(int level)
     {
-        levelCounterText.text = $"LEVEL {level}";
+        levelCounterText.text = $"Lvl. {level}";
     }
 }
