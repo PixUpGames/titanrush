@@ -17,6 +17,7 @@
         Win = 15,
         EnemyDefeated = 16,
         TapToStart = 17,
+        PlayerDeath = 18,
         Shop = 20,
         Settings = 30
 

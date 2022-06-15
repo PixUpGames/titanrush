@@ -15,12 +15,16 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private const string PUNCH = "Punch";
     private const string RUN = "Run";
     private const string FINAL_KICK = "PunchFatality";
+    private const string RECEIVE_DAMAGE = "TakeDamage";
+    private const string DIE = "Death";
 
     private int fightIdleHash;
     private int kickHash;
     private int runHash;
     private int finalKickHash;
     private int punchHash;
+    private int receiveDamageHash;
+    private int deathHash;
 
     private void Awake()
     {
@@ -29,11 +33,14 @@ public class PlayerAnimatorComponent : MonoBehaviour
         runHash = Animator.StringToHash(RUN);
         finalKickHash = Animator.StringToHash(FINAL_KICK);
         punchHash = Animator.StringToHash(PUNCH);
+        receiveDamageHash = Animator.StringToHash(RECEIVE_DAMAGE);
+        deathHash = Animator.StringToHash(DIE);
     }
 
     public void SetFightIdle(bool value)
     {
         animator.SetBool(fightIdleHash, value);
+        animator.SetBool(runHash, false);
     }
     public void SetKickAnimation()
     {
@@ -66,5 +73,13 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void Punch()
     {
         animator.SetTrigger(punchHash);
+    }
+    public void ReceiveDamage()
+    {
+        animator.SetTrigger(receiveDamageHash);
+    }
+    public void Die()
+    {
+        animator.SetTrigger(deathHash);
     }
 }

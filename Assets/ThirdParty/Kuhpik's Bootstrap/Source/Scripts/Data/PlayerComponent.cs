@@ -15,6 +15,8 @@ public class PlayerComponent: MonoBehaviour
     [HideInInspector]
     public PlayerAnimatorComponent PlayerAnimator;
 
+    public int Mutations => currentMutation;
+
     private float currentHealth;
 
     private int currentMutation = 0;
@@ -33,6 +35,8 @@ public class PlayerComponent: MonoBehaviour
     }
     public void ReceiveDamage(float value)
     {
+        PlayerAnimator.ReceiveDamage();
+
         currentHealth -= value;
     }
     public float GetHealth()

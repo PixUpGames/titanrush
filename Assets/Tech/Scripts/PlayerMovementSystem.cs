@@ -5,14 +5,22 @@ using UnityEngine;
 public class PlayerMovementSystem : GameSystem
 {
     [SerializeField] private float speed = 4f;
-    [SerializeField] private float sensitivityDivider = 4f;
+    [SerializeField] private float sensitivityDivider = 1f;
 
     private Vector3 prevMousePos;
+
+    private Vector3 deltaVector;
 
     public override void OnStateEnter()
     {
         game.PlayerComponent.StartRunning(true);
         game.playerSpeed = speed;
+    }
+
+    public override void OnFixedUpdate()
+    {
+        MovePlayerForward();
+        SidePlayerMove();
     }
     public override void OnUpdate()
     {
@@ -24,18 +32,22 @@ public class PlayerMovementSystem : GameSystem
         {
             var deltaMos = Input.mousePosition - prevMousePos;
             deltaMos.y = 0;
-            var normalizedMosPos = deltaMos;
-
-            game.PlayerComponent.NavMesh.Move(Time.deltaTime * normalizedMosPos / sensitivityDivider);
+            deltaVector = deltaMos;
 
             prevMousePos = Input.mousePosition;
         }
-
-        MovePlayerForward();
+        else if (Input.GetMouseButtonUp(0))
+        {
+            deltaVector = Vector3.zero;
+        }
     }
 
+    private void SidePlayerMove()
+    {
+        game.PlayerComponent.NavMesh.Move(Time.fixedDeltaTime * deltaVector / sensitivityDivider);
+    }
     private void MovePlayerForward()
     {
-        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.deltaTime * game.playerSpeed);
+        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.fixedDeltaTime * game.playerSpeed);
     }
 }

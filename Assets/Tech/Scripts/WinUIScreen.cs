@@ -14,6 +14,6 @@ public class WinUIScreen : UIScreen
     public void InitScreen(float multiplierValue, float coinsValue)
     {
         multiplierText.text = $"{multiplierValue}X";
-        coinsText.text = $"{coinsValue}<sprite=0>";
+        coinsText.text = $"{(int) coinsValue}<sprite=0>";
     }
 }

@@ -9,7 +9,6 @@ public class BossPunchSystem : GameSystem
 
     public override void OnStateEnter()
     {
-        game.enemyBoss = FindObjectOfType<EnemyComponent>();
         game.enemyBoss.StartBattle();
     }
 

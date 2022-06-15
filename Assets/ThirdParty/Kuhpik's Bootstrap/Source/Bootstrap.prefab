@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902be5486299c5a47a1316997c820ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowMotionScale: 0.4
   powerIncreaseOnClick: 1
   maxPowerValue: 5
   delayBetweenKicks: 0.9
   decreaseMultiplier: 4
+  playerDamage: 2
 --- !u!1 &345969698
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +100,55 @@ MonoBehaviour:
   additionalStatesInTheBegining: 
   additionalStatesInTheEnd: 
   systemNames: []
+--- !u!1 &407076238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407076239}
+  - component: {fileID: 407076240}
+  m_Layer: 0
+  m_Name: Player Death State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407076239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407076238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2036061656}
+  m_Father: {fileID: 2580908764500475729}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407076240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407076238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6598bfcb31c6bc2469d3ec8722b1cc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 18
+  useAdditionalStates: 0
+  additionalStatesInTheBegining: 
+  additionalStatesInTheEnd: 
+  systemNames: []
 --- !u!1 &621432498
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,8 +192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c7d3f2f3716f04dbd5eaa054835b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
-  speed: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  distance: 40
+  speed: 12
+  forceAfterFinish: 10
   singleTileWidth: 0.86
   breakableWall: {fileID: 701573032419582787, guid: 19b725c99265c5046889706ca9e7a021, type: 3}
 --- !u!1 &783193368
@@ -595,6 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a22f5f3b66d9644b53412b932640ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateGO: {fileID: 1748086017404696607, guid: dd21c2d206df27e4583605ee50acce88, type: 3}
+  gateHeightOffset: 1.2
 --- !u!1 &1855031825
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectablesTag: Collectable
   coinIncrease: 51
+  pickUpVFX: {fileID: 1230738462629580353, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
 --- !u!1 &1889661533
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +840,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loseAppearTime: 1
+--- !u!1 &2036061655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036061656}
+  - component: {fileID: 2036061657}
+  m_Layer: 0
+  m_Name: Player Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2036061656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036061655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 407076239}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036061657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036061655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb971e33bf97b4c46a7338f9fb93a63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitToKick: 1
+  waitToPlayerDie: 0.5
 --- !u!1 &2109116671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1148,7 @@ Transform:
   - {fileID: 1385984353}
   - {fileID: 345969699}
   - {fileID: 1212714948}
+  - {fileID: 407076239}
   m_Father: {fileID: 4987531766057273802}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1137,8 +1241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba95b2a2a5db4241b35d0e45a0d3fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  sensitivityDivider: 4
+  speed: 6
+  sensitivityDivider: 1
 --- !u!1 &5457145906544905826
 GameObject:
   m_ObjectHideFlags: 0
