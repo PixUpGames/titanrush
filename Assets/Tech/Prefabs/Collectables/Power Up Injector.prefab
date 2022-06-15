@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &7167039681825025843
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113491658105423650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5309655456552227488, guid: a697d02b949ddc945b45ad20f5d1ba71, type: 3}
 --- !u!1 &7592641703229788046
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +26,7 @@ GameObject:
   - component: {fileID: 4431717977337082756}
   - component: {fileID: 8684828507063613224}
   m_Layer: 0
-  m_Name: Power Up
+  m_Name: Power Up Injector
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,19 +126,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 60a3fadd3e4283648aa56d6fd6f0707d, type: 2}
+    - target: {fileID: -7511558181221131132, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3ed915d9f95bce4ebecd6e7d01327e7, type: 2}
     - target: {fileID: -5754084199372789682, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -3386454243373786572, guid: 78e81738112b47f4ab80b2935f0c5901, type: 3}
+      objectReference: {fileID: -5309655456552227488, guid: a697d02b949ddc945b45ad20f5d1ba71, type: 3}
     - target: {fileID: 919132149155446097, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
       propertyPath: m_Name
-      value: DNA Model
+      value: Surgine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
+--- !u!1 &4113491658105423650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}
+  m_PrefabInstance: {fileID: 3879682920539306611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3629301459987226008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bebc5fc39c19a6845bd41edc2a3c4940, type: 3}

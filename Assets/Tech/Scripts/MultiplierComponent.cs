@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class MultiplierComponent : MonoBehaviour
 {
-    [Range(1, 15)]
+    [Range(1, 25)]
     [SerializeField] private float multiplier;
     [SerializeField] private MeshRenderer meshRenderer;
 
     public float Multiplier => multiplier;
 
-    public void ChangeMaterial(Material material)
+    public void EnableMeshRenderer()
     {
-        meshRenderer.sharedMaterial = material;
+        meshRenderer.enabled = true;
+    }
+    public void SetMultiplier(float value) 
+    {
+        multiplier = value;
     }
 
     [Button]
     private void UpdateMultipliers()
     {
-        GetComponentInChildren<TextMeshProUGUI>().text = $"X{multiplier}";
+        meshRenderer = GetComponent<MeshRenderer>();
+        GetComponentInChildren<TextMeshPro>().text = $"X{multiplier}";
     }
 }

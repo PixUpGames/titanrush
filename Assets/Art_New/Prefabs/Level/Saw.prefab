@@ -259,9 +259,10 @@ GameObject:
   - component: {fileID: 1092498550015964825}
   - component: {fileID: 2021844670186482974}
   - component: {fileID: 1967978161144095976}
+  - component: {fileID: 843202138}
   m_Layer: 0
   m_Name: Saw_Carriage
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,6 +436,19 @@ MonoBehaviour:
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
+--- !u!135 &843202138
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077436569611355730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.42
+  m_Center: {x: 0, y: 0.09164343, z: -0.000000026077032}
 --- !u!1 &7414531583376779657
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class MultiplierEnterSystem : GameSystem
         {
             var multiplierComp = other.GetComponent<MultiplierComponent>();
             game.Multiplier = multiplierComp.Multiplier;
-            multiplierComp.ChangeMaterial(activatedMaterial);
+            multiplierComp.EnableMeshRenderer();
         }
     }
 }
