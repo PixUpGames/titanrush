@@ -18,7 +18,7 @@ public class PlayerDeathSystem : GameSystem
 
         yield return new WaitForSeconds(waitToKick);
 
-        game.enemyBoss.DoKick();
+        game.enemyBoss.DoStomp();
 
         yield return new WaitForSeconds(waitToPlayerDie);
 

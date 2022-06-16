@@ -1,3 +1,4 @@
+using Supyrb;
 using UnityEngine;
 
 public class EnemyComponent : MonoBehaviour
@@ -10,6 +11,7 @@ public class EnemyComponent : MonoBehaviour
 
     private const string PUNCH = "Punch";
     private const string KICK = "Kick";
+    private const string STOMP = "Stomp";
     private const string START_BATTLE = "StartBattle";
     private const string TAKE_DAMAGE = "TakeDamage";
     private const string FLY = "Fly";
@@ -19,10 +21,13 @@ public class EnemyComponent : MonoBehaviour
     private int startBattleHash;
     private int takeDamageHash;
     private int flyHash;
+    private int stompHash;
 
     private float currentHealth;
 
     private Rigidbody[] rigidbodies;
+
+    private EnemyHitSignal hitSignal;
 
     private void Awake()
     {
@@ -31,7 +36,10 @@ public class EnemyComponent : MonoBehaviour
         startBattleHash = Animator.StringToHash(START_BATTLE);
         takeDamageHash = Animator.StringToHash(TAKE_DAMAGE);
         flyHash = Animator.StringToHash(FLY);    
-        kickHash = Animator.StringToHash(KICK);    
+        kickHash = Animator.StringToHash(KICK);
+        stompHash = Animator.StringToHash(STOMP);
+
+        hitSignal = Signals.Get<EnemyHitSignal>();
     }
 
     public void DoPunch()
@@ -41,6 +49,10 @@ public class EnemyComponent : MonoBehaviour
     public void DoKick()
     {
         animator.SetTrigger(kickHash);
+    }
+    public void DoStomp()
+    {
+        animator.SetTrigger(stompHash);
     }
     public void StartBattle()
     {
@@ -82,5 +94,9 @@ public class EnemyComponent : MonoBehaviour
     public void FlyAway()
     {
         animator.SetBool(flyHash, true);
+    }
+    public void HitSignal()
+    {
+        hitSignal.Dispatch();
     }
 }

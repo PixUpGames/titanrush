@@ -1,4 +1,5 @@
 using Kuhpik;
+using Supyrb;
 using UnityEngine;
 
 public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
@@ -14,9 +15,10 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     [SerializeField] private float playerDamage = 2f;
 
     private float powerValue = 0;
-
-    private float punchTimer;
-
+    public override void OnGameStart()
+    {
+        Signals.Get<PlayerHitSignal>().AddListener(DoHit);
+    }
     public override void OnStateEnter()
     {
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
@@ -45,15 +47,21 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     {
         if (powerValue <= 0)
         {
+            SetPunchAnimation(false);
+
             return;
         }
 
-        if (punchTimer <= Time.time)
-        {
-            Punch();
-        }
+        SetPunchAnimation(true);
+
+        TryFinalPunch();
     }
-    private void Punch()
+
+    private void SetPunchAnimation(bool enable)
+    {
+        game.PlayerComponent.PlayerAnimator.Punch(enable);
+    }
+    private void TryFinalPunch()
     {
         if (game.enemyBoss.GetHealth() - playerDamage <= 0)
         {
@@ -63,11 +71,10 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
 
             return;
         }
+    }
 
-        punchTimer = Time.time + delayBetweenKicks;
-
-        game.PlayerComponent.PlayerAnimator.Punch();
-
+    public void DoHit()
+    {
         /// Change To changeable value
         game.enemyBoss.ReceiveDamage(playerDamage);
     }

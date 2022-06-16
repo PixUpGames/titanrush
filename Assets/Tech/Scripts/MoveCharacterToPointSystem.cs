@@ -24,6 +24,8 @@ public class MoveCharacterToPointSystem : GameSystem
 
     private void SwitchToFight()
     {
+        game.PlayerComponent.transform.LookAt(game.enemyBoss.transform.position);
+
         if (game.PlayerComponent.Mutations <= 0)
         {
             Bootstrap.Instance.ChangeGameState(GameStateID.PlayerDeath);

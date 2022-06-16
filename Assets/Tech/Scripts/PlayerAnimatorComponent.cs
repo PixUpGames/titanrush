@@ -1,4 +1,5 @@
 using Kuhpik;
+using Supyrb;
 using UnityEngine;
 
 public class PlayerAnimatorComponent : MonoBehaviour
@@ -12,7 +13,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
     private const string FIGHT_IDLE = "StartBattle";
     private const string KICK = "Kick";
-    private const string PUNCH = "Punch";
+    private const string PUNCH = "Punches";
     private const string RUN = "Run";
     private const string FINAL_KICK = "PunchFatality";
     private const string RECEIVE_DAMAGE = "TakeDamage";
@@ -26,6 +27,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private int receiveDamageHash;
     private int deathHash;
 
+    private PlayerHitSignal hitSignal;
+
     private void Awake()
     {
         fightIdleHash = Animator.StringToHash(FIGHT_IDLE);
@@ -35,6 +38,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
         punchHash = Animator.StringToHash(PUNCH);
         receiveDamageHash = Animator.StringToHash(RECEIVE_DAMAGE);
         deathHash = Animator.StringToHash(DIE);
+
+        hitSignal = Signals.Get<PlayerHitSignal>();
     }
 
     public void SetFightIdle(bool value)
@@ -70,9 +75,9 @@ public class PlayerAnimatorComponent : MonoBehaviour
     {
         animator.ResetTrigger(kickHash);
     }
-    public void Punch()
+    public void Punch(bool enable)
     {
-        animator.SetTrigger(punchHash);
+        animator.SetBool(punchHash, enable);
     }
     public void ReceiveDamage()
     {
@@ -81,5 +86,9 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void Die()
     {
         animator.SetTrigger(deathHash);
+    }
+    public void HitSignal()
+    {
+        hitSignal.Dispatch();
     }
 }

@@ -8,6 +8,7 @@ public class CamerasComponent : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera fightCamera;
     [SerializeField] private CinemachineVirtualCamera defeatedEnemyCamera;
     [SerializeField] private CinemachineVirtualCamera StartCamera;
+    [SerializeField] private CinemachineImpulseSource ImpulseSource;
     [SerializeField] private CinemachineVirtualCamera[] allCameras;
 
     private const int highestPriority = 20;
@@ -48,5 +49,9 @@ public class CamerasComponent : MonoBehaviour
         ResetAllCameras();
 
         defeatedEnemyCamera.m_Priority = highestPriority;
+    }
+    public void ImpulseCamera()
+    {
+        ImpulseSource.GenerateImpulse();
     }
 }
