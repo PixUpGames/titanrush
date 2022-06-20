@@ -18,6 +18,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private const string FINAL_KICK = "PunchFatality";
     private const string RECEIVE_DAMAGE = "TakeDamage";
     private const string DIE = "Death";
+    private const string ATTACK_WHIRL_STRAIGHT = "Attack_Whirl_Straight";
+    private const string ATTACK_WHIRL_SKEW = "Attack_Whirl_Skew";
 
     private int fightIdleHash;
     private int kickHash;
@@ -26,6 +28,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private int punchHash;
     private int receiveDamageHash;
     private int deathHash;
+    private int straightWhirlHash;
+    private int skewWhirlHash;
 
     private PlayerHitSignal hitSignal;
 
@@ -38,10 +42,12 @@ public class PlayerAnimatorComponent : MonoBehaviour
         punchHash = Animator.StringToHash(PUNCH);
         receiveDamageHash = Animator.StringToHash(RECEIVE_DAMAGE);
         deathHash = Animator.StringToHash(DIE);
+        straightWhirlHash = Animator.StringToHash(ATTACK_WHIRL_STRAIGHT);
+        skewWhirlHash = Animator.StringToHash(ATTACK_WHIRL_SKEW);
 
         hitSignal = Signals.Get<PlayerHitSignal>();
     }
-
+    #region Animations
     public void SetFightIdle(bool value)
     {
         animator.SetBool(fightIdleHash, value);
@@ -50,6 +56,14 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void SetKickAnimation()
     {
         animator.SetTrigger(kickHash);
+    }
+    public void SetStraightWhirlAnimation()
+    {
+        animator.SetTrigger(straightWhirlHash);
+    }
+    public void SetSkewWhirlAnimation()
+    {
+        animator.SetTrigger(skewWhirlHash);
     }
     public void SetRunAnimation(bool enable)
     {
@@ -60,16 +74,6 @@ public class PlayerAnimatorComponent : MonoBehaviour
         animator.SetTrigger(finalKickHash);
 
         ActivateFinalPunchVFX();
-    }
-    public void FinishFatalityPunch()
-    {
-        Time.timeScale = 1f;
-        Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
-        finalPunchVFX?.SetActive(true);
-    }
-    public void ActivateFinalPunchVFX()
-    {
-        electricityVFX?.SetActive(true);
     }
     public void ClearAllAnimations()
     {
@@ -86,6 +90,18 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void Die()
     {
         animator.SetTrigger(deathHash);
+    }
+    
+    #endregion
+    public void FinishFatalityPunch()
+    {
+        Time.timeScale = 1f;
+        Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
+        finalPunchVFX?.SetActive(true);
+    }
+    public void ActivateFinalPunchVFX()
+    {
+        electricityVFX?.SetActive(true);
     }
     public void HitSignal()
     {

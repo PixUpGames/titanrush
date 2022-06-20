@@ -7,6 +7,7 @@ public class CuttableHandComponent : CuttableItem
     [SerializeField] private ParticleSystem[] VFX;
 
     public override int ReceiveAward() => award;
+    public override CuttableType GetCuttableType() => CuttableType.Hand;
 
     public override void Cut()
     {

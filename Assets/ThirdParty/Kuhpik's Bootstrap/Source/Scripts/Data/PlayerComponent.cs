@@ -30,6 +30,15 @@ public class PlayerComponent: MonoBehaviour
 
         SetMutation();
     }
+    public void RotateModel(Vector3 lookAt)
+    {
+        mutationScales[currentMutation].model.transform.LookAt(lookAt);
+    }
+    public void DisableWindVFX()
+    {
+        windVFX.SetActive(false);
+    }
+    #region Health Handle
     public void SetHealth(float value)
     {
         currentHealth = value;
@@ -44,7 +53,18 @@ public class PlayerComponent: MonoBehaviour
     {
         return currentHealth;
     }
+    #endregion
+    #region Mutations
+    private void SetMutation()
+    {
+        foreach (var mutation in mutationScales)
+        {
+            mutation.model.SetActive(false);
+        }
 
+        mutationScales[currentMutation].model.SetActive(true);
+        PlayerAnimator = mutationScales[currentMutation].playerAnimator;
+    }
     public void Mutate()
     {
         if (currentMutation >= mutationScales.Length)
@@ -59,30 +79,21 @@ public class PlayerComponent: MonoBehaviour
         SetMutation();
         StartRunning(true);
     }
-
-    private void SetMutation()
+    #endregion
+    #region Animations
+    public void CutHand()
     {
-        foreach (var mutation in mutationScales)
-        {
-            mutation.model.SetActive(false);
-        }
-
-        mutationScales[currentMutation].model.SetActive(true);
-        PlayerAnimator = mutationScales[currentMutation].playerAnimator;
+        mutationScales[currentMutation].playerAnimator.SetSkewWhirlAnimation();
+    }
+    public void CutHead()
+    {
+        mutationScales[currentMutation].playerAnimator.SetStraightWhirlAnimation();
     }
     public void StartRunning(bool enable)
     {
         mutationScales[currentMutation].playerAnimator.SetRunAnimation(enable);
     }
-
-    public void RotateModel(Vector3 lookAt)
-    {
-        mutationScales[currentMutation].model.transform.LookAt(lookAt);
-    }
-    public void DisableWindVFX()
-    {
-        windVFX.SetActive(false);
-    }
+    #endregion
 }
 
 [Serializable]

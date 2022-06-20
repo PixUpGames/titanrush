@@ -1012,6 +1012,7 @@ Transform:
   - {fileID: 1871075377}
   - {fileID: 1313653050}
   - {fileID: 895324418}
+  - {fileID: 1300223536253739249}
   m_Father: {fileID: 2580908764500475729}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1242,6 +1243,50 @@ MonoBehaviour:
   playerMaxHealth: 10
   enemyMaxHealth: 10
   lerpSpeed: 3
+--- !u!1 &4083383857513997975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300223536253739249}
+  - component: {fileID: 3996207056410899010}
+  m_Layer: 0
+  m_Name: Player Cut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1300223536253739249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083383857513997975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8757756829672549281}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3996207056410899010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083383857513997975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5ddb686e158f746b7f5d517488873f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttableTag: Cuttable
 --- !u!1 &4512821184996526499
 GameObject:
   m_ObjectHideFlags: 0
