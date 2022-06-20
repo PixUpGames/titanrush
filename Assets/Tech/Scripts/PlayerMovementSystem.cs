@@ -43,6 +43,6 @@ public class PlayerMovementSystem : GameSystem
 
     private void MovePlayerForward()
     {
-        game.PlayerComponent.RB.MovePosition(game.PlayerComponent.RB.transform.position + deltaVector * Time.fixedDeltaTime * game.playerSpeed);
+        game.PlayerComponent.NavMesh.Move(deltaVector * Time.fixedDeltaTime * game.playerSpeed);
     }
 }

@@ -34,8 +34,11 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
 
         var multiplierController = FindObjectOfType<MultiplierHandlerComponent>();
 
-        var gate = Instantiate(gateGO, multiplierController.GetLastMultiplier(15f).transform.position + new Vector3(0, gateHeightOffset, .4f), Quaternion.identity);
-        gate.transform.DORotate(new Vector3(0, 180, 0), 0);
+        if (multiplierController != null)
+        {
+            var gate = Instantiate(gateGO, multiplierController.GetLastMultiplier(15f).transform.position + new Vector3(0, gateHeightOffset, .4f), Quaternion.identity);
+            gate.transform.DORotate(new Vector3(0, 180, 0), 0);
+        }
 
         Bootstrap.Instance.ChangeGameState(GameStateID.Game);
     }

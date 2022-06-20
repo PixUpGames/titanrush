@@ -38,16 +38,20 @@ public class CamerasComponent : MonoBehaviour
 
         playerMainCameraFirstEvolve.m_Priority = highestPriority;
     }
-    public void SetFightCamera()
+    public void SetFightCamera(Transform @object)
     {
         ResetAllCameras();
 
+        fightCamera.m_LookAt = @object;
+        fightCamera.m_Follow = @object;
         fightCamera.m_Priority = highestPriority;
     }
-    public void SetDefeatedBossCamera()
+    public void SetDefeatedBossCamera(Transform @object)
     {
         ResetAllCameras();
 
+        defeatedEnemyCamera.m_LookAt = @object;
+        defeatedEnemyCamera.m_Follow = @object;
         defeatedEnemyCamera.m_Priority = highestPriority;
     }
     public void ImpulseCamera()

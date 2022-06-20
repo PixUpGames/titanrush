@@ -11,6 +11,8 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     }
     private void NextLevel()
     {
+        player.Level++;
+
         Bootstrap.Instance.GameRestart(0);
     }
 }

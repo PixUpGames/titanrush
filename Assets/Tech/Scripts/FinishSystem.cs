@@ -17,7 +17,7 @@ public class FinishSystem : GameSystem
         {
             Bootstrap.Instance.ChangeGameState(GameStateID.PrepareFighting);
 
-            game.Cameras.SetFightCamera();
+            game.Cameras.SetFightCamera(game.PlayerComponent.transform);
 
             game.PlayerComponent.OnTriggerEnterComp.OnEnter -= ChooseFinishState;
             game.PlayerComponent.PlayerCanvas.gameObject.SetActive(false);

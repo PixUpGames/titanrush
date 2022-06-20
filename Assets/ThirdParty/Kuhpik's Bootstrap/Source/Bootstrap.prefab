@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb8396aa33408f489cf8081bece6e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomDelayRange: {x: 1.5, y: 3}
+  randomDelayRange: {x: 5, y: 6}
 --- !u!1 &1212714947
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +587,7 @@ Transform:
   - {fileID: 221352456}
   - {fileID: 1074958628}
   - {fileID: 4404595619700761665}
+  - {fileID: 2103653423}
   m_Father: {fileID: 2580908764500475729}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -885,6 +886,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitToKick: 1
   waitToPlayerDie: 0.5
+--- !u!1 &2103653422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103653423}
+  - component: {fileID: 2103653424}
+  m_Layer: 0
+  m_Name: Camera VFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2103653423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103653422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1385984353}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2103653424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103653422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26439f3509c89f54fb9067e2a3769e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2109116671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e96a8ec49ee94da0ebf364654d05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugLevel: {fileID: 11400000, guid: bb23cd42f6a2716409830e36675acaa4, type: 2}
+  levelsPath: Levels
 --- !u!1 &8080626202954114308
 GameObject:
   m_ObjectHideFlags: 0
