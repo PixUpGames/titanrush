@@ -20,10 +20,11 @@ public class PlayerMovementSystem : GameSystem
     public override void OnFixedUpdate()
     {
         MovePlayerForward();
-        SidePlayerMove();
     }
     public override void OnUpdate()
     {
+        deltaVector = Vector3.zero;
+
         if (Input.GetMouseButtonDown(0))
         {
             prevMousePos = Input.mousePosition;
@@ -32,22 +33,16 @@ public class PlayerMovementSystem : GameSystem
         {
             var deltaMos = Input.mousePosition - prevMousePos;
             deltaMos.y = 0;
-            deltaVector = deltaMos;
+            deltaVector += deltaMos / sensitivityDivider;
 
             prevMousePos = Input.mousePosition;
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            deltaVector = Vector3.zero;
-        }
+
+        deltaVector += Vector3.forward;
     }
 
-    private void SidePlayerMove()
-    {
-        game.PlayerComponent.NavMesh.Move(Time.fixedDeltaTime * deltaVector / sensitivityDivider);
-    }
     private void MovePlayerForward()
     {
-        game.PlayerComponent.NavMesh.Move(Vector3.forward * Time.fixedDeltaTime * game.playerSpeed);
+        game.PlayerComponent.RB.MovePosition(game.PlayerComponent.RB.transform.position + deltaVector * Time.fixedDeltaTime * game.playerSpeed);
     }
 }

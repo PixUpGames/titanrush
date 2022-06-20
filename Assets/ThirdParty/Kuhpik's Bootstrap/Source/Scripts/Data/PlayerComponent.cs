@@ -9,6 +9,7 @@ public class PlayerComponent: MonoBehaviour
     [SerializeField] private ParticleSystem evolveVFX;
 
     public NavMeshAgent NavMesh;
+    public Rigidbody RB;
     public OnTriggerEnterComponent OnTriggerEnterComp;
     public PlayerCanvasComponent PlayerCanvas;
 
