@@ -659,6 +659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1524521053827346073, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: debugLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: bb23cd42f6a2716409830e36675acaa4, type: 2}
     - target: {fileID: 1666517717631791289, guid: 865d14520ea908b47818a741324e3095, type: 3}
       propertyPath: m_Name
       value: Bootstrap
@@ -966,20 +970,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3064550820551151810, guid: 91a743d476a5f5a409c69b4518db8c10, type: 3}
-      propertyPath: m_Height
-      value: 0.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 3064550820551151810, guid: 91a743d476a5f5a409c69b4518db8c10, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3064550820551151810, guid: 91a743d476a5f5a409c69b4518db8c10, type: 3}
       propertyPath: m_AutoRepath
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3064550820551151810, guid: 91a743d476a5f5a409c69b4518db8c10, type: 3}
-      propertyPath: m_AutoBraking
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3064550820551151811, guid: 91a743d476a5f5a409c69b4518db8c10, type: 3}
       propertyPath: m_RootOrder
@@ -1176,11 +1172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1678927330, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016573402
+      value: 0.0000000165734
       objectReference: {fileID: 0}
     - target: {fileID: 1678927330, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000046240562
+      value: -0.000000004624056
       objectReference: {fileID: 0}
     - target: {fileID: 1678927331, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_Follow

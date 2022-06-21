@@ -10,6 +10,7 @@ public class PlayerMovementSystem : GameSystem
     private Vector3 prevMousePos;
 
     private Vector3 deltaVector;
+    private Vector3 targetVector;
 
     public override void OnStateEnter()
     {
@@ -28,13 +29,14 @@ public class PlayerMovementSystem : GameSystem
         if (Input.GetMouseButtonDown(0))
         {
             prevMousePos = Input.mousePosition;
+            targetVector = Vector3.zero;
         }
         else if (Input.GetMouseButton(0))
         {
             var deltaMos = Input.mousePosition - prevMousePos;
             deltaMos.y = 0;
-            deltaVector += deltaMos / sensitivityDivider;
-
+            targetVector = Vector3.Lerp(targetVector, deltaMos, Time.deltaTime * sensitivityDivider);
+            deltaVector += targetVector;
             prevMousePos = Input.mousePosition;
         }
 
