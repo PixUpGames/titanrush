@@ -18,6 +18,8 @@ public class FailureSystem : GameSystem
         {
             game.PlayerComponent.OnTriggerEnterComp.OnEnter -= OnObstacleEnter;
 
+            game.PlayerComponent.PlayerAnimator.Die();
+
             ChangeToFailState();
         }
     }

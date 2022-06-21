@@ -18,5 +18,6 @@ public enum Collectable
 {
     COIN = 1,
     POWER_UP = 2,
-    POWER_DOWN = 3
+    POWER_DOWN = 3,
+    CUSTOMIZABLE = 4
 }

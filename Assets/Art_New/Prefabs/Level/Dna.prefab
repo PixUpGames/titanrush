@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7582891804113578690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,14 @@ PrefabInstance:
     - target: {fileID: 1230738461320672209, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.62195045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230738461320672212, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230738462499341786, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1230738462629580352, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
       propertyPath: m_RootOrder
@@ -99,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Flash
       objectReference: {fileID: 0}
+    - target: {fileID: 1230738462629580353, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1230738462629580366, guid: 4a401486e217bd54e86fd1c0ce74618c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0
@@ -129,9 +141,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4113491658105423650, guid: 93e852abed32fa04d8dfca4cb305d586, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7592641703229788046, guid: 93e852abed32fa04d8dfca4cb305d586, type: 3}
       propertyPath: m_Name
       value: Power Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592641703229788046, guid: 93e852abed32fa04d8dfca4cb305d586, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7592641703229788047, guid: 93e852abed32fa04d8dfca4cb305d586, type: 3}
       propertyPath: m_RootOrder

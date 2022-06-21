@@ -3,6 +3,7 @@ using Kuhpik;
 using NaughtyAttributes;
 using Supyrb;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
@@ -69,10 +70,23 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
 
                         break;
                     }
+                case Collectable.CUSTOMIZABLE:
+                    {
+                        var customizable = (CustomizablePickUpComponent) collectable;
+
+                        if (!player.OpenedCustomizables.Contains(customizable.GetItemType))
+                        {
+                            player.OpenedCustomizables.Add(customizable.GetItemType);
+
+                            Debug.Log($"Added {customizable.GetItemType.GetName()}");
+                        }
+
+                        break;
+                    }
 
                 default:
                     {
-                        Debug.LogError("Can't get any Collectable Component");
+                        throw new System.Exception("Can't get any Collectable Component");
 
                         break;
                     }
