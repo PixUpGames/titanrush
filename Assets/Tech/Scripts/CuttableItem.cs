@@ -3,7 +3,8 @@ using UnityEngine;
 public enum CuttableType
 {
     Hand = 1,
-    Head = 2
+    Head = 2,
+    Silly_Titan = 3
 }
 
 public abstract class CuttableItem : MonoBehaviour

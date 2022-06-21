@@ -1,8 +1,6 @@
 using Kuhpik;
 using NaughtyAttributes;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCutSystem : GameSystem
@@ -22,15 +20,37 @@ public class PlayerCutSystem : GameSystem
             cuttable.Cut();
             game.Coins += cuttable.ReceiveAward();
 
-            if (cuttable.GetCuttableType() == CuttableType.Hand)
+            switch (cuttable.GetCuttableType())
             {
-                CutHand();
-            }
-            else
-            {
-                CutHead();
+                case CuttableType.Hand:
+                    {
+                        CutHand();
+
+                        break;
+                    }
+                case CuttableType.Head:
+                    {
+                        CutHead();
+
+                        break;
+                    }
+                case CuttableType.Silly_Titan:
+                    {
+                        CutSillyTitan();
+
+                        break;
+                    }
+                default:
+                    {
+                        throw new Exception("No Types for this cuttable");
+                    }
             }
         }
+    }
+
+    private void CutSillyTitan()
+    {
+        game.PlayerComponent.CutHand();
     }
 
     private void CutHead()
