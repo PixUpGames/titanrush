@@ -21,5 +21,6 @@ namespace Kuhpik
         public FinishComponent Finish;
         public EnemyComponent enemyBoss;
         public float playerSpeed;
+        public EnemyState punchAndDodgeState;
     }
 }

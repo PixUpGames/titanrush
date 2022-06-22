@@ -15,13 +15,17 @@ public class EnemyComponent : MonoBehaviour
     private const string START_BATTLE = "StartBattle";
     private const string TAKE_DAMAGE = "TakeDamage";
     private const string FLY = "Fly";
+    private const string KNEEL = "Kneel";
+    private const string HAMMER = "HammerPunch";
 
     private int punchHash;
+    private int kneelHash;
     private int kickHash;
     private int startBattleHash;
     private int takeDamageHash;
     private int flyHash;
     private int stompHash;
+    private int hammerPunchHash;
 
     private float currentHealth;
 
@@ -38,10 +42,16 @@ public class EnemyComponent : MonoBehaviour
         flyHash = Animator.StringToHash(FLY);    
         kickHash = Animator.StringToHash(KICK);
         stompHash = Animator.StringToHash(STOMP);
+        kneelHash = Animator.StringToHash(KNEEL);
+        hammerPunchHash = Animator.StringToHash(HAMMER);
 
         hitSignal = Signals.Get<EnemyHitSignal>();
     }
 
+    public virtual void Prepare()
+    {
+        StartBattle();
+    }
     public void DoPunch()
     {
         animator.SetTrigger(punchHash);
@@ -49,6 +59,14 @@ public class EnemyComponent : MonoBehaviour
     public void DoKick()
     {
         animator.SetTrigger(kickHash);
+    }
+    public void SetKneel(bool enable)
+    {
+        animator.SetBool(kneelHash, enable);
+    }
+    public void DoHammerHit()
+    {
+        animator.SetTrigger(hammerPunchHash);
     }
     public void DoStomp()
     {

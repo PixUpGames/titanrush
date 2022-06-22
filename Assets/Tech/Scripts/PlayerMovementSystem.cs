@@ -29,10 +29,10 @@ public class PlayerMovementSystem : GameSystem
         if (Input.GetMouseButtonDown(0))
         {
             prevMousePos = Input.mousePosition;
-            targetVector = Vector3.zero;
         }
         else if (Input.GetMouseButton(0))
         {
+            targetVector = Vector3.zero;
             var deltaMos = Input.mousePosition - prevMousePos;
             deltaMos.y = 0;
             targetVector = Vector3.Lerp(targetVector, deltaMos, Time.deltaTime * sensitivityDivider);

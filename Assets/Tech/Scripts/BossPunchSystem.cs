@@ -14,7 +14,7 @@ public class BossPunchSystem : GameSystem
     }
     public override void OnStateEnter()
     {
-        game.enemyBoss.StartBattle();
+        game.enemyBoss.Prepare();
         delayTime = Time.time + Random.Range(randomDelayRange.x, randomDelayRange.y);
     }
 
@@ -33,6 +33,7 @@ public class BossPunchSystem : GameSystem
         }
 
         game.enemyBoss.DoPunch();
+        DoPunch();
         delayTime = Time.time + Random.Range(randomDelayRange.x, randomDelayRange.y);
     }
     private void DoPunch()
