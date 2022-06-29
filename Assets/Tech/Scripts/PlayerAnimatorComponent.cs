@@ -20,6 +20,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private const string DIE = "Death";
     private const string ATTACK_WHIRL_STRAIGHT = "Attack_Whirl_Straight";
     private const string ATTACK_WHIRL_SKEW = "Attack_Whirl_Skew";
+    private const string JUMP = "Jump";
 
     private int fightIdleHash;
     private int kickHash;
@@ -30,6 +31,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private int deathHash;
     private int straightWhirlHash;
     private int skewWhirlHash;
+    private int jumpHash;
 
     private PlayerHitSignal hitSignal;
 
@@ -44,6 +46,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
         deathHash = Animator.StringToHash(DIE);
         straightWhirlHash = Animator.StringToHash(ATTACK_WHIRL_STRAIGHT);
         skewWhirlHash = Animator.StringToHash(ATTACK_WHIRL_SKEW);
+        jumpHash = Animator.StringToHash(JUMP);
 
         hitSignal = Signals.Get<PlayerHitSignal>();
     }
@@ -90,6 +93,11 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void Die()
     {
         animator.SetTrigger(deathHash);
+    }
+
+    public void Jump() 
+    {
+        animator.SetBool(jumpHash,true);
     }
     
     #endregion

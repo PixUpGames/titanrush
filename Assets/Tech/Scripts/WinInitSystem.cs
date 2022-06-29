@@ -4,15 +4,16 @@ using UnityEngine;
 public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
 {
     [SerializeField] private float baseMultiplier = 10f;
-    public override void OnStateEnter()
+    public override void OnInit()
     {
-        screen.InitScreen(game.Multiplier, player.Level * game.Multiplier * baseMultiplier);
+        float coinsValue = player.Level * game.Multiplier * baseMultiplier;
+        screen.InitScreen(game.Multiplier, coinsValue);
         screen.ContinueButton.onClick.AddListener(NextLevel);
+        player.Level++;
     }
+
     private void NextLevel()
     {
-        player.Level++;
-
         Bootstrap.Instance.GameRestart(0);
     }
 }

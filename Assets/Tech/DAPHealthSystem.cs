@@ -1,7 +1,9 @@
 using Kuhpik;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthFightSystem : GameSystemWithScreen<FightingScreenUI>
+public class DAPHealthSystem : GameSystemWithScreen<FightingScreenUI>
 {
     [SerializeField] private float playerMaxHealth = 10;
     [SerializeField] private float enemyMaxHealth = 10;
