@@ -4,7 +4,7 @@ using UnityEngine;
 public class Level : ScriptableObject
 {
     public GameObject LevelPrefab;
-    public int index;
+    //public int index;
     public int AllowedMutations;
     public int MutationBarsToEvolve;
     public FinishState FinishState;

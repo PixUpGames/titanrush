@@ -11,6 +11,7 @@ public class DAPInitSystem : GameSystem
 
         signal.AddListener(ChangeEnemyState);
     }
+
     public override void OnStateEnter()
     {
         game.enemyBoss.Prepare();

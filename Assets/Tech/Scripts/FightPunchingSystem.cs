@@ -38,6 +38,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
         UpdateUI();
         TryPunch();
     }
+
     private void UpdateUI()
     {
         screen.UpdatePowerSlider(powerValue, maxPowerValue);

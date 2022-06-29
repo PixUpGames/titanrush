@@ -12,6 +12,7 @@ public class LoadingSystem : GameSystem
     /// TODO: Change it when Levels will be ready
     /// </summary>
     [SerializeField] private string levelsPath;
+    [SerializeField] private int maxLevels;
     [SerializeField] private bool debug = false;
     [ShowIf("debug"), SerializeField] private Level debugLevel;
 
@@ -56,17 +57,27 @@ public class LoadingSystem : GameSystem
 
     private void CreateLevel()
     {
+        int levelIndex=0;
+
+
         if (debug)
         {
             game.LevelConfig = debugLevel;
         }
         else
         {
-            levelConfigs = Resources.LoadAll<Level>(levelsPath).ToList();
-            levelConfigs.OrderBy(x => x.index);
-            game.LevelConfig = levelConfigs[player.Level - 1];
+            //levelConfigs = Resources.LoadAll<Level>(levelsPath).ToList();
+            //levelConfigs.OrderBy(x => x.index);
+            //game.LevelConfig = levelConfigs[player.Level - 1];
+            CreateLevel(levelIndex);
         }
 
         Instantiate(game.LevelConfig.LevelPrefab, Vector3.zero, Quaternion.identity);
+    }
+
+    private void CreateLevel(int level)
+    {
+        level = player.Level;
+        game.LevelConfig = Resources.Load<Level>(string.Format(levelsPath, level+1));
     }
 }

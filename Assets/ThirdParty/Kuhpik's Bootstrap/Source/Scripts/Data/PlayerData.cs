@@ -12,7 +12,7 @@ namespace Kuhpik
     [Serializable]
     public class PlayerData
     {
-        public int Level = 1;
+        public int Level;
         public List<CustomizableType> OpenedCustomizables = new List<CustomizableType>();
     }
 }
