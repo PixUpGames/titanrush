@@ -333,6 +333,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UsePipelineSettings: 0
+--- !u!1 &666558270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666558271}
+  - component: {fileID: 666558272}
+  m_Layer: 0
+  m_Name: DAPHealthSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &666558271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666558270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1232790510}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666558272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666558270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b57362968dd511469901cc77bce5629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 10
+  enemyMaxHealth: 10
+  lerpSpeed: 10
 --- !u!1001 &941578444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,12 +660,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1524521053827346073, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524521053827346073, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: maxLevels
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524521053827346073, guid: 865d14520ea908b47818a741324e3095, type: 3}
       propertyPath: debugLevel
       value: 
       objectReference: {fileID: 11400000, guid: a897b69319116314e9c07c822b5d325e, type: 2}
+    - target: {fileID: 1524521053827346073, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: levelsPath
+      value: Levels/Level {0}
+      objectReference: {fileID: 0}
     - target: {fileID: 1666517717631791289, guid: 865d14520ea908b47818a741324e3095, type: 3}
       propertyPath: m_Name
       value: Bootstrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071254408399880636, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: scaleFOV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071254408399880636, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: allCameras
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071254408399880636, guid: 865d14520ea908b47818a741324e3095, type: 3}
+      propertyPath: clampAspectRatio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4987531766057273802, guid: 865d14520ea908b47818a741324e3095, type: 3}
       propertyPath: m_RootOrder
@@ -717,6 +787,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 425b49318646a65458c78f3d7c6a64c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStepDelay: 0
+--- !u!1 &1643798414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643798415}
+  - component: {fileID: 1643798416}
+  m_Layer: 0
+  m_Name: DAPCameraFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643798415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643798414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1232790510}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643798416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643798414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17cf77ebd4821d24bbc16a15f0dc8cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1757574580
@@ -1403,6 +1517,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHoldTimer: 0.2
+  slowMotionScale: 0.2
+  powerIncreaseOnClick: 1
+  maxPowerValue: 5
+  delayBetweenKicks: 0.5
+  decreaseMultiplier: 4
+  playerDamage: 2
 --- !u!1001 &3064550820397975264
 PrefabInstance:
   m_ObjectHideFlags: 0
