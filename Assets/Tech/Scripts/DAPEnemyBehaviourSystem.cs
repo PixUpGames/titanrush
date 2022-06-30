@@ -10,7 +10,6 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
     private float incomeMultiply;
     public override void OnInit()
     {
-        //Signals.Get<DapFootKickSignal>().AddListener(OnFootKickFeedback);
         incomeMultiply = 5f;
         screen.multiplyText.text = "x" + incomeMultiply.ToString();
         StartCoroutine(HammerBossRoutine());
@@ -20,7 +19,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
     {
         incomeMultiply += 1.2f;
         Mathf.Sign(incomeMultiply);
-        screen.multiplyText.text="x" + incomeMultiply.ToString("0.00");
+        screen.multiplyText.text="x" + incomeMultiply.ToString("0.0");
         screen.multiplyText.transform.DOPunchScale(Vector3.one *0.1f, 0.3f);
     }
 
@@ -30,7 +29,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
         {
             if (game.enemyBoss.GetHealth() > 0)
             {
-                yield return new WaitForSeconds(attackStepDelay/2);
+                yield return new WaitForSeconds(attackStepDelay/3);
             }
 
             var finishComp = (HammerFinishComponent)game.Finish;
@@ -50,8 +49,14 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
         game.punchAndDodgeState = EnemyState.DEATH;
         screen.DapBar.gameObject.SetActive(true);
         screen.DapBar.value = screen.DapBar.maxValue;
-        screen.DapBar.DOValue(screen.DapBar.minValue, 8f).OnComplete(() => { game.enemyBoss.DoDeath(); screen.DapBar.gameObject.SetActive(false);Bootstrap.Instance.ChangeGameState(GameStateID.Win); });
+        screen.DapBar.DOValue(screen.DapBar.minValue, 8f).OnComplete(() => { game.enemyBoss.DoDeath(); screen.DapBar.gameObject.SetActive(false);StartCoroutine(FinishRoutine()); });
         game.enemyBoss.SetKneel(true);
+    }
+
+    IEnumerator FinishRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Bootstrap.Instance.ChangeGameState(GameStateID.Win);
     }
 
     private void HammerHit()

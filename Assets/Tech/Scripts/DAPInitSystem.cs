@@ -11,6 +11,6 @@ public class DAPInitSystem : GameSystem
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
         game.PlayerComponent.NavMesh.enabled = false;
         game.PlayerComponent.RB.isKinematic = true;
+        game.punchAndDodgeState = EnemyState.PUNCH;
     }
-
 }

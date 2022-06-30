@@ -2378,7 +2378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7a921d47ee79d46a9c4b89015d1401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHoldTimer: 0.2
+  jumpHoldTimer: 0.1
   slowMotionScale: 0.2
   powerIncreaseOnClick: 1
   maxPowerValue: 3
@@ -3571,15 +3571,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287322000201167625, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2925504
+      value: 0.29255044
       objectReference: {fileID: 0}
     - target: {fileID: 4287322000201167625, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000011209024
+      value: -0.000000030623603
       objectReference: {fileID: 0}
     - target: {fileID: 4287322000201167625, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000034292305
+      value: 0.000000009368834
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
@@ -3922,6 +3922,14 @@ PrefabInstance:
     - target: {fileID: 2466493663189077305, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
+      propertyPath: isTesting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
+      propertyPath: testData.Level
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
