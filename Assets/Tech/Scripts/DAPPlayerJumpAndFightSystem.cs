@@ -23,11 +23,6 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
 
     private float powerValue = 0;
 
-    public override void OnGameStart()
-    {
-        //Signals.Get<PlayerHitSignal>().AddListener(DoHit);
-    }
-
     public override void OnStateEnter()
     {
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
@@ -35,43 +30,40 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
 
     public override void OnInit()
     {
+        Signals.Get<PlayerHitSignal>().AddListener(DoHit);
         finishComponent = (HammerFinishComponent) game.Finish;
     }
-
+    
     public override void OnUpdate()
     {
-        //game.PlayerComponent.transform.LookAt(finishComponent.BigTitan.transform);
+        if (Input.GetMouseButtonDown(0))
+        {
+            powerValue = Mathf.Clamp(powerValue + powerIncreaseOnClick, 0, maxPowerValue);
+        }
+        else
+        {
+            powerValue = Mathf.Clamp(powerValue - Time.deltaTime * decreaseMultiplier, 0, maxPowerValue);
+        }
 
-        //if (jumping || game.punchAndDodgeState != EnemyState.PUNCH)
-        //{
-        //    return;
-        //}
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    timer = Time.time + jumpHoldTimer;
-
-        //    prevPos = Input.mousePosition;
-        //}
-        //else if (Input.GetMouseButton(0))
-        //{
-        //    if (timer < Time.time)
-        //    {
-        //        var delta = Input.mousePosition.x - prevPos.x;
-
-        //        if (delta == 0 || prevPos == Vector3.zero)
-        //        {
-        //            return;
-        //        }
-
-        //        var direction = (int) Mathf.Sign(delta);
-
-        //        Jump(direction);
-        //    }
-        //}
+        if(game.punchAndDodgeState==EnemyState.DEATH)
+            SetPunchAnimation(false);
 
         TryToFight();
         TryToJump();
+        TryToFinalFootKicks();
+    }
+
+    private void TryToFinalFootKicks()
+    {
+        if (jumping || game.punchAndDodgeState != EnemyState.DEATH)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            game.PlayerComponent.PlayerAnimator.SetKickAnimation();
+        }
     }
 
     private void TryToJump()
@@ -82,6 +74,8 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
         {
             return;
         }
+
+        SetPunchAnimation(false);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -101,7 +95,6 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
                 }
 
                 var direction = (int)Mathf.Sign(delta);
-
                 Jump(direction);
             }
         }
@@ -114,25 +107,10 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            powerValue = Mathf.Clamp(powerValue + powerIncreaseOnClick, 0, maxPowerValue);
-        }
-        else
-        {
-            powerValue = Mathf.Clamp(powerValue - Time.deltaTime * decreaseMultiplier, 0, maxPowerValue);
-        }
-
-        UpdateUI();
-        TryPunch();
+        TryFinalFightState();
     }
 
-    private void UpdateUI()
-    {
-        screen.UpdatePowerSlider(powerValue, maxPowerValue);
-    }
-
-    private void TryPunch()
+    private void TryFinalFightState()
     {
         if (powerValue <= 0)
         {
@@ -142,7 +120,6 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
         }
 
         SetPunchAnimation(true);
-
         TryFinalPunch();
     }
 
@@ -153,11 +130,9 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
 
     private void TryFinalPunch()
     {
-        if (game.enemyBoss.GetHealth() - playerDamage <= 0)
+        if (game.enemyBoss.GetHealth()<= 0)
         {
-            Time.timeScale = slowMotionScale;
             game.PlayerComponent.PlayerAnimator.ClearAllAnimations();
-            game.PlayerComponent.PlayerAnimator.SetFinalKick();
 
             return;
         }
@@ -166,7 +141,7 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     public void DoHit()
     {
         /// Change To changeable value
-        game.enemyBoss.ReceiveDamage(playerDamage);
+        game.PlayerComponent.ReceiveDamage(1);
     }
 
     private void Jump(int deltaIndex)

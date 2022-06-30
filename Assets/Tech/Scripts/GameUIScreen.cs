@@ -7,7 +7,8 @@ public class GameUIScreen : UIScreen
 {
     [SerializeField] private TextMeshProUGUI coinsCounterText;
     [SerializeField] private TextMeshProUGUI levelCounterText;
-
+    public TMP_Text multiplyText;
+    public Slider DapBar;
     [field: SerializeField] public Button settingsButton { get; set; }
 
     public void UpdateCoinsCounter(int value)

@@ -1,3 +1,4 @@
+using Kuhpik;
 using Supyrb;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class EnemyComponent : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private OnTriggerEnterComponent onTriggerEnter;
     [SerializeField] private ParticleSystem hitParticle;
-
+    [SerializeField] private FXCaster fXCaster;
     public OnTriggerEnterComponent OnTriggerEnter => onTriggerEnter;
 
     private const string PUNCH = "Punch";
@@ -17,6 +18,8 @@ public class EnemyComponent : MonoBehaviour
     private const string FLY = "Fly";
     private const string KNEEL = "Kneel";
     private const string HAMMER = "HammerPunch";
+    private const string STUN = "Stun";
+    private const string DEATH = "Death";
 
     private int punchHash;
     private int kneelHash;
@@ -26,12 +29,14 @@ public class EnemyComponent : MonoBehaviour
     private int flyHash;
     private int stompHash;
     private int hammerPunchHash;
+    private int stunHash;
+    private int deathHash;
 
     private float currentHealth;
-
     private Rigidbody[] rigidbodies;
-
     private EnemyHitSignal hitSignal;
+
+    public FXCaster FXCaster => fXCaster;
 
     private void Awake()
     {
@@ -44,7 +49,9 @@ public class EnemyComponent : MonoBehaviour
         stompHash = Animator.StringToHash(STOMP);
         kneelHash = Animator.StringToHash(KNEEL);
         hammerPunchHash = Animator.StringToHash(HAMMER);
-
+        stunHash = Animator.StringToHash(STUN);
+        deathHash = Animator.StringToHash(DEATH);
+        fXCaster = GetComponentInChildren<FXCaster>();
         hitSignal = Signals.Get<EnemyHitSignal>();
     }
 
@@ -56,6 +63,20 @@ public class EnemyComponent : MonoBehaviour
     {
         animator.SetTrigger(punchHash);
     }
+    public void DoDeath()
+    {
+        animator.SetTrigger(deathHash);
+    }
+    public void DoStun()
+    {
+        animator.SetTrigger(stunHash);
+    }
+
+    public void DoResetStun()
+    {
+        animator.ResetTrigger(stunHash);
+    }
+
     public void DoKick()
     {
         animator.SetTrigger(kickHash);
@@ -83,7 +104,10 @@ public class EnemyComponent : MonoBehaviour
     public void ReceiveDamage(float value)
     {
         hitParticle?.Play();
-        animator.SetTrigger(takeDamageHash);
+
+        if(Bootstrap.Instance.GetCurrentGamestateID()!=GameStateID.DodgeAndPunch)
+            animator.SetTrigger(takeDamageHash);
+
         currentHealth -= value;
     }
     public float GetHealth()

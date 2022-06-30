@@ -34,6 +34,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private int jumpHash;
 
     private PlayerHitSignal hitSignal;
+    private DapFootKickSignal footKickSignal;
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
         jumpHash = Animator.StringToHash(JUMP);
 
         hitSignal = Signals.Get<PlayerHitSignal>();
+        footKickSignal = Signals.Get<DapFootKickSignal>();
     }
     #region Animations
     public void SetFightIdle(bool value)
@@ -114,5 +116,11 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void HitSignal()
     {
         hitSignal.Dispatch();
+    }
+
+    public void DapFootKickSignal()
+    {
+        footKickSignal.Dispatch();
+        Bootstrap.Instance.GetSystem<DAPEnemyBehaviourSystem>().OnFootKickFeedback();
     }
 }
