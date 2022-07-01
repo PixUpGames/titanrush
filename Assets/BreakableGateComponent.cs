@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BreakableGateComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject staticGate;
+    [SerializeField] private GameObject dynamicGate;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent(out EnemyComponent enemy)||other.TryGetComponent(out PlayerComponent player))
+        {
+            staticGate.SetActive(false);
+            dynamicGate.SetActive(true);
+        }
     }
 }
