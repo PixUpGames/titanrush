@@ -11,7 +11,7 @@ public class GameUIScreen : UIScreen
     public Slider DapBar;
     [field: SerializeField] public Button settingsButton { get; set; }
 
-    public void UpdateCoinsCounter(int value)
+    public void UpdateCoinsCounter(float value)
     {
         coinsCounterText.text = $"{value}";
     }

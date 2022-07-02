@@ -8,9 +8,10 @@ public class PlayerAnimatorComponent : MonoBehaviour
     [SerializeField] private GameObject finalPunchVFX;
     [SerializeField] private GameObject electricityVFX;
     [SerializeField] private Transform head;
+    [SerializeField] private Transform FightCameraHolder;
 
     public Transform Head => head;
-
+    public Transform CameraHolder => FightCameraHolder;
     private const string FIGHT_IDLE = "StartBattle";
     private const string KICK = "Kick";
     private const string PUNCH = "Punches";

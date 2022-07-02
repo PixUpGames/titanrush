@@ -52,7 +52,6 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                     {
                         game.MutationBars = Mathf.Max(0, game.MutationBars - 1);
                         game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
-
                         break;
                     }
                 case Collectable.POWER_UP:
@@ -66,6 +65,7 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                         if(game.MutationBars >= game.LevelConfig.MutationBarsToEvolve)
                         {
                             mutateSignal.Dispatch();
+                            game.MutationBars = 0;
                         } 
 
                         break;

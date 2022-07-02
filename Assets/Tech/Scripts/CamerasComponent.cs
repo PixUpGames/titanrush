@@ -5,6 +5,8 @@ public class CamerasComponent : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera playerMainCamera;
     [SerializeField] private CinemachineVirtualCamera playerMainCameraFirstEvolve;
+    [SerializeField] private CinemachineVirtualCamera playerMainCameraSecondEvolve;
+    [SerializeField] private CinemachineVirtualCamera playerMainCameraThirdEvolve;
     [SerializeField] private CinemachineVirtualCamera fightCamera;
     [SerializeField] private CinemachineVirtualCamera defeatedEnemyCamera;
     [SerializeField] private CinemachineVirtualCamera StartCamera;
@@ -12,7 +14,7 @@ public class CamerasComponent : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera[] allCameras;
 
     private const int highestPriority = 20;
-
+    private int evolveIndex;
     private void ResetAllCameras()
     {
         foreach(var camera in allCameras)
@@ -32,11 +34,25 @@ public class CamerasComponent : MonoBehaviour
 
         playerMainCamera.m_Priority = highestPriority;
     }
-    public void SetMainCameraFirstEvolve()
+    public void SetMainCameraEvolve()
     {
         ResetAllCameras();
 
-        playerMainCameraFirstEvolve.m_Priority = highestPriority;
+        if (evolveIndex == 0)
+        {
+            playerMainCameraFirstEvolve.m_Priority = highestPriority;
+        }
+        else if (evolveIndex == 1)
+        {
+            playerMainCameraFirstEvolve.m_Priority = 1;
+            playerMainCameraSecondEvolve.m_Priority = highestPriority * 2;
+        }
+        else
+        {
+            playerMainCameraSecondEvolve.m_Priority = 1;
+            playerMainCameraThirdEvolve.m_Priority = highestPriority * 2;
+        }
+        evolveIndex++;
     }
     public void SetFightCamera(Transform @object)
     {

@@ -13,6 +13,7 @@ namespace Kuhpik
     public class PlayerData
     {
         public int Level;
+        public float Money;
         public List<CustomizableType> OpenedCustomizables = new List<CustomizableType>();
     }
 }

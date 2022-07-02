@@ -19,9 +19,17 @@ public class MutationSystem : GameSystem
             switch (mutations)
             {
                 case 1:
-                    game.Cameras.SetMainCameraFirstEvolve();
+                    game.Cameras.SetMainCameraEvolve();
                     game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
                     game.playerSpeed *= 1.5f;
+                    break;
+                case 2:
+                    game.Cameras.SetMainCameraEvolve();
+                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
+                    break;
+                case 3:
+                    game.Cameras.SetMainCameraEvolve();
+                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
                     break;
             }
 

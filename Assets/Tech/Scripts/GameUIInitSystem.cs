@@ -8,6 +8,6 @@ public class GameUIInitSystem : GameSystemWithScreen<GameUIScreen>
         game.Cameras.SetMainCamera();
         game.PlayerComponent.PlayerCanvas.gameObject.SetActive(true);
         screen.UpdateLevelCounter(player.Level);
-        screen.UpdateCoinsCounter(0);
+        screen.UpdateCoinsCounter(player.Money);
     }
 }

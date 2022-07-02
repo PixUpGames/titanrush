@@ -7,19 +7,18 @@ using DG.Tweening;
 public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 {
     [SerializeField] private float attackStepDelay;
-    private float incomeMultiply;
     public override void OnInit()
     {
-        incomeMultiply = 5f;
-        screen.multiplyText.text = "x" + incomeMultiply.ToString();
+        game.Multiplier = 5f;
+        screen.multiplyText.text = "x" + game.Multiplier.ToString();
         StartCoroutine(HammerBossRoutine());
     }
 
     public void OnFootKickFeedback()
     {
-        incomeMultiply += 1.2f;
-        Mathf.Sign(incomeMultiply);
-        screen.multiplyText.text="x" + incomeMultiply.ToString("0.0");
+        game.Multiplier += 1.2f;
+        Mathf.Sign(game.Multiplier);
+        screen.multiplyText.text="x" + game.Multiplier.ToString("0.0");
         screen.multiplyText.transform.DOPunchScale(Vector3.one *0.1f, 0.3f);
     }
 
