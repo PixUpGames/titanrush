@@ -15,7 +15,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
         screen.PrizeButton.onClick.AddListener(GetPrize);
         player.Level++;
         player.Money += income;
-        screen.CoinsText.text = income.ToString();
+        screen.CoinsText.text = income.ToString("0");
         StartMultiplyBar();
     }
 
@@ -58,7 +58,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
 
     private void UpdateMultiplyText(int multiply)
     {
-        screen.MultiplyText.text = (income * multiply).ToString();
+        screen.MultiplyText.text = (income * multiply).ToString("0");
     }
 
     private void GetPrize()

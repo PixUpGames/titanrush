@@ -23,5 +23,6 @@ namespace Kuhpik
         public float playerSpeed;
         public EnemyState punchAndDodgeState;
         public float IncomeMultiply;
+        public int MutationLevel;
     }
 }

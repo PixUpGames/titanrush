@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class MutationSystem : GameSystem
 {
-    private int mutations;
-
     public override void OnStateEnter()
     {
         Signals.Get<MutateSignal>().AddListener(Mutate);
     }
     private void Mutate()
     {
-        if (mutations < game.LevelConfig.AllowedMutations)
+        if (game.MutationLevel < game.LevelConfig.AllowedMutations)
         {
-            mutations++;
+            game.MutationLevel++;
 
-            switch (mutations)
+            switch (game.MutationLevel)
             {
                 case 1:
                     game.Cameras.SetMainCameraEvolve();
-                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
+                    game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
                     game.playerSpeed *= 1.5f;
                     break;
                 case 2:
                     game.Cameras.SetMainCameraEvolve();
-                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
+                    game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
                     break;
                 case 3:
                     game.Cameras.SetMainCameraEvolve();
-                    game.PlayerComponent.PlayerCanvas.SetMutation(mutations);
+                    game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
                     break;
             }
 

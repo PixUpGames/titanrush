@@ -98,16 +98,19 @@ public class PlayerAnimatorComponent : MonoBehaviour
         animator.SetTrigger(deathHash);
     }
 
-    public void Jump() 
+    public void Jump()
     {
-        animator.SetBool(jumpHash,true);
+        animator.SetBool(jumpHash, true);
     }
-    
+
     #endregion
     public void FinishFatalityPunch()
     {
         Time.timeScale = 1f;
-        Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
+
+        if (Bootstrap.Instance.GetCurrentGamestateID() != GameStateID.EnemyDefeated)
+            Bootstrap.Instance.ChangeGameState(GameStateID.EnemyDefeated);
+
         finalPunchVFX?.SetActive(true);
     }
     public void ActivateFinalPunchVFX()

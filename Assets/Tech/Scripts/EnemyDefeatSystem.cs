@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using System.Collections;
 using UnityEngine;
@@ -29,8 +30,10 @@ public class EnemyDefeatSystem : GameSystem
 
     private void SpawnWalls()
     {
-        Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance, Quaternion.identity);
-        Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance / 2, Quaternion.identity);
+        GameObject fistWall=Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance, Quaternion.identity);
+        fistWall.transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
+        GameObject secondWall= Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance / 2, Quaternion.identity);
+        secondWall.transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
     }
     private IEnumerator MoveEnemy()
     {

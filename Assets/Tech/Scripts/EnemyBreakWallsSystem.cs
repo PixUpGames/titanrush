@@ -10,7 +10,7 @@ public class EnemyBreakWallsSystem : GameSystem
 
     private const string WALLS_EXPLODE = "Explode";
 
-    public override void OnStateEnter()
+    public override void OnInit()
     {
         explodeHash = Animator.StringToHash(WALLS_EXPLODE);
 
