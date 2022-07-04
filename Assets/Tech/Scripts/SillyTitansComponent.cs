@@ -9,6 +9,7 @@ public class SillyTitansComponent : CuttableItem
     [SerializeField] private Animator animator;
     [SerializeField] private OnTriggerEnterComponent onTriggerEnterComponent;
     [SerializeField, Tag] private string playerTag;
+    [SerializeField] private CollectableComponent coin;
 
     public override CuttableType GetCuttableType() => CuttableType.Silly_Titan;
     public override int ReceiveAward() => reward;

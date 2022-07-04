@@ -37,6 +37,7 @@ public class EnemyComponent : MonoBehaviour
     private EnemyHitSignal hitSignal;
 
     public FXCaster FXCaster => fXCaster;
+    public Transform CameraHolder;
 
     private void Awake()
     {

@@ -15,5 +15,8 @@ namespace Kuhpik
         public int Level;
         public float Money;
         public List<CustomizableType> OpenedCustomizables = new List<CustomizableType>();
+        public CustomizableType hatType;
+        public CustomizableType glovesType;
+        public CustomizableType skinType;
     }
 }

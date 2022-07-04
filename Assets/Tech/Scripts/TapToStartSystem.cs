@@ -12,6 +12,7 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
     {
         game.PlayerComponent.PlayerCanvas.gameObject.SetActive(false);
         game.Cameras.SetStartCamera();
+        screen.ShopButton.onClick.AddListener(() => UIManager.GetUIScreen<ShopUIScreen>().ShopWindow.SetActive(true));
         UIManager.GetUIScreen<GameUIScreen>().UpdateLevelCounter(player.Level);
         UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
     }

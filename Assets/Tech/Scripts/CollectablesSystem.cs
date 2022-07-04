@@ -12,6 +12,9 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
     private string collectablesTag;
     [SerializeField] private int coinIncrease = 51;
     [SerializeField] private GameObject pickUpVFX;
+    [SerializeField] private GameObject obstacleFX;
+    [SerializeField] private ParticleSystem powerUpFX;
+    [SerializeField] private ParticleSystem downGradeFX;
     private MutateSignal mutateSignal;
 
     public override void OnStateEnter()
@@ -52,15 +55,17 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                     {
                         game.MutationBars = Mathf.Max(0, game.MutationBars - 1);
                         game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+                        SetMutationCountFX(downGradeFX);
+                        SetFeedbackFX(obstacleFX, other);
                         break;
                     }
                 case Collectable.POWER_UP:
                     {
                         game.MutationBars = Mathf.Min(game.LevelConfig.MutationBarsToEvolve, game.MutationBars + 1);
                         game.PlayerComponent.PlayerCanvas.SetMutationValue(game.MutationBars, game.LevelConfig.MutationBarsToEvolve);
+                        SetMutationCountFX(powerUpFX);
+                        SetFeedbackFX(pickUpVFX, other);
 
-                        var go = Instantiate(pickUpVFX, other.position, Quaternion.identity);
-                        Destroy(go, 2f);
                         
                         if(game.MutationBars >= game.LevelConfig.MutationBarsToEvolve)
                         {
@@ -95,5 +100,21 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
 
             Destroy(other.gameObject);
         }
+    }
+
+    private void SetMutationCountFX(ParticleSystem targetFX)
+    {
+        targetFX.gameObject.SetActive(false);
+        targetFX.transform.SetParent(game.PlayerComponent.PlayerAnimator.CameraHolder.transform,false);
+        targetFX.transform.localScale = Vector3.one;
+        targetFX.transform.position = game.PlayerComponent.PlayerAnimator.CameraHolder.transform.position+(Vector3.up*2);
+        targetFX.gameObject.SetActive(true);
+    }
+
+    private void SetFeedbackFX(GameObject targetFX,Transform other)
+    {
+        targetFX.gameObject.SetActive(false);
+        targetFX.transform.position = other.position;
+        targetFX.gameObject.SetActive(true);
     }
 }

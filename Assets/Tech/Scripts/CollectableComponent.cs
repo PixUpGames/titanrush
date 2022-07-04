@@ -5,12 +5,24 @@ public class CollectableComponent : MonoBehaviour
 {
     [SerializeField] private Collectable collectableType;
     [SerializeField] private Vector3 rotation;
-
+    [SerializeField] private bool isCannon;
+    private bool isMoving;
     public Collectable GetCollectable => collectableType;
 
     private void Awake()
     {
-        transform.DORotate(rotation, 1f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
+        if (isCannon == false)
+            transform.DORotate(rotation, 1f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
+        else
+            isMoving = true;
+    }
+
+    private void Update()
+    {
+        if (isMoving == true)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 5f);
+        }
     }
 }
 

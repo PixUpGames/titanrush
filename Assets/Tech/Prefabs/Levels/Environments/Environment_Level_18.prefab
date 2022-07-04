@@ -272,6 +272,36 @@ Transform:
   m_Father: {fileID: 2742748521744252310}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6995879648375570166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8022323753509229036}
+  m_Layer: 7
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8022323753509229036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995879648375570166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6017923562170603050}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2742748521019740182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1258,8 +1288,17 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.00090542843
       objectReference: {fileID: 0}
+    - target: {fileID: 6947051400647118541, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+      propertyPath: CameraHolder
+      value: 
+      objectReference: {fileID: 8022323753509229036}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+--- !u!4 &6017923562170603050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8472333748087109667, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+  m_PrefabInstance: {fileID: 2742748521460985353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4362707762523461568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1917197155834280393, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}

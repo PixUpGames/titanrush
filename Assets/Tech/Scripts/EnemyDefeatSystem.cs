@@ -20,7 +20,7 @@ public class EnemyDefeatSystem : GameSystem
         finishStart = FindObjectOfType<FinishStartComponent>();
 
         startPos = game.enemyBoss.transform.position;
-        game.Cameras.SetDefeatedBossCamera(game.enemyBoss.transform);
+        game.Cameras.SetDefeatedBossCamera(game.enemyBoss.CameraHolder);
         game.enemyBoss.FlyAway();
 
         SpawnWalls();

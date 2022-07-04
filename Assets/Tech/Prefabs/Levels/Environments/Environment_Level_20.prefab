@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4420893983214464457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6626786170315416946}
+  m_Layer: 7
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6626786170315416946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4420893983214464457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2836894416977214557}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5966542550950623972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,8 +2886,17 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.00090542843
       objectReference: {fileID: 0}
+    - target: {fileID: 6947051400647118541, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+      propertyPath: CameraHolder
+      value: 
+      objectReference: {fileID: 6626786170315416946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+--- !u!4 &2836894416977214557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8472333748087109667, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+  m_PrefabInstance: {fileID: 5966542551987913854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5212400283708702135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1917197155834280393, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}

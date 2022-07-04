@@ -4,7 +4,8 @@ public enum CuttableType
 {
     Hand = 1,
     Head = 2,
-    Silly_Titan = 3
+    Silly_Titan = 3,
+    Cannon
 }
 
 public abstract class CuttableItem : MonoBehaviour
