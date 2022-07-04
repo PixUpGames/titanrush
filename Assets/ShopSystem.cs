@@ -75,6 +75,21 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
                 }
             }
         }
+
+        if (player.hatType != CustomizableType.Null)
+        {
+            shopButtons[player.hatType].WearItem();
+        }
+
+        if (player.glovesType != CustomizableType.Null)
+        {
+            shopButtons[player.glovesType].WearItem();
+        }
+
+        if (player.skinType != CustomizableType.Null)
+        {
+            shopButtons[player.skinType].WearItem();
+        }
     }
 
     private void OpenShopPage(ShopType type)

@@ -20,5 +20,6 @@ public enum CustomizableType
     HAT_SATAN = 10,
     HAT_SHAPKA = 11,
     HAT_VIKING = 12,
-    HAT_WIZZARD = 13
+    HAT_WIZZARD = 13,
+    Null=14
 }
