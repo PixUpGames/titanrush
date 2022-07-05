@@ -64,7 +64,6 @@ public class ShopItemComponent : MonoBehaviour
         {
             if (isChoosen == false)
             {
-                //Debug.Log("Wear Item");
                 isChoosen = true;
                 inactiveHUD.SetActive(false);
                 activeHUD.SetActive(true);
@@ -74,13 +73,13 @@ public class ShopItemComponent : MonoBehaviour
             else
             {
                 DeSetItem();
+                Bootstrap.Instance.GetSystem<ShopSystem>().SetCurrentItem(shopType, CustomizableType.Null);
             }
         }
     }
 
     public void DeSetItem()
     {
-        //Debug.Log("UnWear Item");
         isChoosen = false;
         openEffect.SetActive(false);
     }

@@ -19,7 +19,6 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
     [SerializeField] Dictionary<CustomizableType, ShopItemComponent> shopButtons = new Dictionary<CustomizableType, ShopItemComponent>();
     private Dictionary<ShopType, ShopPageComponent> shopPages = new Dictionary<ShopType, ShopPageComponent>();
 
-
     public override void OnInit()
     {
         InitShop();
@@ -127,10 +126,13 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         if (shopType == ShopType.GLOVES)
         {
             player.glovesType = customizableType;
+            game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(shopType, customizableType);
+
         }
         else if(shopType==ShopType.HAT)
         {
             player.hatType = customizableType;
+            game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(shopType, customizableType);
         }
         else
         {
@@ -144,7 +146,6 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
                 if(button.Value.Type != customizableType)
                 {
                     button.Value.DeSetItem();
-                    Debug.Log("UnWear");
                 }
             }
         }

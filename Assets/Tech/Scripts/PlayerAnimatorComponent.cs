@@ -1,5 +1,7 @@
 using Kuhpik;
 using Supyrb;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerAnimatorComponent : MonoBehaviour
@@ -37,6 +39,9 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private PlayerHitSignal hitSignal;
     private DapFootKickSignal footKickSignal;
 
+    [SerializeField] private List<CustomizableItemComponent> hatsList = new List<CustomizableItemComponent>();
+    [SerializeField] private List<CustomizableItemComponent> glovesList = new List<CustomizableItemComponent>();
+
     private void Awake()
     {
         fightIdleHash = Animator.StringToHash(FIGHT_IDLE);
@@ -52,7 +57,22 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
         hitSignal = Signals.Get<PlayerHitSignal>();
         footKickSignal = Signals.Get<DapFootKickSignal>();
+
+        var allCustomizables = GetComponentsInChildren<CustomizableItemComponent>(true);
+
+        foreach (var customizable in allCustomizables)
+        {
+            if (customizable.ItemType == ShopType.HAT)
+            {
+                hatsList.Add(customizable);
+            }
+            else if(customizable.ItemType == ShopType.GLOVES)
+            {
+                glovesList.Add(customizable);
+            }
+        }
     }
+
     #region Animations
     public void SetFightIdle(bool value)
     {
@@ -126,5 +146,37 @@ public class PlayerAnimatorComponent : MonoBehaviour
     {
         footKickSignal.Dispatch();
         Bootstrap.Instance.GetSystem<DAPEnemyBehaviourSystem>().OnFootKickFeedback();
+    }
+
+    public void WearItemOnPlayer(ShopType itemType,CustomizableType itemName)
+    {
+        if (itemType == ShopType.HAT)
+        {
+            foreach (var hat in hatsList)
+            {
+                if (hat.ItemName == itemName)
+                {
+                    hat.gameObject.SetActive(true);
+                }
+                else
+                {
+                    hat.gameObject.SetActive(false);
+                }
+            }
+        }
+        else if (itemType == ShopType.GLOVES)
+        {
+            foreach (var glove in glovesList)
+            {
+                if (glove.ItemName == itemName)
+                {
+                    glove.gameObject.SetActive(true);
+                }
+                else
+                {
+                    glove.gameObject.SetActive(false);
+                }
+            }
+        }
     }
 }

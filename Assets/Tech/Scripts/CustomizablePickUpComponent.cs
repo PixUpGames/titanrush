@@ -8,7 +8,7 @@ public class CustomizablePickUpComponent : CollectableComponent
 }
 public enum CustomizableType
 {
-    CROWN = 1,
+    Null = 1,
     CLAWS = 2,
     BOX_GLOVES = 3,
     FISTS = 4,
@@ -20,6 +20,5 @@ public enum CustomizableType
     HAT_SATAN = 10,
     HAT_SHAPKA = 11,
     HAT_VIKING = 12,
-    HAT_WIZZARD = 13,
-    Null=14
+    HAT_WIZZARD = 13
 }
