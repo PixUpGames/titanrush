@@ -43,8 +43,38 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
 
         foreach (var page in shopPages)
         {
-            page.Value.GetRandomItem.onClick.AddListener(() => GetRandomItem());
-            page.Value.GetRewardMoney.onClick.AddListener(() => GetRewardMoney());
+            page.Value.GetRandomItem.onClick.AddListener(() => GetRandomItem(page.Value.ShopType));
+            page.Value.GetRewardMoney.onClick.AddListener(() => GetRewardMoney(page.Value.ShopType));
+
+            UpdatePageIncomesButtons(page.Key, page.Value);
+        }
+    }
+
+    private void UpdatePageIncomesButtons(ShopType type, ShopPageComponent page)
+    {
+        if (type == ShopType.GLOVES)
+        {
+            screen.GlovesRandomPrice.text = ((player.GlovesIndex + 1) * 1000).ToString();
+            screen.GlovesRewardIncome.text = ((player.GlovesIndex + 1) * 1000).ToString();
+
+            if (GetRandomItemPrice(type) > player.Money)
+                page.GetRandomItem.interactable = false;
+        }
+        else if (type == ShopType.HAT)
+        {
+            screen.HatsRandomIncome.text = ((player.HatsIndex + 1) * 1000).ToString();
+            screen.HatsRewardIncome.text = ((player.HatsIndex + 1) * 1000).ToString();
+
+            if (GetRandomItemPrice(type) > player.Money)
+                page.GetRandomItem.interactable = false;
+        }
+        else
+        {
+            screen.SkinRandomIncome.text = ((player.SkinsIndex + 1) * 1000).ToString();
+            screen.SkinRewardIncome.text = ((player.SkinsIndex + 1) * 1000).ToString();
+
+            if (GetRandomItemPrice(type) > player.Money)
+                page.GetRandomItem.interactable = false;
         }
     }
 
@@ -53,7 +83,7 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         foreach (var config in itemConfigs)
         {
             var newButton = Instantiate(shopItemPrefab, shopPages[config.ShopType].ParentObj);
-            newButton.InitItem(config.Icon, false, config.CustomizableType,config.ShopType);
+            newButton.InitItem(config.Icon, false, config.CustomizableType, config.ShopType);
             newButton.ItemButton.onClick.AddListener(() => newButton.GetButtonAction());
             shopButtons.Add(config.CustomizableType, newButton);
         }
@@ -106,14 +136,68 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         }
     }
 
-    private void GetRandomItem()
+    private void GetRandomItem(ShopType type)
     {
-        Debug.Log("Get Random Item");
+        List<ShopItemComponent> tempTargetItems = new List<ShopItemComponent>();
+
+        player.Money -= GetRandomItemPrice(type);
+        UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
+
+        foreach (var shopItem in shopButtons)
+        {
+            if (shopItem.Value.ShopType == type && shopItem.Value.IsOpen == false)
+            {
+                tempTargetItems.Add(shopItem.Value);
+            }
+        }
+
+        int randomItem = Random.Range(0, tempTargetItems.Count - 1);
+
+        tempTargetItems[randomItem].GetButtonAction();
+        shopPages[type].GetRandomItem.interactable = false;
+
+        IncreaseItemIndex(type);
+        Debug.Log("[REWARD] Get Random Item by type ==> " + type);
     }
 
-    private void GetRewardMoney()
+    private int GetRandomItemPrice(ShopType type)
     {
-        Debug.Log("Get Reward Money");
+        if (type == ShopType.GLOVES)
+        {
+            return (player.GlovesIndex + 1) * 1000;
+        }
+        else if (type == ShopType.HAT)
+        {
+            return (player.HatsIndex + 1) * 1000;
+        }
+        else
+        {
+            return (player.SkinsIndex + 1) * 1000;
+        }
+    }
+
+    private void IncreaseItemIndex(ShopType type)
+    {
+        if (type == ShopType.GLOVES)
+        {
+            player.GlovesIndex++;
+        }
+        else if (type == ShopType.HAT)
+        {
+            player.HatsIndex++;
+        }
+        else
+        {
+            player.SkinsIndex++;
+        }
+    }
+
+    private void GetRewardMoney(ShopType type)
+    {
+        player.Money += GetRandomItemPrice(type);
+        shopPages[type].GetRewardMoney.interactable = false;
+        UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
+        Debug.Log("[REWARD] Get Reward Money");
     }
 
     public void AddOpenedItem(CustomizableType itemType)
@@ -121,7 +205,7 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         player.OpenedCustomizables.Add(itemType);
     }
 
-    public void SetCurrentItem(ShopType shopType,CustomizableType customizableType)
+    public void SetCurrentItem(ShopType shopType, CustomizableType customizableType)
     {
         if (shopType == ShopType.GLOVES)
         {
@@ -129,7 +213,7 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
             game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(shopType, customizableType);
 
         }
-        else if(shopType==ShopType.HAT)
+        else if (shopType == ShopType.HAT)
         {
             player.hatType = customizableType;
             game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(shopType, customizableType);
@@ -141,9 +225,9 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
 
         foreach (var button in shopButtons)
         {
-            if(button.Value.ShopType == shopType)
+            if (button.Value.ShopType == shopType)
             {
-                if(button.Value.Type != customizableType)
+                if (button.Value.Type != customizableType)
                 {
                     button.Value.DeSetItem();
                 }

@@ -19,6 +19,7 @@ public class ShopItemComponent : MonoBehaviour
     public Button ItemButton => itemButton;
     public CustomizableType Type => type;
     public ShopType ShopType => shopType;
+    public bool IsOpen => isOpen;
 
     public void InitItem(Sprite configSprite,bool isOpen,CustomizableType type,ShopType shopType)
     {

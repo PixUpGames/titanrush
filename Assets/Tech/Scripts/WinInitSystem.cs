@@ -7,6 +7,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     [SerializeField] private float baseMultiplier = 10f;
     [SerializeField] private float multiplySpeed;
     [SerializeField] private float income;
+    [SerializeField] private float prize;
     public override void OnInit()
     {
         income = (player.Level+1) * game.Multiplier * baseMultiplier;
@@ -59,11 +60,17 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     private void UpdateMultiplyText(int multiply)
     {
         screen.MultiplyText.text = (income * multiply).ToString("0");
+        prize = income * multiply;
     }
 
     private void GetPrize()
     {
         screen.MultiplyBar.DOKill();
+
+        player.Money += Mathf.RoundToInt(prize);
+
+        Debug.LogError("[REWARD] multiply coins");
+        NextLevel();
     }
 
     private void NextLevel()

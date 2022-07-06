@@ -20,14 +20,21 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         if (player.SpeedUpgradeLevel == 0)
             player.SpeedUpgradeLevel = 1;
 
-        screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel*100,player.DistanceUpgrade);
+        screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel * 100, player.DistanceUpgrade);
         screen.SpeedButton.UpdateInfo(player.SpeedUpgradeLevel * 100, player.SpeedUpgrade);
 
         if (player.Money < player.DistanceUpgradeLevel * 100)
+        {
             screen.PowerButton.SetRewardStatus();
+            isDistance = true;
+        
+        }
 
         if (player.Money < player.SpeedUpgradeLevel * 100)
+        {
             screen.SpeedButton.SetRewardStatus();
+            isSpeed = true;
+        }
     }
 
     private void UpgradeSpeed()
@@ -41,7 +48,7 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         }
         else
         {
-            Debug.Log("Rew");
+            Debug.Log("Reward for SpeedUpgrade");
         }
         isSpeed = true;
         player.SpeedUpgradeLevel++;
@@ -49,6 +56,7 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
 
         screen.SpeedButton.UpdateInfo(player.SpeedUpgradeLevel * 100, player.SpeedUpgrade);
         screen.SpeedButton.SetRewardStatus();
+        UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
     }
 
     private void UpgradeDistance()
@@ -62,7 +70,7 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         }
         else
         {
-            Debug.Log("Rew");
+            Debug.Log("Reward for DistanceUpgrade");
         }
         isDistance = true;
         player.DistanceUpgradeLevel++;
@@ -70,5 +78,6 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
 
         screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel * 100, player.DistanceUpgrade);
         screen.PowerButton.SetRewardStatus();
+        UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
     }
 }

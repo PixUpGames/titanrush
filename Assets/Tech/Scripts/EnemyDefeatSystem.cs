@@ -35,6 +35,7 @@ public class EnemyDefeatSystem : GameSystem
         GameObject secondWall= Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) / 2, Quaternion.identity);
         secondWall.transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
     }
+
     private IEnumerator MoveEnemy()
     {
         game.enemyBoss.StopAnimator();

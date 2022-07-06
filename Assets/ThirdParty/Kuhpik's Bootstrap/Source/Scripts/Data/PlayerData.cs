@@ -26,5 +26,9 @@ namespace Kuhpik
 
         public int DistanceUpgradeLevel;
         public int SpeedUpgradeLevel;
+
+        public int GlovesIndex;
+        public int HatsIndex;
+        public int SkinsIndex;
     }
 }
