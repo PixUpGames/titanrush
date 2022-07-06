@@ -30,18 +30,18 @@ public class EnemyDefeatSystem : GameSystem
 
     private void SpawnWalls()
     {
-        GameObject fistWall=Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance, Quaternion.identity);
+        GameObject fistWall=Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * (distance+player.DistanceUpgrade), Quaternion.identity);
         fistWall.transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
-        GameObject secondWall= Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * distance / 2, Quaternion.identity);
+        GameObject secondWall= Instantiate(breakableWall, finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) / 2, Quaternion.identity);
         secondWall.transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
     }
     private IEnumerator MoveEnemy()
     {
         game.enemyBoss.StopAnimator();
 
-        while(Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < distance)
+        while(Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < (distance + player.DistanceUpgrade))
         {
-            game.enemyBoss.transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+            game.enemyBoss.transform.Translate(-Vector3.forward * Time.deltaTime * (speed+player.SpeedUpgrade));
 
             yield return null;
         }
@@ -60,6 +60,7 @@ public class EnemyDefeatSystem : GameSystem
 
         Finish();
     }
+
     private void Finish()
     {
         Bootstrap.Instance.ChangeGameState(GameStateID.Win);
