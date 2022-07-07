@@ -16,6 +16,7 @@ public class LoadingSystem : GameSystem
     [SerializeField] private bool debug = false;
     [ShowIf("debug"), SerializeField] private Level debugLevel;
 
+
     private List<Level> levelConfigs = new List<Level>();
     public override void OnInit()
     {
@@ -45,6 +46,11 @@ public class LoadingSystem : GameSystem
         {
             navMesh.BuildNavMesh();
         }
+
+        GameObject airTempRoad = GameObject.FindGameObjectWithTag("AirTempRoad");
+
+        if (airTempRoad != null)
+            airTempRoad.SetActive(false);
     }
 
     private void FindObjects()
@@ -66,9 +72,6 @@ public class LoadingSystem : GameSystem
         }
         else
         {
-            //levelConfigs = Resources.LoadAll<Level>(levelsPath).ToList();
-            //levelConfigs.OrderBy(x => x.index);
-            //game.LevelConfig = levelConfigs[player.Level - 1];
             CreateLevel(levelIndex);
         }
 

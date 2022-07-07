@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using Supyrb;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private Transform FightCameraHolder;
 
+    [SerializeField] private LineRenderer[] ropes;
     public Transform Head => head;
     public Transform CameraHolder => FightCameraHolder;
     private const string FIGHT_IDLE = "StartBattle";
@@ -24,6 +26,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private const string ATTACK_WHIRL_STRAIGHT = "Attack_Whirl_Straight";
     private const string ATTACK_WHIRL_SKEW = "Attack_Whirl_Skew";
     private const string JUMP = "Jump";
+    private const string FLY = "Fly";
 
     private int fightIdleHash;
     private int kickHash;
@@ -35,6 +38,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     private int straightWhirlHash;
     private int skewWhirlHash;
     private int jumpHash;
+    private int flyHash;
 
     private PlayerHitSignal hitSignal;
     private DapFootKickSignal footKickSignal;
@@ -54,7 +58,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
         straightWhirlHash = Animator.StringToHash(ATTACK_WHIRL_STRAIGHT);
         skewWhirlHash = Animator.StringToHash(ATTACK_WHIRL_SKEW);
         jumpHash = Animator.StringToHash(JUMP);
-
+        flyHash = Animator.StringToHash(FLY);
         hitSignal = Signals.Get<PlayerHitSignal>();
         footKickSignal = Signals.Get<DapFootKickSignal>();
 
@@ -90,6 +94,10 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void SetSkewWhirlAnimation()
     {
         animator.SetTrigger(skewWhirlHash);
+    }
+    public void SetFlyAnimation(bool enable)
+    {
+        animator.SetBool(flyHash, enable);
     }
     public void SetRunAnimation(bool enable)
     {
@@ -177,6 +185,23 @@ public class PlayerAnimatorComponent : MonoBehaviour
                     glove.gameObject.SetActive(false);
                 }
             }
+        }
+    }
+
+    public void ConnectRopes(RopeTriggerHolderComponent holders)
+    {
+        for (int i = 0; i < ropes.Length; i++)
+        {
+            ropes[i].SetPosition(0, ropes[i].transform.position);
+            ropes[i].SetPosition(1, holders.ropeHolders[i].transform.position);
+        }
+    }
+
+    public void ToggleRopes(bool status)
+    {
+        foreach (var rope in ropes)
+        {
+            rope.gameObject.SetActive(status);
         }
     }
 }
