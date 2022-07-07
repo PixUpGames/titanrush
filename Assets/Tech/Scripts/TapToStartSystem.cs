@@ -7,6 +7,8 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
 {
     [SerializeField] private GameObject gateGO;
     [SerializeField] private float gateHeightOffset;
+    [SerializeField] private Vector3 touchPos;
+    private bool isStarted;
 
     public override void OnStateEnter()
     {
@@ -18,28 +20,43 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
     }
     public override void OnUpdate()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
-            StartGame();
+            touchPos = Input.mousePosition;
+        }
+
+        if (touchPos != Vector3.zero)
+        {
+            Debug.Log(Vector3.Distance(touchPos, Input.mousePosition));
+            if (Vector3.Distance(touchPos, Input.mousePosition) > 400)
+            {
+                StartGame();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            touchPos = Vector3.zero;
         }
     }
+
     private void StartGame()
     {
-        game.PlayerComponent.RotateModel(game.PlayerComponent.transform.position + Vector3.forward);
-
-        var multiplierController = FindObjectOfType<MultiplierHandlerComponent>();
-
-        if (multiplierController != null)
+        if (isStarted == false)
         {
-            var gate = Instantiate(gateGO, multiplierController.GetLastMultiplier(15f).transform.position + new Vector3(0, gateHeightOffset, .4f), Quaternion.identity);
-            gate.transform.DORotate(new Vector3(0, 180, 0), 0);
-        }
+            isStarted = true;
 
-        Bootstrap.Instance.ChangeGameState(GameStateID.Game);
+            game.PlayerComponent.RotateModel(game.PlayerComponent.transform.position + Vector3.forward);
+
+            var multiplierController = FindObjectOfType<MultiplierHandlerComponent>();
+
+            if (multiplierController != null)
+            {
+                var gate = Instantiate(gateGO, multiplierController.GetLastMultiplier(15f).transform.position + new Vector3(0, gateHeightOffset, .4f), Quaternion.identity);
+                gate.transform.DORotate(new Vector3(0, 180, 0), 0);
+            }
+
+            Bootstrap.Instance.ChangeGameState(GameStateID.Game);
+        }
     }
 }

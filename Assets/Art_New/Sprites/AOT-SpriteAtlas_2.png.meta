@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,12 +63,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -352,6 +353,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      AOT-SpriteAtlas_2_4: 121265463330063447
+      AOT-SpriteAtlas_2_0: 673197629650165148
+      AOT-SpriteAtlas_2_5: -575165225170183234
+      AOT-SpriteAtlas_2_1: 4152347018532631483
+      AOT-SpriteAtlas_2_8: 1565012402573452647
+      AOT-SpriteAtlas_2_7: -1001865210378777584
+      AOT-SpriteAtlas_2_9: -5884188193153356026
+      AOT-SpriteAtlas_2_2: 2001222406727137832
+      AOT-SpriteAtlas_2_3: -4854470147730411495
+      AOT-SpriteAtlas_2_6: 5385673218231981171
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
