@@ -12,14 +12,18 @@ namespace Kuhpik
     [Serializable]
     public class PlayerData
     {
+        // Example (I use public fields for data, but u free to use properties\methods etc)
+        // [BoxGroup("level")] public int level;
+        // [BoxGroup("currency")] public int money;
+
         public int Level;
         public float Money;
 
         public List<CustomizableType> OpenedCustomizables = new List<CustomizableType>();
 
-        public CustomizableType hatType=CustomizableType.Null;
-        public CustomizableType glovesType=CustomizableType.Null;
-        public CustomizableType skinType=CustomizableType.Null;
+        public CustomizableType hatType = CustomizableType.Null;
+        public CustomizableType glovesType = CustomizableType.Null;
+        public CustomizableType skinType = CustomizableType.Null;
 
         public float DistanceUpgrade;
         public float SpeedUpgrade;

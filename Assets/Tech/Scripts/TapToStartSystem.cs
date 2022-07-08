@@ -17,6 +17,9 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
         screen.ShopButton.onClick.AddListener(() => UIManager.GetUIScreen<ShopUIScreen>().ShopWindow.SetActive(true));
         UIManager.GetUIScreen<GameUIScreen>().UpdateLevelCounter(player.Level);
         UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
+
+        screen.DeLevel.onClick.AddListener(DecreaseLevel);
+        screen.InLevel.onClick.AddListener(IncreaseLevel);
     }
     public override void OnUpdate()
     {
@@ -58,5 +61,24 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
 
             Bootstrap.Instance.ChangeGameState(GameStateID.Game);
         }
+    }
+
+    private void IncreaseLevel()
+    {
+        if (player.Level <= 19)
+        {
+            player.Level++;
+        }
+        Bootstrap.Instance.GameRestart(0);
+    }
+
+    private void DecreaseLevel()
+    {
+        if (player.Level > 0)
+        {
+            player.Level--;
+        }
+
+        Bootstrap.Instance.GameRestart(0);
     }
 }

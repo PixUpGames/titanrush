@@ -57,7 +57,7 @@ namespace SRDebugger.UI.Controls
         /// <summary>
         /// If FloatingScale is disabled, use this value to determine y-axis
         /// </summary>
-        public int TargetFps = 60;
+        public int TargetFps = 80;
 
         public bool Clip = true;
 
@@ -131,7 +131,7 @@ namespace SRDebugger.UI.Controls
 
             if (Application.isPlaying && TargetFpsUseApplication && Application.targetFrameRate > 0)
             {
-                targetFps = Application.targetFrameRate;
+                //targetFps = Application.targetFrameRate;
             }
 
             var maxValue = 1f/targetFps;

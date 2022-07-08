@@ -74,4 +74,13 @@ public class CamerasComponent : MonoBehaviour
     {
         ImpulseSource.GenerateImpulse();
     }
+
+    public void SetTargetPlayer(Transform targetPlayer)
+    {
+        foreach (var camera in allCameras)
+        {
+            camera.m_LookAt = targetPlayer;
+            camera.m_Follow = targetPlayer;
+        }
+    }
 }

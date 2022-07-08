@@ -8,4 +8,6 @@ public class Level : ScriptableObject
     public int AllowedMutations;
     public int MutationBarsToEvolve;
     public FinishState FinishState;
+    public PlayerType PlayerType;
+    public bool WithFlying;
 }

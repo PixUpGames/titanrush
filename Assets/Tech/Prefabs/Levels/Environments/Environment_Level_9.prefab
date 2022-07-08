@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!135 &1030362094703879693
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137671907731853908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2713243037571923506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137671907731853908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonAnimator: {fileID: 7887083743079299462}
-  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
-  shootPoint: {fileID: 8581662869685872406}
-  shootEffect: {fileID: 7109038920032735993}
-  projectiles: []
-  breakEffect: {fileID: 8891000841302713617}
-  Type: 4
-  award: 40
 --- !u!1 &1896558941803035618
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,76 +26,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1640265361599689377}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8614072510728301205
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128148785370933275}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8240610696870583488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128148785370933275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonAnimator: {fileID: 9166490424234542025}
-  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
-  shootPoint: {fileID: 3690271330415712195}
-  shootEffect: {fileID: 8136042596142196918}
-  projectiles: []
-  breakEffect: {fileID: 3196073152995678426}
-  Type: 4
-  award: 40
---- !u!135 &7890490154630269115
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2492723691832225439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7422785459390201215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2492723691832225439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonAnimator: {fileID: 4623702097394632013}
-  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
-  shootPoint: {fileID: 4107620800641075596}
-  shootEffect: {fileID: 5761895391166082610}
-  projectiles: []
-  breakEffect: {fileID: 3416943015761298359}
-  Type: 4
-  award: 40
 --- !u!1 &2934441385622572005
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,43 +57,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8202234903080086582}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &154658751345114902
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3225162253792664868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &64281286980075919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3225162253792664868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonAnimator: {fileID: 5656324910104770294}
-  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
-  shootPoint: {fileID: 7645638910787554209}
-  shootEffect: {fileID: 4729800309763300745}
-  projectiles: []
-  breakEffect: {fileID: 9034505146157934087}
-  Type: 4
-  award: 40
 --- !u!1 &3596460315550560541
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +88,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5774250971840762684}
   - {fileID: 5774250970986654649}
@@ -285,6 +156,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 159.1}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3192015895090807275}
   - {fileID: 5257649505942465419}
@@ -323,6 +195,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3596460316540153335}
   - {fileID: 3596460316028557781}
@@ -357,6 +230,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3631660684209695303}
   - {fileID: 7452298370667455445}
@@ -418,6 +292,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3596460316094060532}
   - {fileID: 3596460315550560540}
@@ -452,8 +327,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3596460316540153332}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
-  m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 126.21}
+  m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 129.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3192015893421571780}
   - {fileID: 5257649507096160163}
@@ -492,6 +368,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3596460316223135125}
   m_RootOrder: 2
@@ -522,6 +399,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 198.2}
   m_LocalScale: {x: 3.2714, y: 3.2714, z: 3.2714}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3192015893931502282}
   - {fileID: 5257649507024523636}
@@ -560,6 +438,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3016354368118879269}
   - {fileID: 2849023021660702622}
@@ -595,6 +474,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2849023021660702622}
   m_RootOrder: 1
@@ -625,6 +505,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3016354368118879269}
   m_RootOrder: 1
@@ -655,43 +536,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 324824588737054958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1825713719378199305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8836028948708488844}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8440388638034836247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8836028948708488844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonAnimator: {fileID: 1739163450080615774}
-  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
-  shootPoint: {fileID: 8304020258752808094}
-  shootEffect: {fileID: 1728909649201100321}
-  projectiles: []
-  breakEffect: {fileID: 5866525930018026822}
-  Type: 4
-  award: 40
 --- !u!1001 &443387411891903842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -851,16 +700,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
---- !u!198 &8136042596142196918 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 1078167276147708445}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &9166490424234542025 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 1078167276147708445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1640265361599689377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744317796180484284, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
@@ -869,6 +708,49 @@ Transform:
 --- !u!1 &2128148785370933275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 1078167276147708445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &8614072510728301205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128148785370933275}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8240610696870583488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128148785370933275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonAnimator: {fileID: 9166490424234542025}
+  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
+  shootPoint: {fileID: 3690271330415712195}
+  shootEffect: {fileID: 8136042596142196918}
+  projectiles: []
+  breakEffect: {fileID: 3196073152995678426}
+  Type: 4
+  award: 40
+--- !u!198 &8136042596142196918 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 1078167276147708445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9166490424234542025 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 1078167276147708445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069137900410693714
@@ -932,11 +814,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
---- !u!95 &7887083743079299462 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 2069137900410693714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &324824588737054958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744317796180484284, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
@@ -947,9 +824,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 2069137900410693714}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1030362094703879693
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137671907731853908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2713243037571923506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137671907731853908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonAnimator: {fileID: 7887083743079299462}
+  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
+  shootPoint: {fileID: 8581662869685872406}
+  shootEffect: {fileID: 7109038920032735993}
+  projectiles: []
+  breakEffect: {fileID: 8891000841302713617}
+  Type: 4
+  award: 40
 --- !u!198 &7109038920032735993 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 2069137900410693714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7887083743079299462 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 2069137900410693714}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3038854771676761635
@@ -3683,6 +3598,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+--- !u!1 &2492723691832225439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 3596460315947472025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &7890490154630269115
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492723691832225439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7422785459390201215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492723691832225439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonAnimator: {fileID: 4623702097394632013}
+  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
+  shootPoint: {fileID: 4107620800641075596}
+  shootEffect: {fileID: 5761895391166082610}
+  projectiles: []
+  breakEffect: {fileID: 3416943015761298359}
+  Type: 4
+  award: 40
 --- !u!4 &3016354368118879269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744317796180484284, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
@@ -3696,11 +3649,6 @@ Animator:
 --- !u!198 &5761895391166082610 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 3596460315947472025}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2492723691832225439 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 3596460315947472025}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3596460315966400611
@@ -6140,16 +6088,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
---- !u!198 &4729800309763300745 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 4592770693925824290}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5656324910104770294 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
-  m_PrefabInstance: {fileID: 4592770693925824290}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2849023021660702622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1744317796180484284, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
@@ -6158,6 +6096,49 @@ Transform:
 --- !u!1 &3225162253792664868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 4592770693925824290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &154658751345114902
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225162253792664868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &64281286980075919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225162253792664868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonAnimator: {fileID: 5656324910104770294}
+  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
+  shootPoint: {fileID: 7645638910787554209}
+  shootEffect: {fileID: 4729800309763300745}
+  projectiles: []
+  breakEffect: {fileID: 9034505146157934087}
+  Type: 4
+  award: 40
+--- !u!198 &4729800309763300745 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9088102207957285547, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
+  m_PrefabInstance: {fileID: 4592770693925824290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5656324910104770294 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8197537675460809172, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 4592770693925824290}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4707855350708921381
@@ -6315,6 +6296,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1404805769979410950, guid: eab0647fc07161c41b7de488e92fce24, type: 3}
   m_PrefabInstance: {fileID: 7629448396387699850}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1825713719378199305
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836028948708488844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8440388638034836247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836028948708488844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da5b54e9e9b0394782c410332f495bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonAnimator: {fileID: 1739163450080615774}
+  spawnedProjectile: {fileID: -6180656805224810446, guid: 8b536e625ad18d34e9963780565dc29f, type: 3}
+  shootPoint: {fileID: 8304020258752808094}
+  shootEffect: {fileID: 1728909649201100321}
+  projectiles: []
+  breakEffect: {fileID: 5866525930018026822}
+  Type: 4
+  award: 40
 --- !u!1001 &8657685749095836563
 PrefabInstance:
   m_ObjectHideFlags: 0

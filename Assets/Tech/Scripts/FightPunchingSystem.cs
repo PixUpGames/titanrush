@@ -15,13 +15,11 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     [SerializeField] private float playerDamage = 2f;
 
     private float powerValue = 0;
-    public override void OnGameStart()
+    public override void OnInit()
     {
         Signals.Get<PlayerHitSignal>().AddListener(DoHit);
-    }
-    public override void OnStateEnter()
-    {
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
+        screen.PowerBar.SetActive(true);
     }
 
     public override void OnUpdate()
@@ -76,8 +74,8 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
 
     public void DoHit()
     {
-        /// Change To changeable value
         game.enemyBoss.ReceiveDamage(playerDamage);
+        Debug.Log("HIT SIGNAL @@@@@@@@@");
     }
     #endregion
 }

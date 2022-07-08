@@ -9,7 +9,7 @@ public class HammerTriggerComponent : MonoBehaviour
     {
         if(other.TryGetComponent(out PlayerComponent player))
         {
-            Signals.Get<PlayerHitSignal>().Dispatch();
+            Signals.Get<HammerHitSignal>().Dispatch();
         }
     }
 }

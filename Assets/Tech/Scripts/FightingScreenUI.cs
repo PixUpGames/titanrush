@@ -11,6 +11,8 @@ public class FightingScreenUI : UIScreen
     [SerializeField] private Image enemyRealSlider;
     [SerializeField] private Image enemyFakeSlider;
 
+    public GameObject PowerBar;
+
     public void UpdatePowerSlider(float value, float maxValue)
     {
         powerSlider.fillAmount = value / maxValue;

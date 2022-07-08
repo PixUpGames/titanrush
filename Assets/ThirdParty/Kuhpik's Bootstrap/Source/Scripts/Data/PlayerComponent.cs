@@ -2,6 +2,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum PlayerType
+{
+    ERIN=0,
+    TITAN=1
+}
+
 public class PlayerComponent: MonoBehaviour
 {
     [SerializeField] private Mutation[] mutationScales;
@@ -21,6 +27,8 @@ public class PlayerComponent: MonoBehaviour
     private float currentHealth;
 
     private int currentMutation = 0;
+
+    public PlayerType PlayerType;
 
     public void Init()
     {
@@ -64,6 +72,7 @@ public class PlayerComponent: MonoBehaviour
 
         mutationScales[currentMutation].model.SetActive(true);
         PlayerAnimator = mutationScales[currentMutation].playerAnimator;
+        PlayerAnimator.InitAnims();
     }
     public void Mutate()
     {

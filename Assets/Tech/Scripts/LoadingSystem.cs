@@ -8,16 +8,13 @@ using UnityEngine.AI;
 
 public class LoadingSystem : GameSystem
 {
-    /// <summary>
-    /// TODO: Change it when Levels will be ready
-    /// </summary>
     [SerializeField] private string levelsPath;
     [SerializeField] private int maxLevels;
     [SerializeField] private bool debug = false;
     [ShowIf("debug"), SerializeField] private Level debugLevel;
 
-
     private List<Level> levelConfigs = new List<Level>();
+
     public override void OnInit()
     {
         InitGameSettings();
@@ -29,16 +26,16 @@ public class LoadingSystem : GameSystem
         FindObjects();
 
         game.PlayerComponent.Init();
+        game.Cameras.SetTargetPlayer(game.PlayerComponent.transform);
     }
 
     private static void InitGameSettings()
     {
         Signals.Clear();
-
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 80;
     }
 
-    private static void BuildNavMeshes()
+    private void BuildNavMeshes()
     {
         var navMeshes = FindObjectsOfType<NavMeshSurface>();
 
@@ -47,10 +44,13 @@ public class LoadingSystem : GameSystem
             navMesh.BuildNavMesh();
         }
 
-        GameObject airTempRoad = GameObject.FindGameObjectWithTag("AirTempRoad");
+        if (game.LevelConfig.WithFlying == true)
+        {
+            GameObject airTempRoad = FindObjectOfType<AirTempRoadComponent>().gameObject;
 
-        if (airTempRoad != null)
-            airTempRoad.SetActive(false);
+            if (airTempRoad != null)
+                airTempRoad.SetActive(false);
+        }
     }
 
     private void FindObjects()
@@ -58,7 +58,21 @@ public class LoadingSystem : GameSystem
         game.Cameras = FindObjectOfType<CamerasComponent>();
         game.Finish = FindObjectOfType<FinishComponent>();
         game.enemyBoss = FindObjectOfType<EnemyComponent>();
-        game.PlayerComponent = FindObjectOfType<PlayerComponent>();
+
+        var players = FindObjectsOfType<PlayerComponent>(true);
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (game.LevelConfig.PlayerType == players[i].PlayerType)
+            {
+                players[i].gameObject.SetActive(true);
+                game.PlayerComponent = players[i];
+            }
+            else
+            {
+                DestroyImmediate(players[i].gameObject);
+            }
+        }
     }
 
     private void CreateLevel()

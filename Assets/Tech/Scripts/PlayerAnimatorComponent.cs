@@ -46,7 +46,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     [SerializeField] private List<CustomizableItemComponent> hatsList = new List<CustomizableItemComponent>();
     [SerializeField] private List<CustomizableItemComponent> glovesList = new List<CustomizableItemComponent>();
 
-    private void Awake()
+    public void InitAnims()
     {
         fightIdleHash = Animator.StringToHash(FIGHT_IDLE);
         kickHash = Animator.StringToHash(KICK);
@@ -148,6 +148,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void HitSignal()
     {
         hitSignal.Dispatch();
+        Debug.Log("HIT SIGNAL !!!!!!");
     }
 
     public void DapFootKickSignal()

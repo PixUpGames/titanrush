@@ -35,7 +35,7 @@ public class EnemyComponent : MonoBehaviour
     private float currentHealth;
     private Rigidbody[] rigidbodies;
     private EnemyHitSignal hitSignal;
-
+    private HammerHitSignal hammerHitSignal;
     public FXCaster FXCaster => fXCaster;
     public Transform CameraHolder;
 
@@ -54,6 +54,7 @@ public class EnemyComponent : MonoBehaviour
         deathHash = Animator.StringToHash(DEATH);
         fXCaster = GetComponentInChildren<FXCaster>();
         hitSignal = Signals.Get<EnemyHitSignal>();
+        hammerHitSignal = Signals.Get<HammerHitSignal>();
     }
 
     public virtual void Prepare()
@@ -141,5 +142,10 @@ public class EnemyComponent : MonoBehaviour
     public void HitSignal()
     {
         hitSignal.Dispatch();
+    }
+
+    public void HammerHitSignal()
+    {
+        hammerHitSignal.Dispatch();
     }
 }

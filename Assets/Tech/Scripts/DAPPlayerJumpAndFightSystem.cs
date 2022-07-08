@@ -31,6 +31,7 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     public override void OnInit()
     {
         Signals.Get<PlayerHitSignal>().AddListener(DoHit);
+        Signals.Get<HammerHitSignal>().AddListener(HitPlayerByHammer);
         finishComponent = (HammerFinishComponent) game.Finish;
     }
     
@@ -141,6 +142,12 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     public void DoHit()
     {
         /// Change To changeable value
+        /// 
+        game.enemyBoss.ReceiveDamage(playerDamage);
+    }
+
+    public void HitPlayerByHammer()
+    {
         game.PlayerComponent.ReceiveDamage(1);
     }
 

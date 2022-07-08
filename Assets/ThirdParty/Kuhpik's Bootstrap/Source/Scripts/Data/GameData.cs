@@ -12,6 +12,10 @@ namespace Kuhpik
     [Serializable]
     public class GameData
     {
+        // Example (I use public fields for data, but u free to use properties\methods etc)
+        // public float LevelProgress;
+        // public Enemy[] Enemies;
+
         public PlayerComponent PlayerComponent;
         public int Coins;
         public float MutationBars;
