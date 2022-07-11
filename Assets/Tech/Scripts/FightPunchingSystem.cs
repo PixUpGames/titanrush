@@ -20,6 +20,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
         Signals.Get<PlayerHitSignal>().AddListener(DoHit);
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
         screen.PowerBar.SetActive(true);
+        screen.TapAnim.SetActive(true);
     }
 
     public override void OnUpdate()
@@ -75,7 +76,6 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     public void DoHit()
     {
         game.enemyBoss.ReceiveDamage(playerDamage);
-        Debug.Log("HIT SIGNAL @@@@@@@@@");
     }
     #endregion
 }

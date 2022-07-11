@@ -8,7 +8,7 @@ public class LevelBreakableWallComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out PlayerComponent player))
+        if(other.TryGetComponent(out PlayerComponent player) || other.TryGetComponent(out EnemyComponent enemy))
         {
             foreach (var brick in bricks)
             {

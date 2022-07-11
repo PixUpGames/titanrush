@@ -7,10 +7,14 @@ using DG.Tweening;
 public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 {
     [SerializeField] private float attackStepDelay;
+    [SerializeField] private GameObject dapAnim;
+    [SerializeField] private GameObject tapAnim;
     public override void OnInit()
     {
         game.Multiplier = 5f;
         screen.multiplyText.text = "x" + game.Multiplier.ToString();
+        dapAnim = UIManager.GetUIScreen<FightingScreenUI>().DapAnim;
+        tapAnim = UIManager.GetUIScreen<FightingScreenUI>().TapAnim;
         StartCoroutine(HammerBossRoutine());
     }
 
@@ -26,6 +30,8 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
     {
         while (game.enemyBoss.GetHealth() > 0 || game.punchAndDodgeState == EnemyState.DEATH)
         {
+            dapAnim.SetActive(true);
+            tapAnim.SetActive(false);
             if (game.enemyBoss.GetHealth() > 0)
             {
                 yield return new WaitForSeconds(attackStepDelay/3);
@@ -43,7 +49,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
             yield return new WaitForSeconds(attackStepDelay);
         }
 
-        UIManager.GetUIScreen<FightingScreenUI>().gameObject.SetActive(false);
+        tapAnim.SetActive(true);
         game.enemyBoss.DoResetStun();
         game.punchAndDodgeState = EnemyState.DEATH;
         screen.DapBar.gameObject.SetActive(true);
@@ -60,6 +66,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
     private void HammerHit()
     {
+        //dapAnim.SetActive(true);
         if (game.enemyBoss.GetHealth() > 0)
         {
             game.enemyBoss.FXCaster.StopFX(5);
@@ -71,6 +78,8 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
     private void SetStunAfterAttack()
     {
+        dapAnim.SetActive(false);
+        tapAnim.SetActive(true);
         game.punchAndDodgeState = EnemyState.STUNNED;
         var finishComp = (HammerFinishComponent)game.Finish;
         game.enemyBoss.DoStun();

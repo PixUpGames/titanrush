@@ -10,8 +10,12 @@ public class FightingScreenUI : UIScreen
     [SerializeField] private Image playerFakeSlider;
     [SerializeField] private Image enemyRealSlider;
     [SerializeField] private Image enemyFakeSlider;
+    [SerializeField] private GameObject tapAnim;
+    [SerializeField] private GameObject dapAnim;
 
     public GameObject PowerBar;
+    public GameObject TapAnim => tapAnim;
+    public GameObject DapAnim => dapAnim;
 
     public void UpdatePowerSlider(float value, float maxValue)
     {

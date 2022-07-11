@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using NaughtyAttributes;
 using Supyrb;
@@ -11,10 +12,12 @@ public class LoadingSystem : GameSystem
     [SerializeField] private string levelsPath;
     [SerializeField] private int maxLevels;
     [SerializeField] private bool debug = false;
+    [SerializeField] private GameObject breakWall;
     [ShowIf("debug"), SerializeField] private Level debugLevel;
 
     private List<Level> levelConfigs = new List<Level>();
 
+    private FinishStartComponent finishStart;
     public override void OnInit()
     {
         InitGameSettings();
@@ -25,6 +28,8 @@ public class LoadingSystem : GameSystem
 
         FindObjects();
 
+        SpawnFinishWalls();
+
         game.PlayerComponent.Init();
         game.Cameras.SetTargetPlayer(game.PlayerComponent.transform);
     }
@@ -32,7 +37,7 @@ public class LoadingSystem : GameSystem
     private static void InitGameSettings()
     {
         Signals.Clear();
-        Application.targetFrameRate = 80;
+        Application.targetFrameRate = 150;
     }
 
     private void BuildNavMeshes()
@@ -96,5 +101,14 @@ public class LoadingSystem : GameSystem
     {
         level = player.Level;
         game.LevelConfig = Resources.Load<Level>(string.Format(levelsPath, level+1));
+    }
+
+    private void SpawnFinishWalls()
+    {
+        finishStart = FindObjectOfType<FinishStartComponent>();
+        GameObject fistWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade), Quaternion.identity);
+        fistWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+        GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, Quaternion.identity);
+        secondWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
     }
 }

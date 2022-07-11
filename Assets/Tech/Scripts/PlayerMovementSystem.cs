@@ -9,26 +9,24 @@ public class PlayerMovementSystem : GameSystem
     [SerializeField] private float speed = 4f;
     [SerializeField] private float sensitivityDivider = 1f;
     [SerializeField, Tag] private string airTag;
-    private bool isFlying;
-    private Vector3 prevMousePos;
 
+    private Vector3 prevMousePos;
     private Vector3 deltaVector;
     private Vector3 targetVector;
+    private float remapMultiplyer;
 
     private RopeTriggerHolderComponent ropeTrigger;
+    private bool isFlying;
 
-    public override void OnStateEnter()
+    public override void OnInit()
     {
         game.PlayerComponent.StartRunning(true);
         game.PlayerComponent.OnTriggerEnterComp.OnEnter += SetFlyAnim;
         game.PlayerComponent.OnTriggerEnterComp.OnEnter += SetRopesTargets;
         game.playerSpeed = speed;
+        remapMultiplyer = RemapMovement();
     }
 
-    public override void OnFixedUpdate()
-    {
-        MovePlayerForward();
-    }
     public override void OnUpdate()
     {
         deltaVector = Vector3.zero;
@@ -39,15 +37,22 @@ public class PlayerMovementSystem : GameSystem
         }
         else if (Input.GetMouseButton(0))
         {
-            targetVector = Vector3.zero;
             var deltaMos = Input.mousePosition - prevMousePos;
+            targetVector = deltaMos * remapMultiplyer;
             deltaMos.y = 0;
-            targetVector = Vector3.Lerp(targetVector, deltaMos, Time.deltaTime * sensitivityDivider);
             deltaVector += targetVector;
             prevMousePos = Input.mousePosition;
         }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            targetVector = Vector3.zero;
+        }
 
         deltaVector += Vector3.forward;
+
+        game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector*sensitivityDivider));
+
+        MovePlayerForward();
 
         if (isFlying)
         {
@@ -56,9 +61,14 @@ public class PlayerMovementSystem : GameSystem
         }
     }
 
+    private float RemapMovement()
+    {
+        return (3.2f / (Screen.currentResolution.height / 2));
+    }
+
     private void MovePlayerForward()
     {
-        game.PlayerComponent.NavMesh.Move(deltaVector * Time.fixedDeltaTime * game.playerSpeed);
+        game.PlayerComponent.NavMesh.Move(deltaVector * Time.deltaTime * game.playerSpeed);
     }
 
     private void SetFlyAnim(Transform other,Transform t2)

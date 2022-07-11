@@ -7,7 +7,8 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
 {
     [SerializeField] private GameObject gateGO;
     [SerializeField] private float gateHeightOffset;
-    [SerializeField] private Vector3 touchPos;
+    [SerializeField] private int swipeDistance;
+    private Vector3 touchPos;
     private bool isStarted;
 
     public override void OnStateEnter()
@@ -30,8 +31,7 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
 
         if (touchPos != Vector3.zero)
         {
-            Debug.Log(Vector3.Distance(touchPos, Input.mousePosition));
-            if (Vector3.Distance(touchPos, Input.mousePosition) > 400)
+            if (Vector3.Distance(touchPos, Input.mousePosition) > swipeDistance)
             {
                 StartGame();
             }
@@ -41,6 +41,16 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
         {
             touchPos = Vector3.zero;
         }
+
+        //if (EventSystem.current.IsPointerOverGameObject())
+        //{
+        //    return;
+        //}
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    StartGame();
+        //}
     }
 
     private void StartGame()
@@ -78,7 +88,6 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
         {
             player.Level--;
         }
-
         Bootstrap.Instance.GameRestart(0);
     }
 }

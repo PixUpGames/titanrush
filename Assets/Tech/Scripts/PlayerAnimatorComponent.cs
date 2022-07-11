@@ -148,7 +148,6 @@ public class PlayerAnimatorComponent : MonoBehaviour
     public void HitSignal()
     {
         hitSignal.Dispatch();
-        Debug.Log("HIT SIGNAL !!!!!!");
     }
 
     public void DapFootKickSignal()
