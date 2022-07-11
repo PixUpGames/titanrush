@@ -36,12 +36,12 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
         if (other.CompareTag(collectablesTag))
         {
             var collectable = other.GetComponent<CollectableComponent>();
-            other.DOKill();
 
             if (collectable == null)
             {
                 return;
             }
+            other.DOKill();
 
             switch (collectable.GetCollectable)
             {
