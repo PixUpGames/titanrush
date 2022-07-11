@@ -105,10 +105,13 @@ public class LoadingSystem : GameSystem
 
     private void SpawnFinishWalls()
     {
-        finishStart = FindObjectOfType<FinishStartComponent>();
-        GameObject fistWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade), Quaternion.identity);
-        fistWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
-        GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, Quaternion.identity);
-        secondWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+        if (game.LevelConfig.FinishState == FinishState.FIGHTING)
+        {
+            finishStart = FindObjectOfType<FinishStartComponent>();
+            GameObject fistWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade), Quaternion.identity);
+            fistWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+            GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, Quaternion.identity);
+            secondWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+        }
     }
 }

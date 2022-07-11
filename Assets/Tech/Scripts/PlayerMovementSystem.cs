@@ -50,7 +50,7 @@ public class PlayerMovementSystem : GameSystem
 
         deltaVector += Vector3.forward;
 
-        game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector*sensitivityDivider));
+        MovePlayerONSides();
 
         MovePlayerForward();
 
@@ -69,6 +69,18 @@ public class PlayerMovementSystem : GameSystem
     private void MovePlayerForward()
     {
         game.PlayerComponent.NavMesh.Move(deltaVector * Time.deltaTime * game.playerSpeed);
+    }
+
+    private void MovePlayerONSides()
+    {
+        if ((game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x<1.6f || (game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x > -1.6f)
+        {
+            game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector * sensitivityDivider));
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void SetFlyAnim(Transform other,Transform t2)
