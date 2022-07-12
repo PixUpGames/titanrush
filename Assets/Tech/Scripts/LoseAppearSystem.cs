@@ -19,15 +19,20 @@ public class LoseAppearSystem : GameSystemWithScreen<LoseUIScreen>
         screen.fillTimer.DOFillAmount(0, 5f).SetEase(Ease.Linear).OnComplete(() => screen.RestartButton.gameObject.SetActive(true));
 
         StartCoroutine(CountDown());
+
+        player.isRevive = true;
+        player.RevivePos = game.PlayerComponent.transform.position + Vector3.back *-5f;
     }
 
     private void GameRestart()
     {
+        player.isRevive = false;
         Bootstrap.Instance.GameRestart(0);
     }
 
     private void Revive()
     {
+        Bootstrap.Instance.SaveGame();
         Debug.Log("[REWARD] Revive");
         Bootstrap.Instance.GameRestart(0);
     }

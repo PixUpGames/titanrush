@@ -32,6 +32,8 @@ public class LoadingSystem : GameSystem
 
         game.PlayerComponent.Init();
         game.Cameras.SetTargetPlayer(game.PlayerComponent.transform);
+
+        TryToRevive();
     }
 
     private static void InitGameSettings()
@@ -112,6 +114,15 @@ public class LoadingSystem : GameSystem
             fistWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
             GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, Quaternion.identity);
             secondWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+        }
+    }
+
+    private void TryToRevive()
+    {
+        if (player.isRevive)
+        {
+            game.PlayerComponent.NavMesh.Warp(player.RevivePos);
+            player.isRevive = false;
         }
     }
 }

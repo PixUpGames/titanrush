@@ -18,6 +18,7 @@ public class PlayerComponent: MonoBehaviour
     public Rigidbody RB;
     public OnTriggerEnterComponent OnTriggerEnterComp;
     public PlayerCanvasComponent PlayerCanvas;
+    public GameObject CurrentModel;
 
     [HideInInspector]
     public PlayerAnimatorComponent PlayerAnimator;
@@ -71,6 +72,7 @@ public class PlayerComponent: MonoBehaviour
         }
 
         mutationScales[currentMutation].model.SetActive(true);
+        CurrentModel = mutationScales[currentMutation].model;
         PlayerAnimator = mutationScales[currentMutation].playerAnimator;
         PlayerAnimator.InitAnims();
     }

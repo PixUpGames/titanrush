@@ -54,7 +54,6 @@ public class EnemyDefeatSystem : GameSystem
         while(Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < (distance + player.DistanceUpgrade))
         {
             game.enemyBoss.transform.Translate(-Vector3.forward * Time.deltaTime * (speed+player.SpeedUpgrade));
-            game.enemyBoss.FXCaster.CastFX(1);
             yield return null;
         }
 

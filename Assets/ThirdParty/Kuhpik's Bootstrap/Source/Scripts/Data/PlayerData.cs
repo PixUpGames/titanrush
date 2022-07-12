@@ -34,5 +34,8 @@ namespace Kuhpik
         public int GlovesIndex;
         public int HatsIndex;
         public int SkinsIndex;
+
+        public bool isRevive;
+        public Vector3 RevivePos;
     }
 }
