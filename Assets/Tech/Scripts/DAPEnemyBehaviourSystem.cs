@@ -37,12 +37,20 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
                 yield return new WaitForSeconds(attackStepDelay/3);
             }
 
-            var finishComp = (HammerFinishComponent)game.Finish;
-            finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(HammerHit);
+            for (int i = 0; i < 3; i++)
+            {
+                dapAnim.SetActive(true);
+                tapAnim.SetActive(false);
+                var finishComp = (HammerFinishComponent)game.Finish;
+                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(HammerHit);
+                yield return new WaitForSeconds(attackStepDelay+1);
+            }
 
             if (game.enemyBoss.GetHealth() > 0)
             {
-                yield return new WaitForSeconds(attackStepDelay + 1);
+                var finishComp = (HammerFinishComponent)game.Finish;
+                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.5f).SetEase(Ease.Linear);
+                yield return new WaitForSeconds(attackStepDelay/3);
             }
 
             SetStunAfterAttack();

@@ -31,18 +31,6 @@ public class EnemyDefeatSystem : GameSystem
 
     private void SpawnWalls()
     {
-        //GameObject fistWall = Instantiate(breakableWalls[0], finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade), Quaternion.identity);
-        //fistWall.transform.DOScale(Vector3.one * game.MutationLevel * 2, 0.3f);
-        //GameObject secondWall = Instantiate(breakableWalls[0], finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) / 2, Quaternion.identity);
-        //secondWall.transform.DOScale(Vector3.one * game.MutationLevel*2, 0.3f);
-
-
-        //for (int i = 0; i < breakableWalls.Length; i++)
-        //{
-        //    breakableWalls[i].transform.position = finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade)/(i+1);
-        //    //breakableWalls[i].transform.DOScale(Vector3.one * game.MutationLevel, 0.3f);
-        //}
-
         finalWall.transform.position = finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) + (Vector3.up*1.5f);
         finalWall.transform.position += (Vector3.forward*1.3f);
     }
