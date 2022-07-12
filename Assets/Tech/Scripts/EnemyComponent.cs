@@ -107,7 +107,7 @@ public class EnemyComponent : MonoBehaviour
     {
         hitParticle?.Play();
 
-        if(Bootstrap.Instance.GetCurrentGamestateID()!=GameStateID.DodgeAndPunch)
+        //if(Bootstrap.Instance.GetCurrentGamestateID()!=GameStateID.DodgeAndPunch)
             animator.SetTrigger(takeDamageHash);
 
         currentHealth -= value;
