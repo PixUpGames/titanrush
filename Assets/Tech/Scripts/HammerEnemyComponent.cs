@@ -1,4 +1,6 @@
 using DG.Tweening;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HammerEnemyComponent : EnemyComponent
@@ -11,7 +13,7 @@ public class HammerEnemyComponent : EnemyComponent
     {
         secondModel.SetActive(true);
         firstModel.SetActive(false);
-        secondModel.transform.DOScale(Vector3.one*scaleFactor,0.35f).OnComplete(()=>mutateParticle.Play());
+        secondModel.transform.DOScale(Vector3.one * scaleFactor, 0.35f).OnComplete(() => mutateParticle.Play());
 
         base.Prepare();
     }

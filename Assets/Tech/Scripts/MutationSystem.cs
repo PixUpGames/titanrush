@@ -20,14 +20,17 @@ public class MutationSystem : GameSystem
                     game.Cameras.SetMainCameraEvolve();
                     game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
                     game.playerSpeed *= 1.5f;
+                    game.MutationBars = 0;
                     break;
                 case 2:
                     game.Cameras.SetMainCameraEvolve();
                     game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
+                    game.MutationBars = 0;
                     break;
                 case 3:
                     game.Cameras.SetMainCameraEvolve();
                     game.PlayerComponent.PlayerCanvas.SetMutation(game.MutationLevel);
+                    game.MutationBars = 0;
                     break;
             }
 
