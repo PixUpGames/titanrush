@@ -106,10 +106,7 @@ public class EnemyComponent : MonoBehaviour
     public void ReceiveDamage(float value)
     {
         hitParticle?.Play();
-
-        //if(Bootstrap.Instance.GetCurrentGamestateID()!=GameStateID.DodgeAndPunch)
-            animator.SetTrigger(takeDamageHash);
-
+        animator.SetTrigger(takeDamageHash);
         currentHealth -= value;
     }
     public float GetHealth()

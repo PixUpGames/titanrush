@@ -20,5 +20,11 @@ public enum CustomizableType
     HAT_SATAN = 10,
     HAT_SHAPKA = 11,
     HAT_VIKING = 12,
-    HAT_WIZZARD = 13
+    HAT_WIZZARD = 13,
+    SKIN_1=14,
+    SKIN_2=15,
+    SKIN_3=16,
+    SKIN_4=17,
+    SKIN_5=18,
+    SKIN_6=19
 }

@@ -45,6 +45,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
     [SerializeField] private List<CustomizableItemComponent> hatsList = new List<CustomizableItemComponent>();
     [SerializeField] private List<CustomizableItemComponent> glovesList = new List<CustomizableItemComponent>();
+    [SerializeField] private List<Material> skinsList = new List<Material>();
+    [SerializeField] private Dictionary<CustomizableType, Material> skinsDictionary = new Dictionary<CustomizableType, Material>();
 
     public void InitAnims()
     {
@@ -61,6 +63,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
         flyHash = Animator.StringToHash(FLY);
         hitSignal = Signals.Get<PlayerHitSignal>();
         footKickSignal = Signals.Get<DapFootKickSignal>();
+
+        InitSkins();
 
         var allCustomizables = GetComponentsInChildren<CustomizableItemComponent>(true);
 
@@ -141,10 +145,12 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
         finalPunchVFX?.SetActive(true);
     }
+
     public void ActivateFinalPunchVFX()
     {
         electricityVFX?.SetActive(true);
     }
+
     public void HitSignal()
     {
         hitSignal.Dispatch();
@@ -156,35 +162,72 @@ public class PlayerAnimatorComponent : MonoBehaviour
         Bootstrap.Instance.GetSystem<DAPEnemyBehaviourSystem>().OnFootKickFeedback();
     }
 
+    private void InitSkins()
+    {
+        if (skinsList.Count > 0)
+        {
+            skinsDictionary.Add(CustomizableType.SKIN_1, skinsList[0]);
+            skinsDictionary.Add(CustomizableType.SKIN_2, skinsList[1]);
+            skinsDictionary.Add(CustomizableType.SKIN_3, skinsList[2]);
+            skinsDictionary.Add(CustomizableType.SKIN_4, skinsList[3]);
+            skinsDictionary.Add(CustomizableType.SKIN_5, skinsList[4]);
+            skinsDictionary.Add(CustomizableType.SKIN_6, skinsList[5]);
+        }
+    }
+
     public void WearItemOnPlayer(ShopType itemType,CustomizableType itemName)
     {
         if (itemType == ShopType.HAT)
         {
-            foreach (var hat in hatsList)
-            {
-                if (hat.ItemName == itemName)
-                {
-                    hat.gameObject.SetActive(true);
-                }
-                else
-                {
-                    hat.gameObject.SetActive(false);
-                }
-            }
+            WearHat(itemName);
         }
         else if (itemType == ShopType.GLOVES)
         {
-            foreach (var glove in glovesList)
+            WearGloves(itemName);
+        }
+        else if(itemType == ShopType.SKINS)
+        {
+            WearSkin(itemName);
+        }
+    }
+
+    private void WearHat(CustomizableType itemName)
+    {
+        foreach (var hat in hatsList)
+        {
+            if (hat.ItemName == itemName)
             {
-                if (glove.ItemName == itemName)
-                {
-                    glove.gameObject.SetActive(true);
-                }
-                else
-                {
-                    glove.gameObject.SetActive(false);
-                }
+                hat.gameObject.SetActive(true);
             }
+            else
+            {
+                hat.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void WearGloves(CustomizableType itemName)
+    {
+        foreach (var glove in glovesList)
+        {
+            if (glove.ItemName == itemName)
+            {
+                glove.gameObject.SetActive(true);
+            }
+            else
+            {
+                glove.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void WearSkin(CustomizableType itemName)
+    {
+        if (skinsDictionary.Count > 0)
+        {
+            var skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+            Material[] mats = new Material[] {skinsDictionary[itemName] };
+            skinnedRenderer.materials = mats;
         }
     }
 

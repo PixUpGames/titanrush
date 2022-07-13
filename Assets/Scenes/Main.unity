@@ -5784,7 +5784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940419334}
-  m_LocalRotation: {x: 0.13089544, y: -0.5127212, z: 0.079443134, w: 0.84479123}
+  m_LocalRotation: {x: 0.13089544, y: -0.5127211, z: 0.07944311, w: 0.8447913}
   m_LocalPosition: {x: 23.43322, y: 11.76739, z: -4.123962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7321,6 +7321,7 @@ MonoBehaviour:
   ropes: []
   hatsList: []
   glovesList: []
+  skinsList: []
 --- !u!1001 &1054521518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15193,6 +15194,7 @@ MonoBehaviour:
   ropes: []
   hatsList: []
   glovesList: []
+  skinsList: []
 --- !u!1 &2076690319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4370255034398825338, guid: 57119d459d61d0649bb6741796c874ca, type: 3}
@@ -22712,6 +22714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 147.86053
       objectReference: {fileID: 0}
+    - target: {fileID: 3803872423281494590, guid: abdd47327456ff747b9591a16f596d9a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81204332c103e11439fb81e8828dc910, type: 2}
     - target: {fileID: 3822272210002943536, guid: abdd47327456ff747b9591a16f596d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 85.389206
@@ -23272,6 +23278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Second (Erin Titan)
       objectReference: {fileID: 0}
+    - target: {fileID: 1253979163809087584, guid: 69950203803cf454594ff19afaebd4b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1886119612117244634, guid: 69950203803cf454594ff19afaebd4b1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -23338,7 +23348,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 250, y: 300}
+  m_CellSize: {x: 180, y: 230}
   m_Spacing: {x: 53.94, y: 49.75}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -23554,6 +23564,13 @@ MonoBehaviour:
   - {fileID: 814221453}
   hatsList: []
   glovesList: []
+  skinsList:
+  - {fileID: 2100000, guid: 81204332c103e11439fb81e8828dc910, type: 2}
+  - {fileID: 2100000, guid: 60a3fadd3e4283648aa56d6fd6f0707d, type: 2}
+  - {fileID: 2100000, guid: 54f0d87df01c89b44a2e61343dd03fd5, type: 2}
+  - {fileID: 2100000, guid: 69a33ffe1a255f14c8470df8043d9b8a, type: 2}
+  - {fileID: 2100000, guid: c0ab3f4f0a1616b43bba3941269cfffc, type: 2}
+  - {fileID: 2100000, guid: 37783bcaeed8bd646afbb198d41384d4, type: 2}
 --- !u!222 &2376092531526780408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25598,8 +25615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 24.5835}
-  m_SizeDelta: {x: 754.2236, y: 598.3515}
+  m_AnchoredPosition: {x: -40, y: 0}
+  m_SizeDelta: {x: 754.2236, y: 549.1844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3698243522758196761
 CanvasRenderer:
@@ -25659,6 +25676,7 @@ MonoBehaviour:
   ropes: []
   hatsList: []
   glovesList: []
+  skinsList: []
 --- !u!114 &3727636068177247743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29425,11 +29443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: isTesting
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: testData.Level
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: testData.hatType
@@ -30207,7 +30225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba95b2a2a5db4241b35d0e45a0d3fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.5
+  speed: 6
   sensitivityDivider: 3
   airTag: AirTempRoad
   isRotating: 0

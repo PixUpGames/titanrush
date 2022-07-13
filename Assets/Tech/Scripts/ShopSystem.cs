@@ -221,6 +221,7 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         else
         {
             player.skinType = customizableType;
+            game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(shopType, customizableType);
         }
 
         foreach (var button in shopButtons)
