@@ -171,7 +171,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
             skinsDictionary.Add(CustomizableType.SKIN_3, skinsList[2]);
             skinsDictionary.Add(CustomizableType.SKIN_4, skinsList[3]);
             skinsDictionary.Add(CustomizableType.SKIN_5, skinsList[4]);
-            skinsDictionary.Add(CustomizableType.SKIN_6, skinsList[5]);
+            //skinsDictionary.Add(CustomizableType.SKIN_6, skinsList[5]);
         }
     }
 
@@ -226,7 +226,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
         if (skinsDictionary.Count > 0)
         {
             var skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            Material[] mats = new Material[] {skinsDictionary[itemName] };
+            Material[] mats = new Material[] {skinsDictionary[itemName]};
             skinnedRenderer.materials = mats;
         }
     }

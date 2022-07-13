@@ -55,7 +55,6 @@ public class PlayerComponent: MonoBehaviour
     public void ReceiveDamage(float value)
     {
         PlayerAnimator.ReceiveDamage();
-
         currentHealth -= value;
     }
     public float GetHealth()

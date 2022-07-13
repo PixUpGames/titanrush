@@ -71,7 +71,10 @@ public class EnemyComponent : MonoBehaviour
     }
     public void DoStun()
     {
-        animator.SetTrigger(stunHash);
+        if (currentHealth > 0)
+            animator.SetTrigger(stunHash);
+        else
+            DoResetStun();
     }
 
     public void DoResetStun()

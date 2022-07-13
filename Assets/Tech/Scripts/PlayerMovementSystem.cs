@@ -20,8 +20,6 @@ public class PlayerMovementSystem : GameSystem
     private RopeTriggerHolderComponent ropeTrigger;
     private bool isFlying;
 
-    public bool isRotating;
-
     public override void OnInit()
     {
         game.PlayerComponent.StartRunning(true);
@@ -45,6 +43,7 @@ public class PlayerMovementSystem : GameSystem
             targetVector = deltaMos * remapMultiplyer;
             deltaMos.y = 0;
             deltaVector += targetVector;
+            targetVector.y = 0;
             prevMousePos = Input.mousePosition;
         }
         else if (Input.GetMouseButtonUp(0))

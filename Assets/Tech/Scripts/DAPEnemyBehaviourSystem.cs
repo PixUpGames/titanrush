@@ -9,13 +9,23 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
     [SerializeField] private float attackStepDelay;
     [SerializeField] private GameObject dapAnim;
     [SerializeField] private GameObject tapAnim;
+    private IEnumerator enemyRoutine;
+
     public override void OnInit()
     {
         game.Multiplier = 5f;
         screen.multiplyText.text = "x" + game.Multiplier.ToString();
         dapAnim = UIManager.GetUIScreen<FightingScreenUI>().DapAnim;
         tapAnim = UIManager.GetUIScreen<FightingScreenUI>().TapAnim;
-        StartCoroutine(HammerBossRoutine());
+
+        Signals.Get<PlayerHitSignal>().AddListener(FinishImmediate);
+
+        if (enemyRoutine != null)
+        {
+            StopCoroutine(enemyRoutine);
+        }
+        enemyRoutine = HammerBossRoutine();
+        StartCoroutine(enemyRoutine);
     }
 
     public void OnFootKickFeedback()
@@ -28,6 +38,8 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
     private IEnumerator HammerBossRoutine()
     {
+        yield return new WaitForSeconds(1f);
+
         while (game.enemyBoss.GetHealth() > 0 || game.punchAndDodgeState == EnemyState.DEATH)
         {
             dapAnim.SetActive(true);
@@ -57,13 +69,14 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
             yield return new WaitForSeconds(attackStepDelay);
         }
 
+        game.enemyBoss.SetKneel(true);
         tapAnim.SetActive(true);
+        dapAnim.SetActive(false);
         game.enemyBoss.DoResetStun();
         game.punchAndDodgeState = EnemyState.DEATH;
         screen.DapBar.gameObject.SetActive(true);
         screen.DapBar.value = screen.DapBar.maxValue;
         screen.DapBar.DOValue(screen.DapBar.minValue, 8f).OnComplete(() => { game.enemyBoss.DoDeath(); screen.DapBar.gameObject.SetActive(false);StartCoroutine(FinishRoutine()); });
-        game.enemyBoss.SetKneel(true);
     }
 
     IEnumerator FinishRoutine()
@@ -72,25 +85,45 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
         Bootstrap.Instance.ChangeGameState(GameStateID.Win);
     }
 
+    private void FinishImmediate()
+    {
+        if (game.enemyBoss.GetHealth() <= 0)
+        {
+            if (enemyRoutine != null)
+            {
+                StopCoroutine(enemyRoutine);
+            }
+
+            game.enemyBoss.SetKneel(true);
+            tapAnim.SetActive(true);
+            dapAnim.SetActive(false);
+            game.enemyBoss.DoResetStun();
+            game.punchAndDodgeState = EnemyState.DEATH;
+            screen.DapBar.gameObject.SetActive(true);
+            screen.DapBar.value = screen.DapBar.maxValue;
+            screen.DapBar.DOValue(screen.DapBar.minValue, 8f).OnComplete(() => { game.enemyBoss.DoDeath(); screen.DapBar.gameObject.SetActive(false); StartCoroutine(FinishRoutine()); });
+        }
+    }
+
     private void HammerHit()
     {
-        //dapAnim.SetActive(true);
         if (game.enemyBoss.GetHealth() > 0)
         {
             game.enemyBoss.FXCaster.StopFX(5);
             game.punchAndDodgeState = EnemyState.PUNCH;
-
             game.enemyBoss.DoHammerHit();
         }
     }
 
     private void SetStunAfterAttack()
     {
-        dapAnim.SetActive(false);
-        tapAnim.SetActive(true);
-        game.punchAndDodgeState = EnemyState.STUNNED;
-        var finishComp = (HammerFinishComponent)game.Finish;
-        game.enemyBoss.DoStun();
+        if (game.enemyBoss.GetHealth() > 0)
+        {
+            dapAnim.SetActive(false);
+            tapAnim.SetActive(true);
+            game.punchAndDodgeState = EnemyState.STUNNED;
+            game.enemyBoss.DoStun();
+        }
     }
 }
 

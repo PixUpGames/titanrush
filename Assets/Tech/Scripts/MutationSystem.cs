@@ -35,8 +35,8 @@ public class MutationSystem : GameSystem
             game.PlayerComponent.PlayerCanvas.transform.position = game.PlayerComponent.PlayerAnimator.Head.transform.position + Vector3.up * .5f;
             game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.GLOVES, player.glovesType);
             game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.HAT, player.hatType);
+            game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.SKINS, player.skinType);
 
         }
-
     }
 }

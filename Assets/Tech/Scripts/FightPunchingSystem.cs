@@ -68,7 +68,7 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
             Time.timeScale = slowMotionScale;
             game.PlayerComponent.PlayerAnimator.ClearAllAnimations();
             game.PlayerComponent.PlayerAnimator.SetFinalKick();
-
+            game.enemyBoss.ReceiveDamage(playerDamage);
             return;
         }
     }
