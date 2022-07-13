@@ -267,6 +267,7 @@ MonoBehaviour:
   CameraHolder: {fileID: 0}
   firstModel: {fileID: 4356748229429097400}
   secondModel: {fileID: 7752140874244229479}
+  mutateParticle: {fileID: 5876737536065385925}
 --- !u!1 &8939788000639356624
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e25ad1c25eb4534e89c3684925a4e0e, type: 3}
+--- !u!198 &5876737536065385925 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4366733523324911346, guid: 7e25ad1c25eb4534e89c3684925a4e0e, type: 3}
+  m_PrefabInstance: {fileID: 7860923919932558135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8393420399256059022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,15 +513,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1487763219169800019, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1487763219169800019, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1487763219169800019, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1487763219169800019, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -599,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2300856103194441193, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2360033667321180339, guid: 1b1d0073da99e39418ec8e0184e8656b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
