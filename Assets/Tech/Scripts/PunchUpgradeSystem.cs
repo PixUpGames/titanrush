@@ -83,7 +83,6 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         {
             screen.PowerButton.SetBuyStatus();
             isDistance = false;
-            Debug.Log("@@@@@");
         }
 
         if (player.Money < player.SpeedUpgradeLevel * 100)
@@ -95,7 +94,6 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         {
             screen.SpeedButton.SetBuyStatus();
             isSpeed = false;
-            Debug.Log("&&&&&");
         }
     }
 }

@@ -15,6 +15,7 @@ public class FightingScreenUI : UIScreen
 
     public GameObject hpBarHolder;
     public GameObject PowerBar;
+    public Image PunchRedOffset;
     public GameObject TapAnim => tapAnim;
     public GameObject DapAnim => dapAnim;
 

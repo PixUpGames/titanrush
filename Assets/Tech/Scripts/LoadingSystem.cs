@@ -39,7 +39,7 @@ public class LoadingSystem : GameSystem
     private static void InitGameSettings()
     {
         Signals.Clear();
-        Application.targetFrameRate = 150;
+        Application.targetFrameRate = 300;
     }
 
     private void BuildNavMeshes()
