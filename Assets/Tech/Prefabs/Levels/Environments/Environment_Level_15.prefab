@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 145.91998}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7628479032815371881}
   - {fileID: 8103072176677060098}
@@ -64,6 +65,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1207545825797593513}
   - {fileID: 745715312787450706}
@@ -101,6 +103,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 197.7}
   m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7628479033050960167}
   - {fileID: 8103072176194734538}
@@ -139,6 +142,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1129066144687442821}
   - {fileID: 6241816627317794900}
@@ -178,6 +182,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 93.539986}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7628479033038818490}
   - {fileID: 8103072176473183638}
@@ -217,6 +222,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1390874766520710099}
   - {fileID: 1390874767215963408}
@@ -249,8 +255,8 @@ MonoBehaviour:
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.05
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &1207545825903985208
@@ -279,6 +285,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207545824786222699}
   m_RootOrder: 4
@@ -309,6 +316,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1207545824786222699}
   m_RootOrder: 3
@@ -339,6 +347,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8145151040961746026}
   - {fileID: 8145151041361596308}
@@ -413,6 +422,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000020712612}
   m_LocalPosition: {x: -0.01, y: 0.0076006725, z: 256.8}
   m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7628479031736175630}
   - {fileID: 8103072176510463133}
@@ -451,6 +461,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1207545825734467328}
   - {fileID: 1207545824472755785}
@@ -516,6 +527,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7300851905464298168}
   m_RootOrder: 3
@@ -1649,14 +1661,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
---- !u!4 &7300851905464298168 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8472333748087109667, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
-  m_PrefabInstance: {fileID: 1207545824505483931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &745715312787450706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1917197155834280393, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
+  m_PrefabInstance: {fileID: 1207545824505483931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7300851905464298168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8472333748087109667, guid: 31b78adcc6cbfdd499a830ce3dc053b7, type: 3}
   m_PrefabInstance: {fileID: 1207545824505483931}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1207545824533903871
