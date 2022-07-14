@@ -140,15 +140,13 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     }
 
     public void DoHit()
-    {
-        /// Change To changeable value
-        /// 
+    { 
         game.enemyBoss.ReceiveDamage(playerDamage);
     }
 
     public void HitPlayerByHammer()
     {
-        game.PlayerComponent.ReceiveDamage(1);
+        game.PlayerComponent.ReceiveDamage(4);
     }
 
     private void Jump(int deltaIndex)

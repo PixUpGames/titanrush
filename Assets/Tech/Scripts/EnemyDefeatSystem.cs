@@ -3,7 +3,7 @@ using Kuhpik;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyDefeatSystem : GameSystem
+public class EnemyDefeatSystem : GameSystemWithScreen<GameUIScreen>
 {
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float distance = 10f;
@@ -12,6 +12,7 @@ public class EnemyDefeatSystem : GameSystem
     [SerializeField] private float singleTileWidth = 0.86f;
     [SerializeField] private GameObject[] breakableWalls;
     [SerializeField] private GameObject finalWall;
+    [SerializeField] private ShopItemConfig[] hatsConfigs;
 
     private Vector3 startPos;
     private FinishStartComponent finishStart;
@@ -27,6 +28,23 @@ public class EnemyDefeatSystem : GameSystem
         SpawnWalls();
 
         StartCoroutine(MoveEnemy());
+
+        if (player.TempItem != CustomizableType.Null)
+            InitTempItemScreen();
+    }
+
+    private void InitTempItemScreen()
+    {
+        foreach (var item in hatsConfigs)
+        {
+            if (item.CustomizableType == player.TempItem)
+            {
+                screen.TempItemIcon.sprite = item.Icon;
+            }
+        }
+
+        screen.GetItemButton.onClick.AddListener(GetItem);
+        screen.LoseItemButton.onClick.AddListener(LoseItem);
     }
 
     private void SpawnWalls()
@@ -57,11 +75,38 @@ public class EnemyDefeatSystem : GameSystem
 
         yield return new WaitForSeconds(1f);
 
-        Finish();
+        if (player.TempItem != CustomizableType.Null)
+        {
+            screen.TempItemScreen.SetActive(true);
+        }
+        else
+        {
+            Finish();
+        }
     }
 
     private void Finish()
     {
         Bootstrap.Instance.ChangeGameState(GameStateID.Win);
+    }
+
+    private void GetItem()
+    {
+        if (player.TempItem != CustomizableType.Null)
+        {
+            if (!player.OpenedCustomizables.Contains(player.TempItem))
+            {
+                player.OpenedCustomizables.Add(player.TempItem);
+                player.hatType = player.TempItem;
+            }
+        }
+        player.TempItem = CustomizableType.Null;
+        Finish();
+    }
+
+    private void LoseItem()
+    {
+        player.TempItem = CustomizableType.Null;
+        Finish();
     }
 }

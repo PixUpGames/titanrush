@@ -138,6 +138,7 @@ public class PlayerAnimatorComponent : MonoBehaviour
     #endregion
     public void FinishFatalityPunch()
     {
+        HitSignal();
         Time.timeScale = 1f;
 
         if (Bootstrap.Instance.GetCurrentGamestateID() != GameStateID.EnemyDefeated)

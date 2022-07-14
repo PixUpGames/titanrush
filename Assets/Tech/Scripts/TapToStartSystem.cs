@@ -41,16 +41,6 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
         {
             touchPos = Vector3.zero;
         }
-
-        //if (EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    return;
-        //}
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    StartGame();
-        //}
     }
 
     private void StartGame()

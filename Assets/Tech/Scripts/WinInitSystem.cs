@@ -108,7 +108,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     {
         screen.SkinParticle.gameObject.SetActive(true);
         player.OpenedCustomizables.Add(skinConfigs[player.targetSkinIndex].CustomizableType);
-        player.skinType = skinConfigs[player.targetSkinIndex].CustomizableType;
+        //player.skinType = skinConfigs[player.targetSkinIndex].CustomizableType;
         player.skinProgress = 0f;
 
         if (player.targetSkinIndex < 4)

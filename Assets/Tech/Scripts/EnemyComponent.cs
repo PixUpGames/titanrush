@@ -10,6 +10,8 @@ public class EnemyComponent : MonoBehaviour
     [SerializeField] private FXCaster fXCaster;
     public OnTriggerEnterComponent OnTriggerEnter => onTriggerEnter;
 
+    public bool isHammer;
+
     private const string PUNCH = "Punch";
     private const string KICK = "Kick";
     private const string STOMP = "Stomp";
@@ -113,7 +115,10 @@ public class EnemyComponent : MonoBehaviour
     public void ReceiveDamage(float value)
     {
         hitParticle?.Play();
-        animator.SetTrigger(takeDamageHash);
+
+        if(isHammer==false)
+            animator.SetTrigger(takeDamageHash);
+
         currentHealth -= value;
     }
     public float GetHealth()

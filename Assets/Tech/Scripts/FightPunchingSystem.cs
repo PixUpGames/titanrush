@@ -15,6 +15,8 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     [SerializeField] private float playerDamage = 2f;
 
     private float powerValue = 0;
+
+    private bool isFinal;
     public override void OnInit()
     {
         Signals.Get<PlayerHitSignal>().AddListener(DoHit);
@@ -71,7 +73,12 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
             Time.timeScale = slowMotionScale;
             game.PlayerComponent.PlayerAnimator.ClearAllAnimations();
             game.PlayerComponent.PlayerAnimator.SetFinalKick();
-            game.enemyBoss.ReceiveDamage(playerDamage);
+
+            if (isFinal == false)
+            {
+                game.enemyBoss.ReceiveDamage(playerDamage);
+                isFinal = true;
+            }
             return;
         }
     }

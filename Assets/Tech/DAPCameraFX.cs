@@ -10,7 +10,7 @@ public class DAPCameraFX : GameSystemWithScreen<FightingScreenUI>
     public override void OnGameStart()
     {
         Signals.Get<PlayerHitSignal>().AddListener(ShakeCamera);
-        Signals.Get<EnemyHitSignal>().AddListener(RedCamera);
+        Signals.Get<HammerHitSignal>().AddListener(RedCamera);
     }
 
     private void ShakeCamera()

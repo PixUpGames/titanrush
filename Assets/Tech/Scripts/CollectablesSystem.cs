@@ -79,13 +79,14 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                 case Collectable.CUSTOMIZABLE:
                     {
                         var customizable = (CustomizablePickUpComponent) collectable;
+                        game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.HAT, customizable.GetItemType);
+                        player.TempItem = customizable.GetItemType;
 
-                        if (!player.OpenedCustomizables.Contains(customizable.GetItemType))
-                        {
+                        //if (!player.OpenedCustomizables.Contains(customizable.GetItemType))
+                        //{
                             //player.OpenedCustomizables.Add(customizable.GetItemType);
-                            game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.HAT, customizable.GetItemType);
-                            player.hatType = customizable.GetItemType;
-                        }
+                            //player.hatType = customizable.GetItemType;
+                        //}
 
                         break;
                     }

@@ -43,5 +43,7 @@ namespace Kuhpik
         public float skinProgress;
         public CustomizableType targetSkin;
         public int targetSkinIndex;
+
+        public CustomizableType TempItem = CustomizableType.Null;
     }
 }

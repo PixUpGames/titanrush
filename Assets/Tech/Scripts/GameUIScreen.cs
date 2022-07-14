@@ -11,6 +11,11 @@ public class GameUIScreen : UIScreen
     public Slider DapBar;
     [field: SerializeField] public Button settingsButton { get; set; }
 
+    public GameObject TempItemScreen;
+    public Button GetItemButton;
+    public Button LoseItemButton;
+    public Image TempItemIcon;
+
     public void UpdateCoinsCounter(float value)
     {
         coinsCounterText.text = value.ToString("0");
