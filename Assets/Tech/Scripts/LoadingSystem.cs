@@ -101,7 +101,15 @@ public class LoadingSystem : GameSystem
 
     private void CreateLevel(int level)
     {
-        level = player.Level;
+        if (player.Level < maxLevels)
+        {
+            level = player.Level;
+        }
+        else
+        {
+            level = Random.Range(2, 20);
+        }
+
         game.LevelConfig = Resources.Load<Level>(string.Format(levelsPath, level+1));
     }
 
