@@ -85,8 +85,6 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                             //player.OpenedCustomizables.Add(customizable.GetItemType);
                             game.PlayerComponent.PlayerAnimator.WearItemOnPlayer(ShopType.HAT, customizable.GetItemType);
                             player.hatType = customizable.GetItemType;
-
-                            Debug.Log($"Added {customizable.GetItemType.GetName()}");
                         }
 
                         break;
