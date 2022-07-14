@@ -193,41 +193,50 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
     private void WearHat(CustomizableType itemName)
     {
-        foreach (var hat in hatsList)
+        if (itemName != CustomizableType.Null)
         {
-            if (hat.ItemName == itemName)
+            foreach (var hat in hatsList)
             {
-                hat.gameObject.SetActive(true);
-            }
-            else
-            {
-                hat.gameObject.SetActive(false);
+                if (hat.ItemName == itemName)
+                {
+                    hat.gameObject.SetActive(true);
+                }
+                else
+                {
+                    hat.gameObject.SetActive(false);
+                }
             }
         }
     }
 
     private void WearGloves(CustomizableType itemName)
     {
-        foreach (var glove in glovesList)
+        if (itemName != CustomizableType.Null)
         {
-            if (glove.ItemName == itemName)
+            foreach (var glove in glovesList)
             {
-                glove.gameObject.SetActive(true);
-            }
-            else
-            {
-                glove.gameObject.SetActive(false);
+                if (glove.ItemName == itemName)
+                {
+                    glove.gameObject.SetActive(true);
+                }
+                else
+                {
+                    glove.gameObject.SetActive(false);
+                }
             }
         }
     }
 
     private void WearSkin(CustomizableType itemName)
     {
-        if (skinsDictionary.Count > 0)
+        if (itemName != CustomizableType.Null)
         {
-            var skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-            Material[] mats = new Material[] {skinsDictionary[itemName]};
-            skinnedRenderer.materials = mats;
+            if (skinsDictionary.Count > 0)
+            {
+                var skinnedRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+                Material[] mats = new Material[] {skinsDictionary[itemName]};
+                skinnedRenderer.materials = mats;
+            }
         }
     }
 

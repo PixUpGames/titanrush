@@ -12,11 +12,18 @@ public class CameraVFXSystem : GameSystem
         Signals.Get<PlayerHitSignal>().AddListener(ShakeCamera);
         Signals.Get<EnemyHitSignal>().AddListener(RedCamera);
 
-        if (game.MutationLevel == 3)
+        if (game.MutationLevel == 1)
         {
-            //game.PlayerComponent.PlayerAnimator.CameraHolder.transform.localPosition = new Vector3(1.059f, 1.195f, -0.986f);
+            game.PlayerComponent.PlayerAnimator.CameraHolder.DOLocalMove(new Vector3(0.2f, 0, -0.602f), 0.5f);
+
+        }
+        else if (game.MutationLevel==2)
+        {
+            game.PlayerComponent.PlayerAnimator.CameraHolder.DOLocalMove(new Vector3(1.071f, 1.29f, -1.032f), 0.5f);
+        }
+        else if (game.MutationLevel == 3)
+        {
             game.PlayerComponent.PlayerAnimator.CameraHolder.DOLocalMove(new Vector3(1.059f, 1.195f, -0.986f), 0.5f);
-            Debug.Log("New Pos");
         }
     }
 

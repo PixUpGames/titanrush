@@ -56,6 +56,11 @@ public class PlayerMovementSystem : GameSystem
         MovePlayerOnSides();
         MovePlayerForward();
         RotateModel();
+
+        if (ropeTrigger != null)
+        {
+            game.PlayerComponent.PlayerAnimator.ConnectRopes(ropeTrigger);
+        }
     }
 
     private float RemapMovement()

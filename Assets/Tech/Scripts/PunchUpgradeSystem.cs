@@ -20,21 +20,7 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         if (player.SpeedUpgradeLevel == 0)
             player.SpeedUpgradeLevel = 1;
 
-        screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel * 100, player.DistanceUpgrade);
-        screen.SpeedButton.UpdateInfo(player.SpeedUpgradeLevel * 100, player.SpeedUpgrade);
-
-        if (player.Money < player.DistanceUpgradeLevel * 100)
-        {
-            screen.PowerButton.SetRewardStatus();
-            isDistance = true;
-        
-        }
-
-        if (player.Money < player.SpeedUpgradeLevel * 100)
-        {
-            screen.SpeedButton.SetRewardStatus();
-            isSpeed = true;
-        }
+        ReNewIcons();
     }
 
     private void UpgradeSpeed()
@@ -50,6 +36,7 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         {
             Debug.Log("Reward for SpeedUpgrade");
         }
+
         isSpeed = true;
         player.SpeedUpgradeLevel++;
         player.SpeedUpgrade += 1.2f;
@@ -79,5 +66,36 @@ public class PunchUpgradeSystem : GameSystemWithScreen<TapToScreenUI>
         screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel * 100, player.DistanceUpgrade);
         screen.PowerButton.SetRewardStatus();
         UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
+    }
+
+    public void ReNewIcons()
+    {
+        screen.PowerButton.UpdateInfo(player.DistanceUpgradeLevel * 100, player.DistanceUpgrade);
+        screen.SpeedButton.UpdateInfo(player.SpeedUpgradeLevel * 100, player.SpeedUpgrade);
+
+        if (player.Money < player.DistanceUpgradeLevel * 100)
+        {
+            screen.PowerButton.SetRewardStatus();
+            isDistance = true;
+
+        }
+        else
+        {
+            screen.PowerButton.SetBuyStatus();
+            isDistance = false;
+            Debug.Log("@@@@@");
+        }
+
+        if (player.Money < player.SpeedUpgradeLevel * 100)
+        {
+            screen.SpeedButton.SetRewardStatus();
+            isSpeed = true;
+        }
+        else
+        {
+            screen.SpeedButton.SetBuyStatus();
+            isSpeed = false;
+            Debug.Log("&&&&&");
+        }
     }
 }

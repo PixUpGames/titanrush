@@ -23,4 +23,10 @@ public class PunchUpgradeButtonComponent : MonoBehaviour
         RewardHUD.gameObject.SetActive(true);
         BuyHUD.gameObject.SetActive(false);
     }
+
+    public void SetBuyStatus()
+    {
+        RewardHUD.gameObject.SetActive(false);
+        BuyHUD.gameObject.SetActive(true);
+    }
 }

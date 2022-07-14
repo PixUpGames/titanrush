@@ -94,6 +94,10 @@ public class EnemyComponent : MonoBehaviour
     {
         animator.SetTrigger(hammerPunchHash);
     }
+    public void DoResetHammerHit()
+    {
+        animator.ResetTrigger(hammerPunchHash);
+    }
     public void DoStomp()
     {
         animator.SetTrigger(stompHash);

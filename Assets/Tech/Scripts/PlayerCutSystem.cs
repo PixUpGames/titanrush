@@ -14,6 +14,7 @@ public class PlayerCutSystem : GameSystem
     {
         game.PlayerComponent.OnTriggerEnterComp.OnEnter += ChooseCuttable;
     }
+
     private void ChooseCuttable(Transform other, Transform @object)
     {
         if (other.CompareTag(cuttableTag))
@@ -76,9 +77,13 @@ public class PlayerCutSystem : GameSystem
     {
         for (int i = 0; i < 3; i++)
         {
-            CollectableComponent coin = Instantiate(coinPrefab,other.position,coinPrefab.transform.rotation);
-            coin.transform.DOJump(game.PlayerComponent.PlayerAnimator.Head.transform.position,3f,1,1f).OnUpdate(()=>coin.transform.DOMove(game.PlayerComponent.PlayerAnimator.Head.transform.position, 0.3f));
-            //coin.transform.DOScale(Vector3.one / 3, 1f);
+            CollectableComponent coin = Instantiate(coinPrefab,game.PlayerComponent.PlayerAnimator.CameraHolder.transform.position,coinPrefab.transform.rotation);
+            coin.transform.DOMove(coin.transform.position + Vector3.one * (2 * i), i + 1f).OnComplete(() => SendCoinToPlayer(coin));
         }
+    }
+
+    private void SendCoinToPlayer(CollectableComponent coin)
+    {
+        coin.transform.DOMove(game.PlayerComponent.PlayerAnimator.CameraHolder.transform.position+Vector3.up*1.1f, 0.2f).OnComplete(()=> {coin.Collider.enabled=true ; coin.transform.position = game.PlayerComponent.transform.position; });
     }
 }

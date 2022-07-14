@@ -13,7 +13,7 @@ public class GameUIScreen : UIScreen
 
     public void UpdateCoinsCounter(float value)
     {
-        coinsCounterText.text = $"{value}";
+        coinsCounterText.text = value.ToString("0");
     }
     public void UpdateLevelCounter(int level)
     {

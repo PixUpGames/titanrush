@@ -13,6 +13,7 @@ public class FightingScreenUI : UIScreen
     [SerializeField] private GameObject tapAnim;
     [SerializeField] private GameObject dapAnim;
 
+    public GameObject hpBarHolder;
     public GameObject PowerBar;
     public GameObject TapAnim => tapAnim;
     public GameObject DapAnim => dapAnim;

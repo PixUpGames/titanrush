@@ -21,7 +21,7 @@ public class LoseAppearSystem : GameSystemWithScreen<LoseUIScreen>
         StartCoroutine(CountDown());
 
         player.isRevive = true;
-        player.RevivePos = game.PlayerComponent.transform.position + Vector3.back *-5f;
+        player.RevivePos = game.PlayerComponent.transform.position + Vector3.back *5f;
     }
 
     private void GameRestart()

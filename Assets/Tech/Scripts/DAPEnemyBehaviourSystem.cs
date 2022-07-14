@@ -51,6 +51,9 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
             for (int i = 0; i < 3; i++)
             {
+                if (game.enemyBoss.GetHealth() <= 0)
+                    break;
+
                 dapAnim.SetActive(true);
                 tapAnim.SetActive(false);
                 var finishComp = (HammerFinishComponent)game.Finish;
@@ -69,10 +72,11 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
             yield return new WaitForSeconds(attackStepDelay);
         }
 
+        UIManager.GetUIScreen<FightingScreenUI>().hpBarHolder.gameObject.SetActive(false);
+        game.enemyBoss.DoResetStun();
         game.enemyBoss.SetKneel(true);
         tapAnim.SetActive(true);
         dapAnim.SetActive(false);
-        game.enemyBoss.DoResetStun();
         game.punchAndDodgeState = EnemyState.DEATH;
         screen.DapBar.gameObject.SetActive(true);
         screen.DapBar.value = screen.DapBar.maxValue;
@@ -94,10 +98,12 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
                 StopCoroutine(enemyRoutine);
             }
 
+            UIManager.GetUIScreen<FightingScreenUI>().hpBarHolder.gameObject.SetActive(false);
+            game.enemyBoss.DoResetStun();
+            game.enemyBoss.DoResetHammerHit();
             game.enemyBoss.SetKneel(true);
             tapAnim.SetActive(true);
             dapAnim.SetActive(false);
-            game.enemyBoss.DoResetStun();
             game.punchAndDodgeState = EnemyState.DEATH;
             screen.DapBar.gameObject.SetActive(true);
             screen.DapBar.value = screen.DapBar.maxValue;

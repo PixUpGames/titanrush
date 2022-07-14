@@ -1,6 +1,7 @@
 using Kuhpik;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
 {
@@ -8,28 +9,32 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     [SerializeField] private float multiplySpeed;
     [SerializeField] private float income;
     [SerializeField] private float prize;
+    [SerializeField] private List<ShopItemConfig> skinConfigs = new List<ShopItemConfig>();
     public override void OnInit()
     {
-        income = (player.Level+1) * game.Multiplier * baseMultiplier;
+        income = (player.Level + 1) * game.Multiplier * baseMultiplier;
         screen.InitScreen(game.Multiplier, income);
         screen.ContinueButton.onClick.AddListener(NextLevel);
         screen.PrizeButton.onClick.AddListener(GetPrize);
+        screen.RewardSkinButton.onClick.AddListener(GetSkinByReward);
         player.Level++;
         player.Money += income;
         screen.CoinsText.text = income.ToString("0");
         StartMultiplyBar();
+
+        SetTargetSkin();
+        SetTargetSkinProgess();
     }
 
     private void StartMultiplyBar()
     {
         if (screen.MultiplyBar.value == screen.MultiplyBar.minValue)
         {
-            screen.MultiplyBar.DOValue(screen.MultiplyBar.maxValue, multiplySpeed).SetEase(Ease.Linear).OnComplete(()=>StartMultiplyBar()).OnUpdate(()=>CheckMultiplyBar(screen.MultiplyBar.value));
+            screen.MultiplyBar.DOValue(screen.MultiplyBar.maxValue, multiplySpeed).SetEase(Ease.Linear).OnComplete(() => StartMultiplyBar()).OnUpdate(() => CheckMultiplyBar(screen.MultiplyBar.value));
         }
         else
         {
             screen.MultiplyBar.DOValue(screen.MultiplyBar.minValue, multiplySpeed).SetEase(Ease.Linear).OnComplete(() => StartMultiplyBar()).OnUpdate(() => CheckMultiplyBar(screen.MultiplyBar.value));
-
         }
     }
 
@@ -39,19 +44,19 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
         {
             UpdateMultiplyText(2);
         }
-        else if(value>0.150 && value <0.350)
+        else if (value > 0.150 && value < 0.350)
         {
             UpdateMultiplyText(3);
         }
-        else if(value>0.350 && value <0.620)
+        else if (value > 0.350 && value < 0.620)
         {
             UpdateMultiplyText(5);
         }
-        else if(value>0.620 && value < 0.830)
+        else if (value > 0.620 && value < 0.830)
         {
             UpdateMultiplyText(3);
         }
-        else if(value>0.830 && value <= 1)
+        else if (value > 0.830 && value <= 1)
         {
             UpdateMultiplyText(2);
         }
@@ -66,9 +71,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     private void GetPrize()
     {
         screen.MultiplyBar.DOKill();
-
         player.Money += Mathf.RoundToInt(prize);
-
         Debug.LogError("[REWARD] multiply coins");
         NextLevel();
     }
@@ -77,5 +80,43 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
     {
         Bootstrap.Instance.SaveGame();
         Bootstrap.Instance.GameRestart(0);
+    }
+
+    private void SetTargetSkin()
+    {
+        player.targetSkin = skinConfigs[player.targetSkinIndex].CustomizableType;
+        screen.ShadowImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
+        screen.SkinImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
+        screen.ShadowImage.fillAmount = 1 - player.skinProgress;
+    }
+
+    private void SetTargetSkinProgess()
+    {
+        screen.ShadowImage.DOFillAmount(screen.ShadowImage.fillAmount - 0.25f, 1f).OnComplete(CheckSkinProgres);
+        player.skinProgress += 0.25f;
+    }
+
+    private void CheckSkinProgres()
+    {
+        if (screen.ShadowImage.fillAmount == 0)
+        {
+            GetTargetSkin();
+        }
+    }
+
+    private void GetTargetSkin()
+    {
+        screen.SkinParticle.gameObject.SetActive(true);
+        player.OpenedCustomizables.Add(skinConfigs[player.targetSkinIndex].CustomizableType);
+        player.skinType = skinConfigs[player.targetSkinIndex].CustomizableType;
+        player.skinProgress = 0f;
+
+        if (player.targetSkinIndex < 4)
+            player.targetSkinIndex++;
+    }
+
+    private void GetSkinByReward()
+    {
+        screen.ShadowImage.DOFillAmount(0, 1f).OnComplete(() => { GetTargetSkin(); Debug.Log("[REWARD] SKIN"); });
     }
 }

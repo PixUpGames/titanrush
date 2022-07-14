@@ -37,5 +37,11 @@ namespace Kuhpik
 
         public bool isRevive;
         public Vector3 RevivePos;
+
+        public int PlayerDailyRewardCount;
+
+        public float skinProgress;
+        public CustomizableType targetSkin;
+        public int targetSkinIndex;
     }
 }

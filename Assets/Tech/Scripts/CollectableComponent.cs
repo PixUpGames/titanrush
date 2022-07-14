@@ -9,6 +9,8 @@ public class CollectableComponent : MonoBehaviour
     private bool isMoving;
     public Collectable GetCollectable => collectableType;
 
+    public Collider Collider;
+
     private void Awake()
     {
         if (isCannon == false)

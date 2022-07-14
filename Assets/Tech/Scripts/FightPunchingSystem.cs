@@ -21,6 +21,9 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
         game.PlayerComponent.PlayerAnimator.SetFightIdle(true);
         screen.PowerBar.SetActive(true);
         screen.TapAnim.SetActive(true);
+
+        player.isRevive = false;
+        player.RevivePos = Vector3.zero;
     }
 
     public override void OnUpdate()
