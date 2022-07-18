@@ -6114,7 +6114,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093818581}
-  m_LocalRotation: {x: 0.34915045, y: 0.000000027926761, z: -0.000000010405493, w: 0.9370667}
+  m_LocalRotation: {x: 0.34915048, y: -5.1054864e-15, z: 2.12861e-15, w: 0.9370667}
   m_LocalPosition: {x: 0, y: 15.88, z: -10.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36188,15 +36188,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 818513895, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_FollowOffset.x
-      value: 8
+      value: 10.13
       objectReference: {fileID: 0}
     - target: {fileID: 818513895, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 4
+      value: 3.48
       objectReference: {fileID: 0}
     - target: {fileID: 818513895, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.6
+      value: -4.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 818513896, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
+      propertyPath: m_TrackedObjectOffset.x
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 818513896, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_TrackedObjectOffset.y
