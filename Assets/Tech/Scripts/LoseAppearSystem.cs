@@ -9,10 +9,8 @@ public class LoseAppearSystem : GameSystemWithScreen<LoseUIScreen>
     private float loseAppearTime = 1f;
     public override void OnStateEnter()
     {
-        // Screen Fade In
-        screen.ScreenCanvasGroup.DOFade(0, 0).OnComplete(
-                () => screen.ScreenCanvasGroup.DOFade(1, loseAppearTime)
-            );
+        //screen.ScreenCanvasGroup.DOFade(0, 0).OnComplete(() => 
+        screen.ScreenCanvasGroup.DOFade(1, loseAppearTime);
 
         screen.RestartButton.onClick.AddListener(GameRestart);
         screen.ReviveButton.onClick.AddListener(Revive);

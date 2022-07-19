@@ -10,4 +10,5 @@ public class Level : ScriptableObject
     public FinishState FinishState;
     public PlayerType PlayerType;
     public bool WithFlying;
+    public float WallsScale;
 }

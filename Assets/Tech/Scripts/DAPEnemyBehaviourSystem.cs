@@ -97,14 +97,14 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
                 dapAnim.SetActive(true);
                 tapAnim.SetActive(false);
                 var finishComp = (HammerFinishComponent)game.Finish;
-                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.5f).SetEase(Ease.Linear).OnComplete(HammerHit);
+                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.2f).SetEase(Ease.Linear).OnComplete(HammerHit);
                 yield return new WaitForSeconds(attackStepDelay + 1);
             }
 
             if (game.enemyBoss.GetHealth() > 0)
             {
                 var finishComp = (HammerFinishComponent)game.Finish;
-                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.5f).SetEase(Ease.Linear);
+                finishComp.BigTitan.transform.DOLookAt(game.PlayerComponent.transform.position, 0.2f).SetEase(Ease.Linear);
                 yield return new WaitForSeconds(attackStepDelay / 3);
             }
 
@@ -125,7 +125,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
     IEnumerator FinishRoutine()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
 
         if (player.TempItem != CustomizableType.Null)
         {

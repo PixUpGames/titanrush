@@ -60,7 +60,7 @@ public class PlayerCutSystem : GameSystem
 
     private void CutSillyTitan()
     {
-        game.PlayerComponent.CutHand();
+        game.PlayerComponent.CutHead();
     }
 
     private void CutHead()

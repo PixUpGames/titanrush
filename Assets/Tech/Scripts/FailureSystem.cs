@@ -1,11 +1,14 @@
 using Kuhpik;
 using NaughtyAttributes;
+using System.Collections;
 using UnityEngine;
 
 public class FailureSystem : GameSystem
 {
     [SerializeField, Tag]
     private string obstacleTag;
+
+    [SerializeField] private float loseDelay;
 
     public override void OnStateEnter()
     {
@@ -20,16 +23,15 @@ public class FailureSystem : GameSystem
 
             game.PlayerComponent.PlayerAnimator.Die();
 
-            ChangeToFailState();
+            StartCoroutine(ChangeToFailState());
         }
     }
-    private void ChangeToFailState()
+
+    private IEnumerator ChangeToFailState()
     {
-        game.PlayerComponent.NavMesh.isStopped = true;
+        game.PlayerComponent.NavMesh.enabled = false ;
 
-        Debug.LogWarning("INCREASING LEVEL NUMBER");
-        //player.Level++;
-
+        yield return new WaitForSeconds(loseDelay);
         Bootstrap.Instance.ChangeGameState(GameStateID.Lose);
     }
 }

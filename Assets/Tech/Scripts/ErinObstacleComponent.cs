@@ -25,7 +25,7 @@ public class ErinObstacleComponent : MonoBehaviour
     {
         aimTarget.transform.position = startPos.position;
         obstacleCollider.enabled = false;
-        aimTarget.DOMove(endPos.transform.position, 1f).OnComplete(()=>Attack()).SetEase(Ease.Linear);
+        aimTarget.DOMove(endPos.transform.position, 0.7f).OnComplete(()=>Attack()).SetEase(Ease.Linear);
     }
 
     public void Attack()

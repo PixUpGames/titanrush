@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class DAPCameraFX : GameSystemWithScreen<FightingScreenUI>
 {
-    public override void OnGameStart()
+    public override void OnInit()
     {
         Signals.Get<PlayerHitSignal>().AddListener(ShakeCamera);
         Signals.Get<HammerHitSignal>().AddListener(RedCamera);

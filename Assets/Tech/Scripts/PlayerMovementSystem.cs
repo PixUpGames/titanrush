@@ -53,6 +53,8 @@ public class PlayerMovementSystem : GameSystem
 
         deltaVector += Vector3.forward;
 
+        if (!game.PlayerComponent.NavMesh.enabled) return;
+
         MovePlayerOnSides();
         MovePlayerForward();
         RotateModel();

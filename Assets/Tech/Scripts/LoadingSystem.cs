@@ -118,10 +118,10 @@ public class LoadingSystem : GameSystem
         if (game.LevelConfig.FinishState == FinishState.FIGHTING)
         {
             finishStart = FindObjectOfType<FinishStartComponent>();
-            GameObject fistWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade), Quaternion.identity);
-            fistWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
-            GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, Quaternion.identity);
-            secondWall.transform.DOScale(Vector3.one * (game.MutationLevel+1) * 2, 0.3f);
+            GameObject fistWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade), breakWall.transform.rotation);
+            fistWall.transform.DOScale(Vector3.one*game.LevelConfig.WallsScale, 0.3f);
+            GameObject secondWall = Instantiate(breakWall, finishStart.transform.position + Vector3.forward * (20 + player.DistanceUpgrade) / 2, breakWall.transform.rotation);
+            secondWall.transform.DOScale(Vector3.one * game.LevelConfig.WallsScale, 0.3f);
         }
     }
 

@@ -21,7 +21,7 @@ public class DAPInitSystem : GameSystem
         }
         if (game.MutationLevel == 2)
         {
-            game.PlayerComponent.PlayerAnimator.CameraHolder.DOLocalMove(new Vector3(1.01f, 1.29f, -1.22f), 0.5f);
+            game.PlayerComponent.PlayerAnimator.CameraHolder.DOLocalMove(new Vector3(0.5f, 1.29f, -1.22f), 0.5f);
         }
     }
 }

@@ -12,6 +12,9 @@ public class MoveCharacterToPointSystem : GameSystem
         game.PlayerComponent.NavMesh.SetDestination(game.Finish.characterFinishPoint.position);
 
         game.PlayerComponent.DisableWindVFX();
+
+        if(game.LevelConfig.FinishState==FinishState.DODGE_AND_PUNCH)
+            game.Cameras.SetDAPTransposerOffset(new Vector3(3.18f, 4.87f, -7.5f));
     }
 
     public override void OnUpdate()

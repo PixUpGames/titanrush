@@ -83,4 +83,9 @@ public class CamerasComponent : MonoBehaviour
             camera.m_Follow = targetPlayer;
         }
     }
+
+    public void SetDAPTransposerOffset(Vector3 offset)
+    {
+        fightCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = offset;
+    }
 }

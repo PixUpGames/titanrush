@@ -49,7 +49,7 @@ public class EnemyDefeatSystem : GameSystemWithScreen<GameUIScreen>
 
     private void SpawnWalls()
     {
-        finalWall.transform.position = finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) + (Vector3.up*1.5f);
+        finalWall.transform.position = finishStart.transform.position + Vector3.forward * (distance + player.DistanceUpgrade) + (Vector3.up*2.15f);
         finalWall.transform.position += (Vector3.forward*1.3f);
     }
 
