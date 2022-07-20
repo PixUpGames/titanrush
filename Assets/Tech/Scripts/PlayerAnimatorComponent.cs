@@ -15,6 +15,8 @@ public class PlayerAnimatorComponent : MonoBehaviour
 
     [SerializeField] private LineRenderer[] ropes;
     public Transform Head => head;
+    public Animator Animator => animator;
+
     public Transform CameraHolder => FightCameraHolder;
     private const string FIGHT_IDLE = "StartBattle";
     private const string KICK = "Kick";

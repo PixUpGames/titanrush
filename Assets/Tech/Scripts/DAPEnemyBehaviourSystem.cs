@@ -125,6 +125,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
 
     IEnumerator FinishRoutine()
     {
+        tapAnim.SetActive(false);
         yield return new WaitForSeconds(3f);
 
         if (player.TempItem != CustomizableType.Null)

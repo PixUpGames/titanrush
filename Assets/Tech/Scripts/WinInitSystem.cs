@@ -84,10 +84,13 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
 
     private void SetTargetSkin()
     {
-        player.targetSkin = skinConfigs[player.targetSkinIndex].CustomizableType;
-        screen.ShadowImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
-        screen.SkinImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
-        screen.ShadowImage.fillAmount = 1 - player.skinProgress;
+        if (player.targetSkinIndex < 4)
+        {
+            player.targetSkin = skinConfigs[player.targetSkinIndex].CustomizableType;
+            screen.ShadowImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
+            screen.SkinImage.sprite = skinConfigs[player.targetSkinIndex].Icon;
+            screen.ShadowImage.fillAmount = 1 - player.skinProgress;
+        }
     }
 
     private void SetTargetSkinProgess()
