@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.090336576, g: 0.48426223, b: 0.8865698, a: 1}
+  m_IndirectSpecularColor: {r: 0.09031313, g: 0.48418415, b: 0.8880503, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -710,7 +710,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.46182266, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -789,7 +789,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361689833}
-  m_LocalRotation: {x: 0.33043092, y: -0.000000011063432, z: 0.0000000038732595, w: 0.9438302}
+  m_LocalRotation: {x: 0.33043095, y: 0.00000003022586, z: -0.000000010581945, w: 0.9438302}
   m_LocalPosition: {x: 0, y: 10.88, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.46182266, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1449,7 +1449,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940419334}
-  m_LocalRotation: {x: 0.13089542, y: -0.5127212, z: 0.07944313, w: 0.84479123}
+  m_LocalRotation: {x: 0.13089544, y: -0.5127212, z: 0.079443134, w: 0.84479123}
   m_LocalPosition: {x: 23.43322, y: 11.76739, z: -4.123962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1599,7 +1599,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.46182266, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1629,11 +1629,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 82.41439
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7248
       objectReference: {fileID: 0}
     - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
       propertyPath: m_LocalScale.z
-      value: 52.02
+      value: 89.7241
       objectReference: {fileID: 0}
     - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1645,7 +1649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 203.1
+      value: 381
       objectReference: {fileID: 0}
     - target: {fileID: 2588792417480646679, guid: da3c8315f09baaa4f9decce7a1cf6292, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1848,7 +1852,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.46182266, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3978,11 +3982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1678927330, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016573402
+      value: 0.0000000165734
       objectReference: {fileID: 0}
     - target: {fileID: 1678927330, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000046240562
+      value: -0.000000004624056
       objectReference: {fileID: 0}
     - target: {fileID: 1678927331, guid: 1912c01f8e1e62d4a893a38a03ec23c6, type: 3}
       propertyPath: m_Follow
@@ -5105,7 +5109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: testData.Level
-      value: 16
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6265840231568225233, guid: 78d60f9a9f8a4684ea8c1028c4c41d02, type: 3}
       propertyPath: testData.hatType
