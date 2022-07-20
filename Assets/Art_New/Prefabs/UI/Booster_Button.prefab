@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6584014, y: 0.6584014, z: 0.6584014}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1228747582654998576}
   m_RootOrder: 0
@@ -103,6 +104,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3214165119094031053}
   m_RootOrder: 0
@@ -178,13 +180,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5844664, y: 0.5844664, z: 0.5844664}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203666824696704249}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 15.650272, y: -1.5536652}
+  m_AnchoredPosition: {x: 28, y: -1.5536652}
   m_SizeDelta: {x: 124, y: 132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3650145486050653809
@@ -253,6 +256,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3214165119094031053}
   m_RootOrder: 3
@@ -292,8 +296,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 7.6
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3168366131717fc4e915c910eca538f1, type: 2}
-  m_sharedMaterial: {fileID: -4711467395457173640, guid: 3168366131717fc4e915c910eca538f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 569e48e102ad0114b9dcc5991eebc490, type: 2}
+  m_sharedMaterial: {fileID: 1656263901142814803, guid: 569e48e102ad0114b9dcc5991eebc490, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -317,10 +321,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.4
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -387,6 +391,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1191146281338192062}
   m_Father: {fileID: 3214165119094031053}
@@ -467,6 +472,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4829357937610932934}
   m_Father: {fileID: 3214165119094031053}
@@ -474,7 +480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.7, y: -107.8}
+  m_AnchoredPosition: {x: 13, y: -107.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3725793788644411940
@@ -507,8 +513,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5555
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3168366131717fc4e915c910eca538f1, type: 2}
-  m_sharedMaterial: {fileID: -4711467395457173640, guid: 3168366131717fc4e915c910eca538f1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 569e48e102ad0114b9dcc5991eebc490, type: 2}
+  m_sharedMaterial: {fileID: 1656263901142814803, guid: 569e48e102ad0114b9dcc5991eebc490, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -532,10 +538,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.4
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -604,6 +610,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99998987, y: 0.99998987, z: 0.99998987}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8046632819094762160}
   - {fileID: 1228747582654998576}
@@ -711,3 +718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c768b6e53e9d14884732ea74c1ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PriceText: {fileID: 0}
+  UpgradeText: {fileID: 0}
+  RewardHUD: {fileID: 0}
+  BuyHUD: {fileID: 0}
+  UpgradeButton: {fileID: 0}
