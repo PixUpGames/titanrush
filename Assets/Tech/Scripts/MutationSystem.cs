@@ -7,6 +7,17 @@ public class MutationSystem : GameSystem
     public override void OnStateEnter()
     {
         Signals.Get<MutateSignal>().AddListener(Mutate);
+
+        if (player.isRevive)
+        {
+            for (int i = 0; i < player.reviveMutation; i++)
+            {
+                Mutate();
+            }
+
+            Debug.Log("MUTATE REVIVE");
+            player.isRevive = false;
+        }
     }
     private void Mutate()
     {

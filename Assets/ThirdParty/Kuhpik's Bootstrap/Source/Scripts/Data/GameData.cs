@@ -28,5 +28,7 @@ namespace Kuhpik
         public EnemyState punchAndDodgeState;
         public float IncomeMultiply;
         public int MutationLevel;
+
+        public bool isHammerFinished;
     }
 }

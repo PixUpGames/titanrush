@@ -36,6 +36,7 @@ namespace Kuhpik
         public int SkinsIndex;
 
         public bool isRevive;
+        public int reviveMutation;
         public Vector3 RevivePos;
 
         public int PlayerDailyRewardCount;

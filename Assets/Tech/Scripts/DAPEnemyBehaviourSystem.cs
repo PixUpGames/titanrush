@@ -112,6 +112,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
             yield return new WaitForSeconds(attackStepDelay);
         }
 
+        game.isHammerFinished = true;
         UIManager.GetUIScreen<FightingScreenUI>().hpBarHolder.gameObject.SetActive(false);
         game.enemyBoss.DoResetStun();
         game.enemyBoss.SetKneel(true);
@@ -146,7 +147,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
             {
                 StopCoroutine(enemyRoutine);
             }
-
+            game.isHammerFinished = true;
             UIManager.GetUIScreen<FightingScreenUI>().hpBarHolder.gameObject.SetActive(false);
             game.enemyBoss.DoResetStun();
             game.enemyBoss.DoResetHammerHit();

@@ -20,6 +20,7 @@ public class LoseAppearSystem : GameSystemWithScreen<LoseUIScreen>
 
         player.isRevive = true;
         player.RevivePos = game.PlayerComponent.transform.position + Vector3.back *5f;
+        player.reviveMutation = game.MutationLevel;
     }
 
     private void GameRestart()

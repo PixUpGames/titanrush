@@ -129,8 +129,10 @@ public class LoadingSystem : GameSystem
     {
         if (player.isRevive)
         {
+            if(player.reviveMutation==0)
+                player.isRevive = false;
+
             game.PlayerComponent.NavMesh.Warp(player.RevivePos);
-            player.isRevive = false;
         }
     }
 }

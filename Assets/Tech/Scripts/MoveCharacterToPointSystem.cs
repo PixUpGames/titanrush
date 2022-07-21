@@ -29,7 +29,7 @@ public class MoveCharacterToPointSystem : GameSystem
     {
         game.PlayerComponent.transform.LookAt(game.enemyBoss.transform.position);
 
-        if (game.PlayerComponent.Mutations <= 0)
+        if (game.PlayerComponent.Mutations <= game.LevelConfig.AllowedMutations-1)
         {
             Bootstrap.Instance.ChangeGameState(GameStateID.PlayerDeath);
 

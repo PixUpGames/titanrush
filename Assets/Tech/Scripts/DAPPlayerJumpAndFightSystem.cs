@@ -71,7 +71,7 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     {
         game.PlayerComponent.transform.LookAt(finishComponent.BigTitan.transform);
 
-        if (jumping || game.punchAndDodgeState != EnemyState.PUNCH)
+        if (jumping || game.punchAndDodgeState != EnemyState.PUNCH || game.isHammerFinished==true)
         {
             return;
         }
@@ -147,6 +147,11 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     public void HitPlayerByHammer()
     {
         game.PlayerComponent.ReceiveDamage(4);
+
+        if (game.PlayerComponent.GetHealth() <= 0)
+        {
+            Bootstrap.Instance.ChangeGameState(GameStateID.Lose);
+        }
     }
 
     private void Jump(int deltaIndex)
