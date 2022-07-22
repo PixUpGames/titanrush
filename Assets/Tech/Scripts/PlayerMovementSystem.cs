@@ -41,8 +41,6 @@ public class PlayerMovementSystem : GameSystem
         {
             var deltaMos = Input.mousePosition - prevMousePos;
             targetVector = deltaMos * remapMultiplyer;
-            deltaMos.y = 0;
-            deltaVector += targetVector;
             targetVector.y = 0;
             prevMousePos = Input.mousePosition;
         }
@@ -79,7 +77,9 @@ public class PlayerMovementSystem : GameSystem
     {
         if ((game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x<1.6f || (game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x > -1.6f)
         {
-            game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector * sensitivityDivider));
+            //var moveVector = Vector3.Lerp(game.PlayerComponent.transform.position, targetVector * sensitivityDivider, 5 * Time.deltaTime);
+            //game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector * sensitivityDivider));
+            game.PlayerComponent.NavMesh.Move(targetVector * sensitivityDivider * Time.deltaTime);
             var xOffset = Mathf.Clamp(game.PlayerComponent.transform.position.x, -1.6f, 1.6f);
             Vector3 clampedVector = game.PlayerComponent.transform.position;
             clampedVector.x = xOffset;
