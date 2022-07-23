@@ -48,6 +48,8 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                 case Collectable.COIN:
                     {
                         game.Coins += coinIncrease;
+                        //game.PlayerComponent.collectableVFX.gameObject.transform.position = game.PlayerComponent.transform.position+Vector3.up*1f;
+                        //game.PlayerComponent.collectableVFX.Play();
                         screen.UpdateCoinsCounter(game.Coins);
 
                         break;

@@ -14,6 +14,8 @@ public class PlayerComponent: MonoBehaviour
     [SerializeField] private GameObject windVFX;
     [SerializeField] private ParticleSystem evolveVFX;
 
+    public ParticleSystem collectableVFX;
+
     public NavMeshAgent NavMesh;
     public Rigidbody RB;
     public OnTriggerEnterComponent OnTriggerEnterComp;

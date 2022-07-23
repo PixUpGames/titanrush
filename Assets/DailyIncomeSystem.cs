@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using System;
 using System.Collections;
@@ -28,7 +29,7 @@ public class DailyIncomeSystem : GameSystemWithScreen<OfflineIncomeUIScreen>
         if (!Ready())
             screen.IncomeScreen.gameObject.SetActive(false);
 
-            UpdateDailyRewardValues();
+        UpdateDailyRewardValues();
     }
 
 
@@ -39,10 +40,12 @@ public class DailyIncomeSystem : GameSystemWithScreen<OfflineIncomeUIScreen>
             if (Ready())
             {
                 screen.IncomeScreen.gameObject.SetActive(true);
+                screen.IncomeScreen.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.Linear);
 
                 screen.TimerText.text = "Ready!";
                 return;
             }
+
             ulong diff = ((ulong)DateTime.Now.Ticks - lastTimeClicked);
             ulong m = diff / TimeSpan.TicksPerMillisecond;
             float secondsLeft = (float)(msToWait - m) / 1000.0f;
@@ -82,6 +85,7 @@ public class DailyIncomeSystem : GameSystemWithScreen<OfflineIncomeUIScreen>
         if (secondsLeft < 0)
         {
             screen.IncomeScreen.SetActive(true);
+            screen.IncomeScreen.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.Linear);
             return true;
         }
 
@@ -93,6 +97,7 @@ public class DailyIncomeSystem : GameSystemWithScreen<OfflineIncomeUIScreen>
         if (player.PlayerDailyRewardCount == 0)
         {
             screen.IncomeScreen.gameObject.SetActive(true);
+            screen.IncomeScreen.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.Linear);
             dailyReward = (player.PlayerDailyRewardCount + 1) * 200;
             screen.DailyRewardCount.text = dailyReward.ToString();
         }

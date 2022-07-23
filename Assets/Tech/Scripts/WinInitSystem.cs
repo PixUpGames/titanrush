@@ -1,6 +1,7 @@
 using Kuhpik;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 
 public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
@@ -24,6 +25,16 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
 
         SetTargetSkin();
         SetTargetSkinProgess();
+
+        StartCoroutine(ContinueTimer());
+    }
+
+    private IEnumerator ContinueTimer()
+    {
+        screen.ContinueButton.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        screen.ContinueButton.gameObject.SetActive(true);
+        screen.ContinueButton.transform.DOScale(Vector3.one, 0.3f).OnComplete(() => screen.ContinueButton.transform.DOPunchScale(Vector3.one * 0.15f, 0.3f, 3, 3));
     }
 
     private void StartMultiplyBar()

@@ -16,7 +16,6 @@ public class PlayerMovementSystem : GameSystem
     private float remapMultiplyer;
     private float lerpedYEuler;
 
-
     private RopeTriggerHolderComponent ropeTrigger;
     private bool isFlying;
 
@@ -42,18 +41,25 @@ public class PlayerMovementSystem : GameSystem
             var deltaMos = Input.mousePosition - prevMousePos;
             targetVector = deltaMos * remapMultiplyer;
             targetVector.y = 0;
+            targetVector.z = 0;
             prevMousePos = Input.mousePosition;
         }
-        else if (Input.GetMouseButtonUp(0))
+        //else if (Input.GetMouseButtonUp(0))
+        //{
+        //    //targetVector.x = 0;
+        //}
+
+        if (!Input.GetMouseButton(0))
         {
-            targetVector = Vector3.zero;
+            lerpedYEuler = Mathf.Lerp(lerpedYEuler, 0, 20 * Time.deltaTime);
+            game.PlayerComponent.CurrentModel.transform.eulerAngles = new Vector3(0, lerpedYEuler, 0);
+            targetVector.x = 0;
         }
 
         deltaVector += Vector3.forward;
 
         if (!game.PlayerComponent.NavMesh.enabled) return;
 
-        MovePlayerOnSides();
         MovePlayerForward();
         RotateModel();
 
@@ -61,6 +67,7 @@ public class PlayerMovementSystem : GameSystem
         {
             game.PlayerComponent.PlayerAnimator.ConnectRopes(ropeTrigger);
         }
+
     }
 
     private float RemapMovement()
@@ -70,32 +77,37 @@ public class PlayerMovementSystem : GameSystem
 
     private void MovePlayerForward()
     {
-        game.PlayerComponent.NavMesh.Move(deltaVector * Time.deltaTime * game.playerSpeed);
+        game.PlayerComponent.NavMesh.Move((/*deltaVector*/game.PlayerComponent.CurrentModel.transform.forward * Time.deltaTime * game.playerSpeed));
+
+        if(Input.GetMouseButton(0))
+            game.PlayerComponent.NavMesh.Move((targetVector * Time.deltaTime * sensitivityDivider));
     }
 
-    private void MovePlayerOnSides()
-    {
-        if ((game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x<1.6f || (game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x > -1.6f)
-        {
-            //var moveVector = Vector3.Lerp(game.PlayerComponent.transform.position, targetVector * sensitivityDivider, 5 * Time.deltaTime);
-            //game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector * sensitivityDivider));
-            game.PlayerComponent.NavMesh.Move(targetVector * sensitivityDivider * Time.deltaTime);
-            var xOffset = Mathf.Clamp(game.PlayerComponent.transform.position.x, -1.6f, 1.6f);
-            Vector3 clampedVector = game.PlayerComponent.transform.position;
-            clampedVector.x = xOffset;
-            game.PlayerComponent.transform.position = clampedVector;
-        }
-        else
-        {
-            return;
-        }
-    }
+    //private void MovePlayerOnSides()
+    //{
+    //    if ((game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x<1.6f || (game.PlayerComponent.transform.position + (targetVector * sensitivityDivider)).x > -1.6f)
+    //    {
+    //        //var moveVector = Vector3.Lerp(game.PlayerComponent.transform.position, targetVector * sensitivityDivider, 5 * Time.deltaTime);
+    //        //game.PlayerComponent.NavMesh.Warp(game.PlayerComponent.transform.position + (targetVector * sensitivityDivider));
+    //        game.PlayerComponent.NavMesh.Move(targetVector * sensitivityDivider * Time.deltaTime);
+    //        var xOffset = Mathf.Clamp(game.PlayerComponent.transform.position.x, -1.6f, 1.6f);
+    //        Vector3 clampedVector = game.PlayerComponent.transform.position;
+    //        clampedVector.x = xOffset;
+    //        game.PlayerComponent.transform.position = clampedVector;
+    //    }
+    //    else
+    //    {
+    //        return;
+    //    }
+    //}
 
     private void RotateModel()
     {
-        lerpedYEuler = Mathf.Lerp(lerpedYEuler, 20 * targetVector.normalized.x, 8 * Time.deltaTime);
-
-        game.PlayerComponent.CurrentModel.transform.eulerAngles = new Vector3(0, lerpedYEuler, 0);
+        if (Input.GetMouseButton(0))
+        {
+            lerpedYEuler = Mathf.Lerp(lerpedYEuler, 30 * targetVector.normalized.x, 10 * Time.deltaTime);
+            game.PlayerComponent.CurrentModel.transform.eulerAngles = new Vector3(0, lerpedYEuler, 0);
+        }
     }
 
     private void SetFlyAnim(Transform other,Transform t2)
