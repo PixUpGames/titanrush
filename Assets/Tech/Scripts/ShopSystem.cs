@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         screen.OpenGlovesButton.onClick.AddListener(() => OpenShopPage(ShopType.GLOVES));
         screen.OpenHatsButton.onClick.AddListener(() => OpenShopPage(ShopType.HAT));
         screen.OpenSkinsButton.onClick.AddListener(() => OpenShopPage(ShopType.SKINS));
-        screen.CloseShop.onClick.AddListener(() => screen.ShopWindow.gameObject.SetActive(false));
+        screen.CloseShop.onClick.AddListener(() => CloseShop());
     }
 
     private void InitShop()
@@ -34,6 +35,11 @@ public class ShopSystem : GameSystemWithScreen<ShopUIScreen>
         LoadShopConfigs();
         InitShopButtons();
         LoadSavedShopData();
+    }
+
+    private void CloseShop()
+    {
+        screen.ShopWindow.transform.DOScale(Vector3.one * 0.05f, 0.15f).OnComplete(() => screen.ShopWindow.gameObject.SetActive(false));
     }
 
     private void LoadShopConfigs()

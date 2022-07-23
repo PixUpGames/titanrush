@@ -86,6 +86,9 @@ public class FightPunchingSystem : GameSystemWithScreen<FightingScreenUI>
     public void DoHit()
     {
         game.enemyBoss.ReceiveDamage(playerDamage);
+
+        StartCoroutine(game.BlinkHPBar(screen.EnemyFakeSlider, 0.02f,screen.enemyColor));
+        screen.PunchHPBar(screen.EnemyHPBar);
     }
     #endregion
 }

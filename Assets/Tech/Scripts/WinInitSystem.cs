@@ -34,7 +34,7 @@ public class WinInitSystem : GameSystemWithScreen<WinUIScreen>
         screen.ContinueButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         screen.ContinueButton.gameObject.SetActive(true);
-        screen.ContinueButton.transform.DOScale(Vector3.one, 0.3f).OnComplete(() => screen.ContinueButton.transform.DOPunchScale(Vector3.one * 0.15f, 0.3f, 3, 3));
+        screen.ContinueButton.transform.DOScale(Vector3.one, 0.25f).OnComplete(() => screen.ContinueButton.transform.DOPunchScale(Vector3.one * 0.2f, 1f, 10, 1));
     }
 
     private void StartMultiplyBar()

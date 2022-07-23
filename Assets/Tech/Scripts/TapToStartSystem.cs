@@ -15,7 +15,7 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
     {
         game.PlayerComponent.PlayerCanvas.gameObject.SetActive(false);
         game.Cameras.SetStartCamera();
-        screen.ShopButton.onClick.AddListener(() => UIManager.GetUIScreen<ShopUIScreen>().ShopWindow.SetActive(true));
+        screen.ShopButton.onClick.AddListener(() =>OpenShop());
         UIManager.GetUIScreen<GameUIScreen>().UpdateLevelCounter(player.Level);
         UIManager.GetUIScreen<GameUIScreen>().UpdateCoinsCounter(player.Money);
 
@@ -79,5 +79,11 @@ public class TapToStartSystem : GameSystemWithScreen<TapToScreenUI>
             player.Level--;
         }
         Bootstrap.Instance.GameRestart(0);
+    }
+
+    private void OpenShop()
+    {
+        UIManager.GetUIScreen<ShopUIScreen>().ShopWindow.SetActive(true);
+        UIManager.GetUIScreen<ShopUIScreen>().ShopWindow.transform.DOScale(Vector3.one, 0.2f).SetEase(Ease.Linear);
     }
 }

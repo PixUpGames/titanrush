@@ -51,7 +51,7 @@ public class CollectablesSystem : GameSystemWithScreen<GameUIScreen>
                         //game.PlayerComponent.collectableVFX.gameObject.transform.position = game.PlayerComponent.transform.position+Vector3.up*1f;
                         //game.PlayerComponent.collectableVFX.Play();
                         screen.UpdateCoinsCounter(game.Coins);
-
+                        screen.PunchBar(screen.CoinBar);
                         break;
                     }
                 case Collectable.POWER_DOWN:

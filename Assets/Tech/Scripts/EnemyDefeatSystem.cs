@@ -23,7 +23,7 @@ public class EnemyDefeatSystem : GameSystemWithScreen<GameUIScreen>
 
         startPos = game.enemyBoss.transform.position;
         game.Cameras.SetDefeatedBossCamera(game.enemyBoss.CameraHolder);
-        game.enemyBoss.FlyAway();
+        //game.enemyBoss.FlyAway();
 
         SpawnWalls();
 
@@ -55,9 +55,10 @@ public class EnemyDefeatSystem : GameSystemWithScreen<GameUIScreen>
 
     private IEnumerator MoveEnemy()
     {
+        game.enemyBoss.FlyAway();
         game.enemyBoss.StopAnimator();
 
-        while(Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < (distance + player.DistanceUpgrade))
+        while (Vector3.Distance(finishStart.transform.position, game.enemyBoss.transform.position) < (distance + player.DistanceUpgrade))
         {
             game.enemyBoss.transform.Translate(-Vector3.forward * Time.deltaTime * (speed+player.SpeedUpgrade));
             yield return null;
@@ -78,6 +79,7 @@ public class EnemyDefeatSystem : GameSystemWithScreen<GameUIScreen>
         if (player.TempItem != CustomizableType.Null)
         {
             screen.TempItemScreen.SetActive(true);
+            screen.TempItemScreen.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.Linear);
         }
         else
         {

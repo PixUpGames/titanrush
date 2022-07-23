@@ -2,7 +2,7 @@ using Kuhpik;
 using Supyrb;
 using UnityEngine;
 
-public class BossPunchSystem : GameSystem
+public class BossPunchSystem : GameSystemWithScreen<FightingScreenUI>
 {
     [SerializeField] private Vector2 randomDelayRange;
 
@@ -39,5 +39,7 @@ public class BossPunchSystem : GameSystem
     private void DoPunch()
     {
         game.PlayerComponent.ReceiveDamage(1f);
+        StartCoroutine(game.BlinkHPBar(screen.PlayerFakeSlider, 0.02f, screen.playerColor));
+        screen.PunchHPBar(screen.PlayerHPBar);
     }
 }

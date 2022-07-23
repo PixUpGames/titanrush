@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Kuhpik;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class MoveCharacterToPointSystem : GameSystem
     public override void OnStateEnter()
     {
         game.PlayerComponent.PlayerCanvas.gameObject.SetActive(false);
-
+        game.PlayerComponent.CurrentModel.transform.DORotate(Vector3.zero,0.7f);
         game.PlayerComponent.NavMesh.SetDestination(game.Finish.characterFinishPoint.position);
 
         game.PlayerComponent.DisableWindVFX();

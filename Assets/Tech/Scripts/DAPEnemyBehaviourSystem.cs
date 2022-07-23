@@ -132,6 +132,7 @@ public class DAPEnemyBehaviourSystem : GameSystemWithScreen<GameUIScreen>
         if (player.TempItem != CustomizableType.Null)
         {
             screen.TempItemScreen.SetActive(true);
+            screen.TempItemScreen.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.Linear);
         }
         else
         {

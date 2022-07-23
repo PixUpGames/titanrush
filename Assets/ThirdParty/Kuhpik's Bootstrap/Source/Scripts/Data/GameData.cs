@@ -3,6 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Kuhpik
 {
@@ -30,5 +31,19 @@ namespace Kuhpik
         public int MutationLevel;
 
         public bool isHammerFinished;
+
+        public IEnumerator blinkHPRoutine;
+
+        public IEnumerator BlinkHPBar(Image targetImage,float time,Color mainColor)
+        {
+            targetImage.color = mainColor;
+            for (int i = 0; i < 6; i++)
+            {
+                targetImage.color = Color.white;
+                yield return new WaitForSeconds(time);
+                targetImage.color = mainColor;
+            }
+            targetImage.color = mainColor;
+        }
     }
 }

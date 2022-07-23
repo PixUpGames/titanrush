@@ -142,11 +142,15 @@ public class DAPPlayerJumpAndFightSystem : GameSystemWithScreen<FightingScreenUI
     public void DoHit()
     { 
         game.enemyBoss.ReceiveDamage(playerDamage);
+        StartCoroutine(game.BlinkHPBar(screen.EnemyFakeSlider, 0.02f, screen.enemyColor));
+        screen.PunchHPBar(screen.EnemyHPBar);
     }
 
     public void HitPlayerByHammer()
     {
         game.PlayerComponent.ReceiveDamage(4);
+        StartCoroutine(game.BlinkHPBar(screen.PlayerFakeSlider, 0.02f, screen.playerColor));
+        screen.PunchHPBar(screen.PlayerHPBar);
 
         if (game.PlayerComponent.GetHealth() <= 0)
         {
