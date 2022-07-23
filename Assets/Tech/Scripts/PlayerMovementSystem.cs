@@ -44,10 +44,6 @@ public class PlayerMovementSystem : GameSystem
             targetVector.z = 0;
             prevMousePos = Input.mousePosition;
         }
-        //else if (Input.GetMouseButtonUp(0))
-        //{
-        //    //targetVector.x = 0;
-        //}
 
         if (!Input.GetMouseButton(0))
         {
